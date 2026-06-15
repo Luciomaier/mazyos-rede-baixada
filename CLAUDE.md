@@ -17,6 +17,7 @@ e estiverem preenchidos):
 1. `_memoria/empresa.md` — quem é o usuário, o que faz, como funciona o negócio
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
+4. `_memoria/pendencias.md` — o que ficou em aberto e precisa de ação
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao
 sugerir prioridades, formatos ou abordagens, considerar o foco atual
@@ -113,3 +114,51 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+
+# Negócio: Rede Baixada
+
+> Bloco preenchido pelo `/instalar` (jun/2026). Perfil aplicado: **portal /
+> mídia local** (base solopreneur — operação solo, fluxo único, sem pasta
+> por cliente). As regras de operação do MazyOS acima continuam valendo.
+
+## O que é esse workspace
+
+Operação da **Rede Baixada** — a plataforma de negócios da Baixada Santista.
+Aqui o Lucio produz conteúdo, organiza a prospecção, cria material de venda e
+mantém o contexto do negócio que alimenta o portal redebaixada.com.br.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem é o negócio, como fala, o que tá em foco
+- `identidade/` — cores, fontes, logo, padrão visual (paleta do site)
+- `marketing/` — conteúdo, SEO, campanhas (saída das skills)
+- `saidas/` — análises, emails, documentos pontuais
+- `dados/` — arquivos a analisar (CSV, PDF, planilha)
+- `scripts/` — utilitários (gerar imagem, postar, render)
+
+## Resumo do negócio
+
+Portal de perfis de empresas e profissionais da Baixada — plataforma oficial de
+Mongaguá. Hub estilo Google Meu Negócio + Instagram da comunidade de
+empreendedores, indexando no Google. Vende visibilidade pro pequeno negócio
+local. Complementa com a **Rede Publicidade** (serviços de mídia/tráfego).
+
+Detalhe completo em `_memoria/empresa.md`. Tom de voz em
+`_memoria/preferencias.md`. Foco atual em `_memoria/estrategia.md`.
+
+## Regras do sistema (Rede Baixada)
+
+- Conteúdo novo salvar em `marketing/conteudo/<tipo>-<tema>-<data>/`
+- Qualquer peça visual segue `identidade/design-guide.md` (azul #1791CF +
+  laranja #F97A1F, fonte Inter)
+- Tom sempre consultivo/vizinho — pergunta antes de oferecer
+
+## Ferramentas conectadas
+
+- [ ] Meta Ads
+- [ ] Google Ads
+- [ ] Google Calendar
+- [ ] Canva
+
+*(Marcar conforme for instalando os MCPs)*
