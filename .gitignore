@@ -17,6 +17,10 @@ Thumbs.db
 # Dependências
 node_modules/
 
+# Código do portal (repo próprio — github.com/Luciomaier/redebaixada)
+# Vive aqui dentro pra organização, mas é versionado separadamente.
+portal/
+
 # Arquivos temporários
 *.log
 *.tmp
