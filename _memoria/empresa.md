@@ -14,7 +14,7 @@
 
 **Equipe:** Lucio toca a frente (prospecção, operação). Serviços complementares de publicidade saem pela **Rede Publicidade** (Nick — infra e automações).
 
-**Ferramentas:** Site redebaixada.com.br · prospecção porta a porta · tráfego pago (já testado, sinais positivos).
+**Ferramentas:** Site redebaixada.com.br (checkout/assinatura via **Asaas**, em produção — paga e publica o perfil sozinho) · prospecção porta a porta · tráfego pago (já testado, sinais positivos).
 
 **Principais entregas:** Cadastro e perfil da empresa no portal · planos · vitrine · serviços complementares de publicidade (via Rede Publicidade).
 

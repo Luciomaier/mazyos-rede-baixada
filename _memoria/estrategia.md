@@ -8,9 +8,11 @@
 
 **Reativação da Rede Baixada** (jun/2026). Voltar a oferecer e fechar as primeiras vendas/cadastros. Meta de 12 meses: R$5.000/mês.
 
+**Marco (jun/2026):** o checkout/pagamento (Asaas) entrou em **produção** — empresa e profissional já assinam, pagam (cartão/PIX) e são publicados automaticamente; estorno/chargeback revoga o plano. Testado com dinheiro real. O motor de venda do produto está pronto.
+
 ## Prioridade principal
 
-**Começar a oferecer de novo e descobrir o processo de venda na prática.** O gargalo hoje não é o produto — é retomar a prospecção e aprender o que funciona no dia a dia.
+**Trazer gente pro site e fechar as primeiras assinaturas.** Com o pagamento já no ar, o gargalo é **100% aquisição** — não é mais o produto. Foco: prospecção (porta a porta) + tráfego pago levando empresas/profissionais pro `/planos`.
 
 Dois canais já em jogo:
 - **Porta a porta** — abordagem consultiva (visita a vizinhança empreendedora pra entender como divulgam hoje).
