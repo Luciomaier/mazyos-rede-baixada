@@ -4,6 +4,16 @@
 > O Claude usa isso pra decidir o que sugerir primeiro e o que adiar.
 > Atualize sempre que as prioridades mudarem.
 
+## 🌱 Diretriz da holding — 05/07/2026 (2ª mesa; ajusta QUEM TOCA)
+
+Papel no portfólio: **cavalo de troia** — baixo ticket, baixa resistência, custeia a operação com leveza e **abre portas pro foco nº1 (Rede Publicidade)**: o empresário local que assina aqui é lead natural da agência.
+
+- **QUEM TOCA: Giovanna** no porta-a-porta/vendas. ⚠️ Se o porta-a-porta virar tarefa do **Lucio**, estourou o teto de foco do portfólio (FOCA=1 = Rede Publicidade) — é fragmentação disfarçada.
+- Tráfego pago: dentro do que já roda; sem escalar verba antes do caixa justificar.
+- Lucio entra só como decisor e no que cruzar com o trajeto natural dele (Modo Rua), nunca como executor dedicado.
+
+Fonte: `../holding-maier/_memoria/estrategia.md`.
+
 ## Fase
 
 **Reativação da Rede Baixada** (jun/2026). Voltar a oferecer e fechar as primeiras vendas/cadastros. Meta de 12 meses: R$5.000/mês.
