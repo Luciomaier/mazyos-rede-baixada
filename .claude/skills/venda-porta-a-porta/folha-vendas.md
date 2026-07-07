@@ -80,7 +80,8 @@ sua cidade. *(Google Search · Google Maps · Busca local · Sitemap automático
 - **Nunca prometer ranking/mapa top-3** — prometer o trabalho (otimização completa).
 - ⚠️ Nunca chamar o Movimento de "básico" (decisão do Lucio).
 - Racional (Elis, 07/07): o salto 77,70→250 não é de preço, é de natureza (único → mensalidade). O GMN é mais um pagamento ÚNICO com resultado visível — o test-drive de confiança antes do casamento.
-- ⚠️ **Site Parceiro — 2 detalhes a cravar antes da 1ª venda (Lucio + Nick):** ① o **domínio** (.com.br ~R$40/ano) está incluso nos R$590 ou é à parte? (sugestão: incluso — simplifica); ② o que conta como **"1 atualização"** de R$40 (sugestão: 1 pedido de mudança de até ~30 min — trocar fotos, preços, texto de uma seção; reforma de página inteira = orçamento).
+- ✅ **Site Parceiro — DECIDIDO (07/07): domínio E hospedagem INCLUSOS nos R$590/ano.**
+- **"1 atualização" de R$40 (padrão vigente, salvo ordem contrária):** 1 pedido de mudança de até ~30 min — trocar fotos, preços, texto de uma seção. Reforma de página inteira = orçamento à parte.
 
 **Vamos nos conectar?** *Escolha como prefere — eu te conto tudo.*
 - 💬 **Fale comigo** (QR → WhatsApp direto)
