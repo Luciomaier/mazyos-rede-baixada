@@ -72,6 +72,7 @@ sua cidade. *(Google Search · Google Maps · Busca local · Sitemap automático
 | 1 | Portal (Presença) | R$77,70/semestre | Na visita (frente da folha) |
 | 1.5 | **GMN Turbinado** — perfil do Google completo (categoria, fotos, descrição, avaliações + QR de avaliação) | **R$149,70 única vez** | **Na ENTREGA** (mensagem do "tá no ar") — não na visita |
 | — | **Combo "No Google duas vezes"** (portal + GMN) | **R$197,70** | Só se ELE puxar na visita (perguntou do mapa / acendeu no diagnóstico) — separado seria 227,40 |
+| 1.7 | **Site Parceiro** — criação de site completo + hospedagem + 3 meses de atualizações grátis (depois R$40/ajuste); renova todo ano com novo trimestre grátis. Executa: **Nick** | **R$590/ano** (5× sem juros no cartão) | Quando o prospect disser "eu queria era um site" (impresso no verso) |
 | 2 | Plano Movimento — Rede Publicidade (anúncios + gestão) | R$250/mês | ~30 dias depois, com portal + GMN rodando |
 
 - **Regra: nunca ABRIR com a escada — RESPONDER com ela.** Abertura é sempre só o 77,70.
@@ -79,6 +80,7 @@ sua cidade. *(Google Search · Google Maps · Busca local · Sitemap automático
 - **Nunca prometer ranking/mapa top-3** — prometer o trabalho (otimização completa).
 - ⚠️ Nunca chamar o Movimento de "básico" (decisão do Lucio).
 - Racional (Elis, 07/07): o salto 77,70→250 não é de preço, é de natureza (único → mensalidade). O GMN é mais um pagamento ÚNICO com resultado visível — o test-drive de confiança antes do casamento.
+- ⚠️ **Site Parceiro — 2 detalhes a cravar antes da 1ª venda (Lucio + Nick):** ① o **domínio** (.com.br ~R$40/ano) está incluso nos R$590 ou é à parte? (sugestão: incluso — simplifica); ② o que conta como **"1 atualização"** de R$40 (sugestão: 1 pedido de mudança de até ~30 min — trocar fotos, preços, texto de uma seção; reforma de página inteira = orçamento).
 
 **Vamos nos conectar?** *Escolha como prefere — eu te conto tudo.*
 - 💬 **Fale comigo** (QR → WhatsApp direto)
