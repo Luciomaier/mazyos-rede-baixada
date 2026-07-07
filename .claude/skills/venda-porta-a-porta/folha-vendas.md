@@ -3,7 +3,7 @@
 > 🖨️ **Arquivo de impressão PRONTO (07/07/2026):** `marketing/folha-vendas-parceiro-v2.html` — A4
 > frente-e-verso, QR codes reais embutidos (WhatsApp + link privilegiado), bloco "como ativar em 3 passos"
 > e o degrau 2 (Plano Movimento R$250/mês). Abrir no navegador → Ctrl+P → A4, frente-e-verso, margens: nenhuma.
-> ⚠️ Antes de imprimir: testar no Google o exemplo do "Teste agora" (se a categoria não aparecer na 1ª página, trocar por uma que apareça).
+> ✅ O "Teste agora" arriscado foi substituído pela demo controlada (07/07). **PDFs prontos:** `marketing/folha-vendas-parceiro-v2.pdf` (cliente) e `marketing/folha-operador-pap.pdf` (operador, uso interno).
 >
 > **Base:** a folha frente-e-verso que o Lucio já usa (provada — 60+ vendas num raio de 2 km).
 > Este arquivo é o "melhor dos dois mundos": mantém o que converte e enxerta o que faltava.
@@ -22,7 +22,12 @@
 Quando alguém digita *"[sua categoria] em Mongaguá"* no Google, sua empresa aparece nos
 resultados. É isso que O Rede Baixada faz.
 
-👉 **Teste agora:** busque *"veterinária Mongaguá"* no Google e veja nossos parceiros aparecendo.
+👉 **Quer ver funcionando?** Me pede agora: te mostro **ao vivo no Google** a página de um parceiro nosso aparecendo — e como a sua vai ficar.
+
+> ✏️ **Trocado em 07/07/2026 (decisão do Lucio):** o antigo "Teste agora: busque veterinária Mongaguá" era
+> arriscado — se o prospect busca e não aparece, a credibilidade morre na hora. A demo agora é **controlada
+> pelo vendedor** (mostra no próprio celular uma busca que ele JÁ validou — ex.: nome de um parceiro + cidade,
+> que quase sempre ranqueia). Preparar a demo no celular faz parte do checklist "antes de sair" da folha do operador.
 
 **Prova social (3 selos):** `100+` empresas parceiras em Mongaguá · `3` cidades na região · `6` anos no mercado
 
