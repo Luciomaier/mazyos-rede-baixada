@@ -79,13 +79,14 @@
   .card p{font-size:10px;color:var(--cinza);line-height:1.45}
   .cidades{margin-top:5mm;font-size:11px;text-align:center;background:var(--fundo);
     border-radius:8px;padding:2.8mm}
-  .movimento{margin-top:5mm;border:2px solid var(--laranja);border-radius:10px;padding:4mm 5mm;
-    background:#fff9f2;display:flex;gap:5mm;align-items:center}
-  .movimento .icone{font-size:26px}
-  .movimento h3{font-size:14px;color:var(--laranja);margin-bottom:1mm}
-  .movimento p{font-size:11px;line-height:1.5}
-  .movimento .preco-mov{white-space:nowrap;text-align:center;font-size:10.5px;color:var(--cinza)}
-  .movimento .preco-mov b{display:block;font-size:17px;color:var(--laranja)}
+  .escada{margin-top:5mm;border:2px solid var(--laranja);border-radius:10px;padding:3mm 4mm;background:#fff9f2}
+  .escada h3{font-size:12.5px;color:var(--laranja);margin-bottom:1.5mm}
+  .degrau{display:flex;gap:3.5mm;align-items:center;padding:2mm 0}
+  .degrau + .degrau{border-top:1px dashed var(--laranja)}
+  .dg-icone{font-size:17px}
+  .dg-texto{flex:1;font-size:10.2px;line-height:1.45}
+  .dg-preco{white-space:nowrap;text-align:center;font-size:9.5px;color:var(--cinza)}
+  .dg-preco b{display:block;font-size:14.5px;color:var(--laranja)}
   .conectar{margin-top:5mm;display:flex;gap:5mm;align-items:stretch}
   .qrbox{flex:1;border:1.5px solid var(--borda);border-radius:10px;padding:3.5mm;display:flex;gap:4mm;align-items:center}
   .qrbox img{width:26mm;height:26mm}
@@ -187,13 +188,18 @@
 
   <div class="cidades">📍 <b>Presente nas principais cidades:</b> Praia Grande (expandindo) · Mongaguá (100+ parceiros) · Itanhaém (expandindo)</div>
 
-  <div class="movimento">
-    <div class="icone">🚀</div>
-    <div style="flex:1">
-      <h3>Quer mais movimento?</h3>
-      <p><b>Plano Movimento — Rede Publicidade:</b> anúncios profissionais no Google e no Instagram pra fazer o cliente chegar, com gestão completa da nossa equipe. <b>Parceiro do portal tem prioridade.</b> Pergunta pra mim na visita.</p>
+  <div class="escada">
+    <h3>Quer mais? Os próximos passos — no seu ritmo, sem mensalidade obrigatória</h3>
+    <div class="degrau">
+      <div class="dg-icone">📍</div>
+      <div class="dg-texto"><b>GMN Turbinado — seu negócio no mapa do Google.</b> Perfil completo: categoria certa, fotos, descrição, avaliações rodando. Eu faço tudo. Você fica <b>no Google duas vezes</b>: mapa + portal.</div>
+      <div class="dg-preco"><b>R$ 149,70</b>uma vez só</div>
     </div>
-    <div class="preco-mov">a partir de<br><b>R$ 250/mês</b>gestão completa</div>
+    <div class="degrau">
+      <div class="dg-icone">🚀</div>
+      <div class="dg-texto"><b>Plano Movimento — Rede Publicidade.</b> Anúncios profissionais no Google e no Instagram pra fazer o cliente chegar, com gestão completa da nossa equipe. <b>Parceiro do portal tem prioridade.</b></div>
+      <div class="dg-preco"><b>R$ 250/mês</b>gestão completa</div>
+    </div>
   </div>
 
   <div class="conectar">

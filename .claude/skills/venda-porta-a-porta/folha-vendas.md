@@ -65,11 +65,20 @@ sua cidade. *(Google Search · Google Maps · Busca local · Sitemap automático
 
 **📍 Presente nas principais cidades:** Praia Grande (expandindo) · Mongaguá (100+ parceiros) · Itanhaém (expandindo)
 
-**🚀 Quer mais movimento? (degrau 2 — decidido 07/07/2026, substitui o bloco "10% de desconto")**
-**Plano Movimento — Rede Publicidade:** anúncios profissionais no Google e no Instagram pra fazer o cliente
-chegar, com gestão completa da equipe. **A partir de R$250/mês.** Parceiro do portal tem prioridade.
-*"Pergunta pra mim na visita."* — a mesma folha vende os dois degraus (77,70 abre; quem tem dor de
-marketing ouve o Movimento). ⚠️ Nunca chamar de "básico" (decisão do Lucio).
+**🪜 A ESCADA no verso (martelo batido 07/07/2026 — Lucio + Elis; substitui o bloco "10% de desconto"):**
+
+| Degrau | Oferta | Preço | Quando ofertar |
+|---|---|---|---|
+| 1 | Portal (Presença) | R$77,70/semestre | Na visita (frente da folha) |
+| 1.5 | **GMN Turbinado** — perfil do Google completo (categoria, fotos, descrição, avaliações + QR de avaliação) | **R$149,70 única vez** | **Na ENTREGA** (mensagem do "tá no ar") — não na visita |
+| — | **Combo "No Google duas vezes"** (portal + GMN) | **R$197,70** | Só se ELE puxar na visita (perguntou do mapa / acendeu no diagnóstico) — separado seria 227,40 |
+| 2 | Plano Movimento — Rede Publicidade (anúncios + gestão) | R$250/mês | ~30 dias depois, com portal + GMN rodando |
+
+- **Regra: nunca ABRIR com a escada — RESPONDER com ela.** Abertura é sempre só o 77,70.
+- **Se o GMN dele estiver redondo (raro): NÃO vende** — "teu Google tá bem cuidado; teu próximo passo é volume" → candidato direto ao 250 em 30d. Honestidade planta a mensalidade.
+- **Nunca prometer ranking/mapa top-3** — prometer o trabalho (otimização completa).
+- ⚠️ Nunca chamar o Movimento de "básico" (decisão do Lucio).
+- Racional (Elis, 07/07): o salto 77,70→250 não é de preço, é de natureza (único → mensalidade). O GMN é mais um pagamento ÚNICO com resultado visível — o test-drive de confiança antes do casamento.
 
 **Vamos nos conectar?** *Escolha como prefere — eu te conto tudo.*
 - 💬 **Fale comigo** (QR → WhatsApp direto)
