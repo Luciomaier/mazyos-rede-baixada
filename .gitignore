@@ -28,3 +28,4 @@ portal/
 # Drop zone do usuário (só o README vai versionado)
 dados/*
 !dados/README.md
+.playwright-mcp/
