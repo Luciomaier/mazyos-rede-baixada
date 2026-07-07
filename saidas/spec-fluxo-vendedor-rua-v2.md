@@ -6,7 +6,11 @@
 > nasce "pending" — invisível até pagar), direto pro modal CPF → Asaas. Bônus: modo "Entrar" inline
 > (e-mail já cadastrado) e link "trocar de conta" pro vendedor emendar uma venda na outra.
 > Backend validado via API: sessão imediata ✅ · RLS aceita insert ✅ · trigger cria dono ✅.
-> Pendente: teste do operador no celular (QR real até o checkout) · itens SHOULD/LATER abaixo.
+> ✅ **Servidor atualizado (07/07, mesma sessão):** secrets `OFFER_PARCEIRO_KEY/VALUE` setados e as 2
+> functions (`asaas-create-payment`, `asaas-webhook`) deployadas — chave errada agora recusa com "Oferta
+> inválida" (testado). O teste do Lucio pegou: servidor rodava a versão antiga (cobrava R$147) e o Asaas
+> reusa cliente por CPF na conta compartilhada (apareceu "Miriam" — cosmético, cliente real não é afetado).
+> Pendente: re-teste no celular (deve abrir R$77,70) · cancelar a cobrança de R$147 do teste no painel Asaas · itens SHOULD/LATER abaixo.
 > Limpeza pro Nick: apagar usuários de teste `teste.fluxo.v2*.apagar@example.com` no painel Supabase.
 
 > **Pra quem:** Nick (execução) · **Pedido do Lucio (07/07/2026):** eliminar fricção ao máximo no fluxo
