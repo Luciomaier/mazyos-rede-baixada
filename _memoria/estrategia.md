@@ -9,6 +9,7 @@
 Papel no portfólio: **cavalo de troia** — baixo ticket, baixa resistência, custeia a operação com leveza e **abre portas pro foco nº1 (Rede Publicidade)**: o empresário local que assina aqui é lead natural da agência.
 
 - **QUEM TOCA: Giovanna** no porta-a-porta/vendas. ⚠️ Se o porta-a-porta virar tarefa do **Lucio**, estourou o teto de foco do portfólio (FOCA=1 = Rede Publicidade) — é fragmentação disfarçada.
+- ✏️ **Ajuste 07/07/2026 (decisão do Lucio):** o Lucio assume o PaP como **protótipo solo com apoio de IA** — não é fragmentação porque a mesma visita vende o Baixada (77,70) E prospecta o Rede Publicidade (250/mês), ou seja, é trabalho do FOCO nº1 usando o Baixada como porta. **Critério de graduação:** 20 vendas OU 2 clientes Publi de 250 OU 45 dias → playbook revisado e a **Gi entra no volume**. Plano completo: `../holding-maier/saidas/plano-prospeccao-redes-2026-07.md`.
 - Tráfego pago: dentro do que já roda; sem escalar verba antes do caixa justificar.
 - Lucio entra só como decisor e no que cruzar com o trajeto natural dele (Modo Rua), nunca como executor dedicado.
 
