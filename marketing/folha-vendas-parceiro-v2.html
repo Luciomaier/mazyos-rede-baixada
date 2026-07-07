@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Folha de Vendas — Rede Baixada (parceiro R$77,70)</title>
+<style>
+  :root{
+    --azul:#1791CF; --navy:#0f3c5c; --laranja:#f28c1e; --cinza:#5a6b78;
+    --fundo:#f4f9fc; --borda:#d7e6ef;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--navy);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;background:#e8e8e8}
+  .page{width:210mm;height:297mm;background:#fff;margin:0 auto 10px;padding:13mm 14mm;
+    display:flex;flex-direction:column;position:relative;overflow:hidden}
+  @page{size:A4;margin:0}
+  @media print{body{background:#fff}.page{margin:0;page-break-after:always}.no-print{display:none}}
+
+  /* ---------- cabeçalho ---------- */
+  .head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid var(--azul);padding-bottom:4mm}
+  .logo{font-size:24px;font-weight:800;letter-spacing:-.5px}
+  .logo .rede{color:var(--navy)} .logo .baixada{color:var(--azul)}
+  .tagline{font-size:10px;color:var(--cinza);text-align:right;line-height:1.5}
+
+  /* ---------- frente ---------- */
+  .hero{margin-top:7mm}
+  .hero h1{font-size:27px;line-height:1.2;letter-spacing:-.5px}
+  .hero h1 em{font-style:normal;color:var(--azul)}
+  .hero p{font-size:12.5px;color:var(--cinza);margin-top:3mm;line-height:1.55;max-width:160mm}
+  .teste{margin-top:4mm;background:var(--fundo);border-left:4px solid var(--azul);
+    padding:3mm 4mm;font-size:12px;border-radius:0 6px 6px 0}
+  .selos{display:flex;gap:4mm;margin-top:6mm}
+  .selo{flex:1;text-align:center;border:1.5px solid var(--borda);border-radius:8px;padding:3.5mm 2mm}
+  .selo b{display:block;font-size:21px;color:var(--azul)}
+  .selo span{font-size:9.5px;color:var(--cinza);text-transform:uppercase;letter-spacing:.4px}
+
+  .proposta{margin-top:7mm;border:2px solid var(--azul);border-radius:10px;overflow:hidden}
+  .proposta .titulo{background:var(--azul);color:#fff;padding:2.8mm 5mm;font-size:12px;
+    font-weight:700;letter-spacing:.6px;display:flex;justify-content:space-between;align-items:center}
+  .proposta .titulo span{font-weight:600;font-size:10.5px}
+  .proposta .corpo{display:flex}
+  .preco{width:62mm;background:var(--fundo);padding:5mm;display:flex;flex-direction:column;
+    justify-content:center;text-align:center;border-right:1.5px solid var(--borda)}
+  .preco .de{font-size:12px;color:var(--cinza);text-decoration:line-through}
+  .preco .valor{font-size:31px;font-weight:800;color:var(--laranja);line-height:1.1;margin:1mm 0}
+  .preco .valor small{font-size:13px;font-weight:700;color:var(--navy)}
+  .preco .cond{font-size:10px;color:var(--cinza);line-height:1.6}
+  .preco .mes{margin-top:2mm;background:var(--laranja);color:#fff;border-radius:20px;
+    padding:1.2mm 0;font-size:11px;font-weight:700}
+  .leva{flex:1;padding:4mm 5mm;font-size:11.5px}
+  .leva h3{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--azul);margin-bottom:2mm}
+  .leva li{list-style:none;padding:1.15mm 0 1.15mm 6mm;position:relative;line-height:1.4}
+  .leva li::before{content:"✓";position:absolute;left:0;color:var(--azul);font-weight:800}
+  .ganchos{display:flex;gap:4mm;margin-top:5mm}
+  .gancho{flex:1;border:1.5px dashed var(--laranja);border-radius:8px;padding:3mm 4mm;font-size:11px;line-height:1.45}
+  .gancho b{color:var(--laranja)}
+
+  .passos{margin-top:6mm;background:var(--navy);border-radius:10px;padding:5mm 6mm;color:#fff}
+  .passos h3{font-size:12px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3mm;color:#9ed4f2}
+  .passos .linha{display:flex;gap:4mm}
+  .passo{flex:1;display:flex;gap:2.5mm;align-items:flex-start}
+  .passo .num{background:var(--laranja);color:#fff;font-weight:800;border-radius:50%;
+    width:6.5mm;height:6.5mm;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+  .passo p{font-size:10.5px;line-height:1.45}
+  .passo b{display:block;font-size:11px}
+  .foot{border-top:1.5px solid var(--borda);margin-top:auto;padding-top:3.5mm;display:flex;
+    justify-content:space-between;font-size:11px;color:var(--cinza)}
+  .foot b{color:var(--navy)}
+
+  /* ---------- verso ---------- */
+  .verso h2{font-size:23px;margin-top:7mm;letter-spacing:-.4px}
+  .verso .sub{font-size:12px;color:var(--cinza);margin-top:1.5mm}
+  .google{margin-top:5mm;background:var(--fundo);border:1.5px solid var(--borda);border-radius:10px;padding:4mm 5mm}
+  .google h3{font-size:13px;margin-bottom:1.5mm}
+  .google p{font-size:11px;color:var(--cinza);line-height:1.55}
+  .google .canais{margin-top:2mm;font-size:10px;color:var(--azul);font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-top:5mm}
+  .card{border:1.5px solid var(--borda);border-radius:8px;padding:3mm 4mm}
+  .card b{font-size:11.5px;display:block;margin-bottom:.8mm}
+  .card p{font-size:10px;color:var(--cinza);line-height:1.45}
+  .cidades{margin-top:5mm;font-size:11px;text-align:center;background:var(--fundo);
+    border-radius:8px;padding:2.8mm}
+  .movimento{margin-top:5mm;border:2px solid var(--laranja);border-radius:10px;padding:4mm 5mm;
+    background:#fff9f2;display:flex;gap:5mm;align-items:center}
+  .movimento .icone{font-size:26px}
+  .movimento h3{font-size:14px;color:var(--laranja);margin-bottom:1mm}
+  .movimento p{font-size:11px;line-height:1.5}
+  .movimento .preco-mov{white-space:nowrap;text-align:center;font-size:10.5px;color:var(--cinza)}
+  .movimento .preco-mov b{display:block;font-size:17px;color:var(--laranja)}
+  .conectar{margin-top:5mm;display:flex;gap:5mm;align-items:stretch}
+  .qrbox{flex:1;border:1.5px solid var(--borda);border-radius:10px;padding:3.5mm;display:flex;gap:4mm;align-items:center}
+  .qrbox img{width:26mm;height:26mm}
+  .qrbox b{font-size:12px;display:block;margin-bottom:1mm}
+  .qrbox p{font-size:9.5px;color:var(--cinza);line-height:1.45}
+  .qrbox.destaque{border-color:var(--laranja);background:#fff9f2}
+  .legal{margin-top:3mm;font-size:8.5px;color:var(--cinza);text-align:center}
+</style>
+</head>
+<body>
+
+<!-- ============ FRENTE ============ -->
+<div class="page">
+  <div class="head">
+    <div class="logo"><span class="rede">REDE</span><span class="baixada">BAIXADA</span></div>
+    <div class="tagline">Portal de Negócios da Baixada Santista<br>Conectando negócios locais há 6 anos</div>
+  </div>
+
+  <div class="hero">
+    <h1>Sua empresa aparece no <em>Google</em> quando seu cliente busca por você.</h1>
+    <p>Quando alguém digita <b>"[sua categoria] em Mongaguá"</b> no Google, sua empresa aparece nos resultados. É isso que o Rede Baixada faz.</p>
+  </div>
+
+  <div class="teste">👉 <b>Teste agora:</b> busque <b>"veterinária Mongaguá"</b> no Google e veja nossos parceiros aparecendo.</div>
+
+  <div class="selos">
+    <div class="selo"><b>100+</b><span>empresas parceiras em Mongaguá</span></div>
+    <div class="selo"><b>3</b><span>cidades na região</span></div>
+    <div class="selo"><b>6</b><span>anos no mercado</span></div>
+  </div>
+
+  <div class="proposta">
+    <div class="titulo">PROPOSTA COMERCIAL <span>🔒 Preço de Parceiro — exclusivo de quem recebe a visita</span></div>
+    <div class="corpo">
+      <div class="preco">
+        <div class="de">De R$ 155,40</div>
+        <div class="valor">R$ 77,70 <small>/ 6 meses</small></div>
+        <div class="cond">renova por R$ 77,70 (semestral)<br>preço travado de parceiro</div>
+        <div class="mes">menos de R$ 13/mês</div>
+      </div>
+      <div class="leva">
+        <h3>O que você leva — Plano Presença</h3>
+        <ul>
+          <li><b>Aparecer no Google</b> — SEO local indexado</li>
+          <li><b>Perfil completo</b> — nome, endereço, WhatsApp, horário</li>
+          <li><b>Mapa + WhatsApp direto</b> — o cliente chega até você</li>
+          <li><b>5 fotos</b> no perfil</li>
+          <li><b>Diferenciais</b> da sua categoria</li>
+          <li><b>Selo Fundador</b> — entre os 100 primeiros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ganchos">
+    <div class="gancho">🛠️ <b>Eu monto tudo pra você</b> — perfil e anúncio prontos, você não mexe em nada.</div>
+    <div class="gancho">🔒 <b>Preço travado</b> — R$ 77,70 na renovação enquanto você for parceiro ativo.</div>
+  </div>
+
+  <div class="passos">
+    <h3>Como ativar hoje — em 3 passos, na própria visita</h3>
+    <div class="linha">
+      <div class="passo"><div class="num">1</div><p><b>Criamos seu acesso</b>aqui mesmo, em 2 minutos — sem burocracia.</p></div>
+      <div class="passo"><div class="num">2</div><p><b>Você ativa por R$ 77,70</b>no PIX ou cartão, direto na plataforma.</p></div>
+      <div class="passo"><div class="num">3</div><p><b>Seu perfil vai ao ar hoje</b>— eu monto tudo e te mando o link pronto.</p></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div><b>Rede Publicidade — Lucio Maier</b></div>
+    <div>(13) 98155-2646 &nbsp;·&nbsp; <b>redebaixada.com.br</b></div>
+  </div>
+</div>
+
+<!-- ============ VERSO ============ -->
+<div class="page verso">
+  <div class="head">
+    <div class="logo"><span class="rede">REDE</span><span class="baixada">BAIXADA</span></div>
+    <div class="tagline">Portal de Negócios da Baixada Santista<br>Conectando negócios locais há 6 anos</div>
+  </div>
+
+  <h2>Tudo que sua empresa recebe</h2>
+  <div class="sub">Uma presença digital completa — sem precisar de site próprio.</div>
+
+  <div class="google">
+    <h3>🌐 Sua empresa indexada no Google</h3>
+    <p>Cada parceiro recebe dados estruturados que o Google lê e exibe nos resultados de busca locais. Sua empresa aparece quando alguém busca a sua categoria na sua cidade.</p>
+    <div class="canais">Google Search · Google Maps · Busca local · Sitemap automático</div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><b>🖼️ Galeria de Fotos</b><p>Estrutura, produtos e equipe no seu perfil.</p></div>
+    <div class="card"><b>⭐ Avaliações de Clientes</b><p>Qualidade, serviço e preço avaliados — gera confiança.</p></div>
+    <div class="card"><b>🗺️ Mapa Integrado</b><p>Localização exata — o cliente chega até você.</p></div>
+    <div class="card"><b>💬 WhatsApp Direto</b><p>Um clique e o cliente já está falando com você.</p></div>
+    <div class="card"><b>🏷️ Diferenciais da categoria</b><p>O que torna o seu negócio único, em destaque.</p></div>
+    <div class="card"><b>⏰ Horário de Funcionamento</b><p>Seus horários sempre visíveis pra quem procura.</p></div>
+  </div>
+
+  <div class="cidades">📍 <b>Presente nas principais cidades:</b> Praia Grande (expandindo) · Mongaguá (100+ parceiros) · Itanhaém (expandindo)</div>
+
+  <div class="movimento">
+    <div class="icone">🚀</div>
+    <div style="flex:1">
+      <h3>Quer mais movimento?</h3>
+      <p><b>Plano Movimento — Rede Publicidade:</b> anúncios profissionais no Google e no Instagram pra fazer o cliente chegar, com gestão completa da nossa equipe. <b>Parceiro do portal tem prioridade.</b> Pergunta pra mim na visita.</p>
+    </div>
+    <div class="preco-mov">a partir de<br><b>R$ 250/mês</b>gestão completa</div>
+  </div>
+
+  <div class="conectar">
+    <div class="qrbox">
+      <img src="data:image/png;base64,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" alt="QR WhatsApp">
+      <div><b>💬 Fale comigo</b><p>Aponte a câmera e caia direto no meu WhatsApp. Tira dúvida, sem compromisso.</p></div>
+    </div>
+    <div class="qrbox destaque">
+      <img src="data:image/png;base64,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" alt="QR Oferta de Parceiro">
+      <div><b>🔒 Garantir minha oferta</b><p>O link privilegiado com o R$ 77,70 de parceiro. Só quem recebe esta folha tem esse preço.</p></div>
+    </div>
+  </div>
+
+  <div class="legal">Preço de parceiro válido apenas pelo link/QR desta folha (plano Presença, ciclo semestral). Rede Publicidade — Lucio Maier · (13) 98155-2646 · redebaixada.com.br</div>
+</div>
+
+</body>
+</html>
