@@ -1,5 +1,14 @@
 # Spec — Fluxo do Vendedor de Rua v2 (anti-fricção)
 
+> ✅ **MUST ENTREGUE E NO AR (07/07/2026, sprint Lucio + Claude):** fluxo de página única publicado
+> em produção — cadastro enxuto inline (negócio: nome/categoria/cidade/WhatsApp + conta: e-mail/senha),
+> auto-login (confirmação de e-mail não bloqueia), empresa mínima criada sozinha (slug automático,
+> nasce "pending" — invisível até pagar), direto pro modal CPF → Asaas. Bônus: modo "Entrar" inline
+> (e-mail já cadastrado) e link "trocar de conta" pro vendedor emendar uma venda na outra.
+> Backend validado via API: sessão imediata ✅ · RLS aceita insert ✅ · trigger cria dono ✅.
+> Pendente: teste do operador no celular (QR real até o checkout) · itens SHOULD/LATER abaixo.
+> Limpeza pro Nick: apagar usuários de teste `teste.fluxo.v2*.apagar@example.com` no painel Supabase.
+
 > **Pra quem:** Nick (execução) · **Pedido do Lucio (07/07/2026):** eliminar fricção ao máximo no fluxo
 > do link privilegiado (`/oferta-parceiro?k=...`) pra facilitar a vida do vendedor na porta.
 > **Princípio de design:** o cliente NÃO monta nada (done-for-you) — o fluxo do cliente é só
