@@ -135,6 +135,7 @@ Responder com pergunta/escuta, nunca com pressão:
 |---------|----------------------------------|
 | "Tá caro" | "Você entra por R$77,70 a cada 6 meses — preço de parceiro, só pra quem eu visito. Menos de R$13 por mês. Que retorno já pagaria isso?" |
 | "Vou pensar" | "Tranquilo. Deixa eu já te deixar no ar de graça pra você ver funcionando — aí você pensa com a coisa na mão, sem pagar nada." → **trial** |
+| "Mas no site tá mais barato / R$147 no ano" | "É outro pacote. No site você mesmo monta tudo e paga o ano cheio de uma vez. Comigo você não faz nada — **eu monto seu perfil e seu anúncio** — e ainda entra por 6 meses pra experimentar, sem travar o ano. Você paga um pouquinho mais porque tem gente fazendo por você." |
 | "Já tô no Instagram / Google" | "Massa. E quando alguém procura [seu ramo] em [cidade], você aparece? O portal é mais um lugar onde te acham — soma, não substitui." |
 | "Não tenho tempo agora" | "Sem problema, eu monto tudo pra você. Você só me passa 2 ou 3 infos e eu deixo pronto." |
 | "Vem outra hora" | "Combinado. Melhor dia/horário pra eu voltar?" → **agenda, anota** |

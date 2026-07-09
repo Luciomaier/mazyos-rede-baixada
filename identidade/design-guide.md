@@ -61,8 +61,8 @@ Limpo, confiável e local. Azul como base institucional (confiança, regional, "
 
 ## Logo
 
-- **Arquivo:** *(salvar em identidade/logo.png — baixar do site)*
-- **Versão pra fundo escuro:** *(versão branca pra usar sobre o gradiente azul)*
+- **Arquivo:** `identidade/logo.png` (800×200, RGBA/transparente — versão colorida oficial)
+- **Versão pra fundo escuro:** *(branca ainda não existe — micro-tarefa de design, criar só quando houver peça sobre o gradiente azul)*
 - **Descrição:** ícone de pin de localização + onda, texto "Rede" (azul) + "Baixada" (laranja).
 - **Onde usar:** slide final do carrossel (CTA), header de propostas, slides de apresentação
 - **Tamanho sugerido:** largura entre 120-200px nos HTMLs
@@ -72,4 +72,4 @@ Limpo, confiável e local. Azul como base institucional (confiança, regional, "
 ## Observações adicionais
 
 - Fonte e paleta batem com o estilo visual base do MazyOS (Inter, editorial limpo).
-- Quando salvar o logo em `identidade/`, atualizar os caminhos acima.
+- Logo colorido já em `identidade/logo.png`. Falta só a versão branca (fundo escuro) quando precisar.

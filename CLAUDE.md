@@ -156,9 +156,11 @@ Detalhe completo em `_memoria/empresa.md`. Tom de voz em
 
 ## Ferramentas conectadas
 
-- [ ] Meta Ads
-- [ ] Google Ads
-- [ ] Google Calendar
-- [ ] Canva
+- [x] Canva
+- [x] Google Calendar
+- [x] Gmail
+- [x] Google Drive
+- [ ] Meta Ads — falta autorizar (OAuth em sessão interativa: `/mcp`)
+- [ ] Google Ads — falta autorizar (OAuth em sessão interativa: `/mcp`)
 
-*(Marcar conforme for instalando os MCPs)*
+*(Meta/Google Ads dependem de login interativo — não dá em sessão automática. Rodar `/mcp` numa sessão normal pra conectar.)*

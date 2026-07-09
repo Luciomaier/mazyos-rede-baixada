@@ -1,18 +1,62 @@
 # Pendências
 
 > O que ficou em aberto e precisa de ação. Atualizar conforme for resolvendo.
+> Última faxina: **09/07/2026** (bateu contra o estado real do repo/portal).
 
 ## Abertas
 
-- [ ] **Logo** — baixar do site redebaixada.com.br e salvar em `identidade/logo.png` (+ versão branca pra fundo escuro). Depois atualizar os caminhos em `identidade/design-guide.md`.
-- [ ] **Conectar MCPs** — Meta Ads, Google Ads, Google Calendar, Canva (checkboxes no `CLAUDE.md`). Marcar conforme instalar.
-- [ ] **Substituir Uber pela Rede Baixada** — mapear o processo de venda como rotina via `/mapear-rotinas` (referência: R$338,50 em 4h na Rede Baixada vs ~R$150 em 5h no Uber).
-- [ ] **Conta Asaas separada (futuro)** — hoje a Rede Baixada compartilha a conta Asaas com o UniMasso (funciona e é seguro: os webhooks se ignoram). Isolar em conta própria é mais limpo a longo prazo.
-- [ ] **Subir o link privilegiado `/oferta-parceiro`** (PR #1 no repo redebaixada) — **deploy com o Nick**: 2 edge functions (asaas-create-payment, asaas-webhook) + secrets `OFFER_PARCEIRO_KEY`/`OFFER_PARCEIRO_VALUE` no Supabase, depois merge na main. A CLI da máquina do Lucio deu 403 (sem privilégio). Passo a passo em `saidas/deploy-oferta-parceiro.md`.
-- [ ] **Reimprimir a folha de vendas** — corrigir "1 ano" → "6 meses", tirar vitrine/vagas (não são da presença) e "R$1,50/dia" → "menos de R$13/mês". Conteúdo já corrigido em `.claude/skills/venda-porta-a-porta/folha-vendas.md`.
-- [ ] **Decidir coerência de preço** — R$77,70 × 2 = R$155,40/ano vs presença R$147/ano (fundador) no site: no anual, a oferta de parceiro fica um pouco ACIMA do site. Manter, baixar o semestral, ou ajustar o site?
+### Backlog de execução — dev do portal (Lucio + Claude; **Nick fora** por ora)
+> Ponto de retomada detalhado: `saidas/onde-paramos-2026-07-09.md`.
+- [~] **P1 — visão do agente mobile (corte rápido)** — FEITO e **em preview** (branch
+  `p1-agente-mobile`, aprovado pelo Lucio). ➡️ **Falta só o merge na `main`.**
+- [ ] **P1 fase 2** — PWA (manifest), +4 campos dedicados, deep-link/persistência de sessão.
+- [ ] **P2 item 1 — "Criar Empresa" self-serve** — precisa migração (RPC `SECURITY DEFINER`; agente
+  não pode inserir `crm_customers`) + decidir o gap de claim/pagamento da empresa criada pelo agente.
+- [ ] **P2 item 2 — ciclo de estados** (`trial 7d → 6m → cinza → oculto → expirado`) — migração de
+  enum/colunas + jobs agendados (pg_cron). Parte mais pesada.
+- [ ] **P2 item 3 — referência externa por unidade** (RB × UniMasso) — edge function de pagamento.
+
+### Depende do Lucio (ação manual)
+- [ ] **Imprimir a folha de vendas** — conteúdo já corrigido e conferido (6 meses,
+  "menos de R$13/mês", sem vitrine/vagas). PDF pronto: `marketing/folha-vendas-parceiro-v2.pdf`
+  (cliente) e `marketing/folha-operador-pap.pdf` (interno). Abrir → Ctrl+P → A4, frente-e-verso.
+- [ ] **Conectar Meta Ads + Google Ads (MCP)** — exige OAuth em sessão interativa: rodar `/mcp`.
+- [ ] **Substituir o Uber pela Rede Baixada** — rotina mapeada em
+  `saidas/rotina-substituir-uber-2026-07.md`. A troca em si é comportamental/consistência.
+  (Referência: R$338,50 em 4h na RB vs ~R$150 em 5h no Uber.)
+
+### Micro-tarefas (quando precisar)
+- [ ] **Versão branca do logo** (fundo escuro) — só quando houver peça visual sobre o
+  gradiente azul (slide final de carrossel, hero). Colorido já em `identidade/logo.png`.
+
+## Adiadas (com gatilho)
+
+- **Conta Asaas separada da Rede Baixada** — hoje a RB divide a conta Asaas (conta única
+  do grupo/Rede Publicidade) e funciona (webhooks se ignoram por referência externa).
+  **Gatilho pra isolar:** quando o caixa da RB justificar (receita recorrente própria) OU
+  quando a contabilidade exigir separar. Sem urgência.
 
 ## Resolvidas
 
-- [x] **Pagamento em produção** (jun/2026) — checkout Asaas integrado e testado com cartão real. Ciclo completo: paga → empresa ativa (plano/aprovada/+1 ano); estorna/chargeback → revoga (free/pendente). Webhook seguro (token na URL) e idempotente.
-- [x] **Funil de conversão** (jun/2026) — criar empresa leva direto ao `/planos`; banner "escolher plano" na lista, no dashboard e pós-criação. Checkout coleta CPF/CNPJ.
+- [x] **Preço da oferta de parceiro decidido** (09/07/2026) — **manter R$77,70/6m**. A
+  diferença pro site (R$147/ano) é intencional: na rua o cliente ganha o agente que monta
+  tudo + a chance de experimentar 6 meses. Produto com serviço embutido, não desconto.
+  (Script de objeção gravado na skill `/venda-porta-a-porta`.)
+- [x] **Fluxo `/oferta-parceiro` 100% no ar e verificado** (deploy 07/07, verificado 09/07) —
+  front (PR #1 na `main`, HTTP 200) **+ backend Supabase** (o 403 acabou): functions
+  `asaas-create-payment` (v19) e `asaas-webhook` (v14) ACTIVE; secrets `OFFER_PARCEIRO_KEY`
+  (=`b036e66...`) e `OFFER_PARCEIRO_VALUE` (=`77.70`) conferidos por hash; Asaas em
+  **produção** (`www.asaas.com/api/v3`). Gate do preço é server-side; ativa presença 6 meses.
+- [x] **Webhook `asaas-webhook` seguro** — exige `ASAAS_WEBHOOK_SECRET` (via `?token=` ou header
+  `asaas-access-token`) → 401 sem ele. Idempotente; ativa 6m na oferta parceiro, revoga em
+  estorno/chargeback. (Resolve o item "validar assinatura" do sprint.)
+- [x] **Folha de vendas v2 corrigida** (07/07/2026) — HTML+PDF em `marketing/`, texto certo
+  (6 meses, menos de R$13/mês, sem vitrine/vagas). Só falta a impressão física.
+- [x] **Logo colorido em `identidade/logo.png`** (09/07/2026) — copiado do portal; caminho
+  atualizado no `design-guide.md`.
+- [x] **MCPs Canva, Gmail, Google Calendar, Google Drive conectados** (jul/2026).
+- [x] **Pagamento em produção** (jun/2026) — checkout Asaas integrado e testado com cartão
+  real. Ciclo completo: paga → empresa ativa (plano/aprovada/+1 ano); estorna/chargeback →
+  revoga (free/pendente). Webhook seguro (token na URL) e idempotente.
+- [x] **Funil de conversão** (jun/2026) — criar empresa leva direto ao `/planos`; banner
+  "escolher plano" na lista, no dashboard e pós-criação. Checkout coleta CPF/CNPJ.
