@@ -3,6 +3,8 @@
 > Deixar o portal do Rede Baixada pronto pra prospecção PaP com equipe. Prioridades tiradas do
 > **teste ao vivo (09/07)** na visão do agente (conta de teste Elis, `/dashboard/minha-area/leads`).
 > ⚠️ **Performance NÃO é o gargalo** (~180ms em cache/wifi) — a fricção é de **fluxo/UX**.
+>
+> **Quem toca AGORA (10/07):** **Lucio + IA** — o Nick está focado **só no Holos Connect** até entrar neste projeto. O nome "do Nick" no título fica pra quando ele assumir/dividir a parte técnica.
 
 ## 1. Visão do agente mobile-first (a captura na rua) — prioridade máxima
 - **Cards no lugar da tabela.** Hoje "Meus Leads" é uma **tabela de 6 colunas** (rola horizontal no celular). **Reusar o componente de card do kanban do admin** (já existe) na visão do agente — não construir do zero.

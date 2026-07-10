@@ -15,6 +15,10 @@ Papel no portfólio: **cavalo de troia** — baixo ticket, baixa resistência, c
 
 Fonte: `../holding-maier/_memoria/estrategia.md`.
 
+## 🏛️ Decisão de arquitetura — 10/07/2026 (RB = plataforma única)
+
+Decidido (com apoio de IA): o Rede Baixada vira a **plataforma única do grupo ("uma rede só")** — um registro de cliente que gradua de assinante-do-portal → cliente-da-agência (Rede Publicidade), com carteira/faturas/comissões/serviços num lugar só, separados por **tag de unidade (RB × Rede Publicidade)**. **UniMasso fica fora** (SaaS próprio; só compartilha a conta Asaas). Não criar ERP separado — monólito modular, evolução **faseada** (Fase 0 = ligar o CRM ao webhook Asaas). Viável porque o backbone de ERP **já existe no schema** (só falta ligar). Roadmap completo: [`../saidas/roadmap-plataforma-unica-2026-07.md`](../saidas/roadmap-plataforma-unica-2026-07.md).
+
 ## Fase
 
 **Reativação da Rede Baixada** (jun/2026). Voltar a oferecer e fechar as primeiras vendas/cadastros. Meta de 12 meses: R$5.000/mês.
