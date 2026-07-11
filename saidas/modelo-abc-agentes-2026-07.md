@@ -242,6 +242,49 @@ nova**, é o mesmo motor com outro papel.
 ➡️ O saldo da carteira **cai naturalmente no painel "Meus Serviços"** que a Fase 1 já ia construir. Não é um
 produto novo — é uma aba a mais na tela que já está no roadmap.
 
+## ✅ Decidido em 11/07 — override e herança de carteira
+
+### 1. Override (MLM): **NÃO agora — porta aberta pro futuro**
+
+> *"Ainda não vamos fechar as portas para isso (MLM), porém acredito que **confunde e pode gerar muita
+> euforia e pouca atividade real de clientes reais**. Quem sabe no futuro."* — Lucio
+
+**Decisão: sem override.** O titular **não** ganha sobre as vendas do agente que ele formou. O ganho dele
+pela formação é o que já está no modelo: as **10 indicações convertidas** (que viraram carteira dele) + o
+bônus. Ponto.
+
+**Por que está certo:** o diagnóstico do Lucio é exatamente o mecanismo de falha do MMN — quando o dinheiro
+passa a vir da **profundidade da rede**, a energia migra de *vender pro comerciante* pra *recrutar gente*.
+Muita euforia, pouca venda real. Fica **reavaliável no futuro**, com advogado, se houver motivo.
+
+### 2. Carteira do agente que sai (não renovou): **herda a EMPRESA (CDBL1)**
+
+> *"Se o agente sair, compactamos a rede para o acima… ou para a empresa, pois ela pode herdar e dar
+> sequência **sem haver injustiça e benefícios de interesses alheios**."* — Lucio
+
+**Recomendação (Claude) e decisão: a EMPRESA herda.** Não "compactar pra cima".
+
+**Por quê — "compactar pra cima" cria incentivo perverso:**
+- O **supervisor lucraria com a queda do agente abaixo dele**. Herdar carteira **por posição hierárquica** é
+  o mesmo mecanismo do override que acabou de ser rejeitado — só que pior, porque agora o de cima tem
+  **interesse no fracasso do de baixo**. É a definição literal de "benefício de interesse alheio".
+- **A empresa herdando é neutra:** ninguém ganha com a saída de ninguém.
+
+**Como funciona na prática:**
+1. Agente não renova (não pagou os R$77,70) → a **titularidade** dos clientes dele volta pra **empresa**.
+2. A empresa **reatribui rápido** a quem vai de fato **atender** aquele cliente — por território, por
+   atividade, por quem levantar a mão. *(Pode ser o supervisor — mas por **decisão de serviço**, nunca por
+   herança automática de hierarquia.)*
+3. **Quem passa a servir, passa a receber.** O princípio do modelo inteiro se mantém.
+
+⚠️ **Herança é de titularidade, não abandono.** O cliente **não pode ficar desassistido** no meio do caminho
+— cliente sem atendimento não renova, e aí não sobrou carteira pra ninguém. A reatribuição é urgente, não
+burocrática.
+
+⚠️ **Escrever no termo, antes do primeiro agente:** (a) não renovou → perde a carteira pra empresa;
+(b) **não há reclaim automático** se ele voltar depois (carteira já reatribuída **não volta**) — senão vira
+briga. Regra clara na entrada evita processo na saída.
+
 ## Riscos e dials (não resolvidos — decidir com o Lucio)
 
 1. **Quanto vale o crédito por indicação?** *(o dial de caixa — ver tabela na seção da carteira virtual.)*
@@ -255,15 +298,18 @@ produto novo — é uma aba a mais na tela que já está no roadmap.
 4. **10 indicações é o número final?** O Lucio afinou pra **10** ("pra um agente bom, fechar 10 é fácil") —
    mas note que **quem sofre pra fechar 10 é o agente que vai junto**, não o candidato. Vale medir na
    prática com a Gi/Barça antes de cravar.
-5. **O titular ganha override depois que o candidato se titula?** ⚠️ **É a porta de volta pro MLM.** Sem
-   isso, o ganho dele termina na formatura. Com isso, a receita passa a subir pela profundidade da rede —
-   e o argumento anti-pirâmide enfraquece. **Decidir de olhos abertos, com advogado.**
-6. **A carteira do agente que NÃO renova** (não pagou os R$77,70): os clientes dele ficam desassistidos?
-   Vão pro supervisor? Voltam pra casa? **Precisa estar no termo, escrito antes** — tirar carteira sem regra
-   escrita é briga garantida.
+5. ~~Override pro titular?~~ → **DECIDIDO 11/07: não agora** (ver seção "Decidido").
+6. ~~Carteira do agente que sai?~~ → **DECIDIDO 11/07: herda a empresa (CDBL1)**, que reatribui a quem
+   atende (ver seção "Decidido"). Falta só **escrever no termo**.
 7. **Quantos candidatos simultâneos**, se o agente vai junto em cada venda? O acompanhamento presencial é o
    gargalo físico — não escala como carteira escala.
-8. **Supervisor:** override sobre agentes? Quantos agentes por supervisor?
+8. **Supervisor — pra que serve, então?** Com override fora e herança indo pra empresa, o supervisor perdeu
+   as duas fontes de renda que normalmente o justificam. **Se ele existir, precisa ser pago por outra coisa:**
+   salário/pró-labore, ou uma carteira própria (ele também vende), ou remuneração por **entrega de serviço**
+   (manutenção dos clientes reatribuídos). Vale definir *antes* de criar o cargo — senão ele vira um nível
+   sem função econômica.
+9. **O que é exatamente a "CDBL1"?** *(não documentado no workspace — o Lucio precisa confirmar a entidade;
+   a conta Asaas hoje fatura como **REDE PUBLICIDADE E TECNOLOGIA**, CNPJ 64.184.761/0001-23.)*
 
 ## Cuidados jurídicos
 
