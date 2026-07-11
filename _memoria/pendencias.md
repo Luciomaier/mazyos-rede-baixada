@@ -7,14 +7,17 @@
 
 ### Backlog de execução — dev do portal (Lucio + Claude; **Nick fora** por ora)
 > Ponto de retomada detalhado: `saidas/onde-paramos-2026-07-09.md`.
-- [~] **P1 — visão do agente mobile (corte rápido)** — FEITO e **em preview** (branch
-  `p1-agente-mobile`, aprovado pelo Lucio). ➡️ **Falta só o merge na `main`.**
-- [ ] **P1 fase 2** — PWA (manifest), +4 campos dedicados, deep-link/persistência de sessão.
+- [x] **P1 — visão do agente mobile** — **na `main` e em produção** (`main = 8e767bc`, 10/07), junto
+  com os fixes de login F1/F2 (rota por papel, deep-link/refresh).
+- [ ] **P1 fase 2** — PWA (manifest), +4 campos dedicados, persistência de sessão.
 - [ ] **P2 item 1 — "Criar Empresa" self-serve** — precisa migração (RPC `SECURITY DEFINER`; agente
   não pode inserir `crm_customers`) + decidir o gap de claim/pagamento da empresa criada pelo agente.
 - [ ] **P2 item 2 — ciclo de estados** (`trial 7d → 6m → cinza → oculto → expirado`) — migração de
-  enum/colunas + jobs agendados (pg_cron). Parte mais pesada.
+  enum/colunas + jobs agendados (pg_cron). ➡️ **Promovido a item 4 do Sprint 2** (na frente da Fase 1):
+  é a metade do playbook de PaP que não tem sistema.
 - [ ] **P2 item 3 — referência externa por unidade** (RB × UniMasso) — edge function de pagamento.
+  ➡️ Absorvido pela **Fase 0** do Sprint 2 (junto com a tag de unidade e o **vendedor** no
+  `externalReference` — hoje é só `company_id|plan_slug|parceiro`, sem agente).
 
 ### Depende do Lucio (ação manual)
 - [ ] **Imprimir a folha de vendas** — conteúdo já corrigido e conferido (6 meses,
@@ -38,6 +41,12 @@
 
 ## Resolvidas
 
+- [x] **Teste do fluxo 77,70 ponta a ponta** (11/07/2026) — rodado em **produção**, tudo passou: link
+  privilegiado → R$77,70 (de R$155,40) · "trocar de conta" · cadastro inline · auto-login · modal do CPF ·
+  **checkout Asaas em R$77,70** com PIX/boleto/crédito/débito. Gate de preço server-side confirmado por
+  hash (`ASAAS_BASE_URL` = produção). **Não validado:** cronômetro QR→PIX ≤2min (precisa de celular real).
+  ⚠️ **Limpar rastros:** fatura Asaas **855418887** · empresa "TESTE Claude — Apagar" · usuário
+  `redebaixada+testeclaude1107@gmail.com`.
 - [x] **Preço da oferta de parceiro decidido** (09/07/2026) — **manter R$77,70/6m**. A
   diferença pro site (R$147/ano) é intencional: na rua o cliente ganha o agente que monta
   tudo + a chance de experimentar 6 meses. Produto com serviço embutido, não desconto.

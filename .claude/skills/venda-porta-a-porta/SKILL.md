@@ -54,11 +54,18 @@ Por que cada peça importa:
 - **Preço travado:** o anti-cancelamento — sair = perder o preço de parceiro. Segura a recorrência.
 - **Janela de 6 meses:** cria o re-contato semestral pra renovar (R$77,70) e oferecer planos maiores (upsell).
 
-> **Como cobrar hoje:** o **link privilegiado** já está no código (`/oferta-parceiro?k=<SEGREDO>`) — cobra
-> R$77,70 no Asaas e ativa **presença por 6 meses**. **Pendente de subir** (deploy das funções + setar os
-> secrets `OFFER_PARCEIRO_KEY` e `OFFER_PARCEIRO_VALUE`). Enquanto não sobe: gera a cobrança de R$77,70 no
-> painel Asaas e **ativa o plano na mão** pelo admin. Done-for-you: caminho **lead→empresa** no CRM, ou o
-> cliente cria o login e você edita o perfil pelo admin. E-mails (confirmação/renovação) ainda não existem — follow-up no WhatsApp.
+> **Como cobrar hoje:** ✅ **no ar e verificado ponta a ponta (11/07/2026)**. O **link privilegiado**
+> `/oferta-parceiro?k=b036e660589d546db056951c` (o QR da folha) faz tudo sozinho: cadastro enxuto na
+> própria página → auto-login → modal do CPF → **checkout Asaas em R$77,70** (PIX, boleto, crédito ou
+> débito) → o webhook ativa **presença por 6 meses**. O gate do preço é server-side: sem o `?k=`, o preço
+> é o do site. **Não precisa mais gerar cobrança na mão no painel.**
+>
+> Se o celular já estiver logado (na tua conta ou na do cliente anterior), toque **"trocar de conta"** no
+> rodapé do card — é o que te deixa emendar uma venda na outra no mesmo aparelho.
+>
+> ⚠️ **O que ainda é manual** (não confie no sistema pra isso): o **trial** do indeciso (não tem relógio,
+> não expira, não nutre sozinho — controle na planilha e mande o link por WhatsApp) e a **atribuição do
+> vendedor** (o link não sabe quem vendeu — se não for você, anote). E-mails transacionais não existem.
 
 ---
 
