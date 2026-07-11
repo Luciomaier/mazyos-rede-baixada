@@ -88,6 +88,52 @@ muda a recompensa no fim. **Não decidir isso agora** — mas saber que existe, 
 do cliente precisaria de um **"indique e ganhe"** com link próprio (encaixa naturalmente no painel
 **"Meus Serviços"** da Fase 1 do roadmap).
 
+## ⏳ Validade do agente — a "recorrência suave" (Lucio, 11/07)
+
+> *"Ele tem que estar **ativo durante o ciclo de 6 meses**, porque é como se ele **pagasse os R$77,70
+> também**. Desta forma gira entre a equipe de vendas e agentes: uma **recorrência suave**."*
+
+A conta de agente **tem validade** — o mesmo ciclo de 6 meses do plano do cliente. E a simetria é o coração
+da ideia:
+
+| | Como conquista | Como mantém | Ciclo |
+|---|---|---|---|
+| **Cliente** | paga R$77,70 | **paga** de novo | 6 meses |
+| **Agente** | **N indicações convertidas** (a concessão) | **fica ativo** (produz) | 6 meses |
+
+**O agente não paga a conta dele com dinheiro — paga com atividade.** É a mesma moeda da concessão: entrou
+indicando, permanece produzindo. Nada é vitalício.
+
+### Por que isso é forte (além da receita)
+
+- **É a blindagem anti-MLM mais forte do modelo.** Mata a **renda passiva**: ninguém recebe pra sempre por
+  trabalho feito uma vez. Pra continuar recebendo da carteira, tem que **continuar servindo a carteira**.
+  Isso é o oposto exato da promessa de MMN ("monte sua rede e receba dormindo").
+- **Resolve a pergunta "manutenção é direito ou dever?"** → **é os dois.** A receita recorrente da carteira
+  é a contrapartida de manter o cliente atendido. Parou de atender, para de receber.
+- **Mantém a base viva.** Agente parado não vira zumbi segurando carteira morta — o cliente dele estaria
+  desassistido, e cliente desassistido não renova.
+
+### ⚠️ A pergunta pesada que essa regra levanta (NÃO decidida)
+
+**O que acontece com a CARTEIRA do agente que ficou inativo?** É a decisão mais delicada do modelo inteiro,
+porque carteira = **receita recorrente de gente de verdade**:
+
+- **(a) Ele perde a carteira** — os clientes voltam pra casa ou vão pra outro agente (o supervisor?
+  quem assumir a manutenção?). Coerente com "quem serve, recebe" — mas é duro, e precisa estar **escrito
+  antes**, nunca decidido no calor.
+- **(b) Ele mantém a carteira, mas não pode captar novos** — mais brando; risco de carteira encostada com
+  cliente mal atendido.
+- **(c) Ele para de receber as renovações, mas o cadastro fica** — meio-termo: o dinheiro segue quem faz a
+  manutenção, o histórico fica registrado.
+
+Ligado a isso: **o que conta como "ativo"?** Quantas vendas/indicações por ciclo de 6 meses? **Não definido.**
+Se a régua for alta demais, vira pressão (e cheiro de subordinação — ver riscos jurídicos). Se for baixa
+demais, não filtra ninguém.
+
+➡️ **Seja qual for a escolha, ela precisa estar no termo assinado ANTES do primeiro agente.** Tirar carteira
+de alguém sem regra escrita é briga garantida.
+
 ## O que fica com quem
 
 | | Durante a qualificação | Depois de entitulado |
@@ -126,6 +172,20 @@ Hoje o `externalReference` da cobrança é `company_id|plan_slug|parceiro` — *
 
 **Custo agora: colunas.** Custo depois: migração + reconciliar comissão paga **e carteira mal atribuída**
 (essa é a pior — mexe em quem recebe a receita recorrente).
+
+### A validade do agente reusa a máquina do trial (não é sistema novo)
+
+O ciclo de 6 meses do agente (ativo → inativo) é **a mesma mecânica** do ciclo do cliente
+(`trial → pago 6m → cinza → oculto → expirado`) que o **item 4 do Sprint 2** já vai construir: coluna de
+vencimento + job agendado (**pg_cron**) que vira o estado sozinho. Muda só o **gatilho da renovação**:
+
+| | gatilho que renova | o que o job checa |
+|---|---|---|
+| **cliente** | **pagamento** (webhook Asaas) | `plan_expires_at` |
+| **agente** | **atividade** (vendas/indicações no ciclo) | `agent_active_until` + contador do ciclo |
+
+➡️ Quando o item 4 for construído, **desenhar a máquina de estados genérica o bastante pra servir aos dois**.
+Não construir o do agente agora — só não fechar a porta.
 
 ## Riscos e dials (não resolvidos — decidir com o Lucio)
 
