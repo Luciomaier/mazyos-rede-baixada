@@ -184,6 +184,98 @@ O **bônus de conclusão** do agente em formação e (no futuro) os *"benefício
 que o Lucio citou podem cair **na mesma carteira** — abatendo a **reativação de R$77,70** dele. Uma
 mecânica só, servindo cliente e agente.
 
+## 🏦 O agente como CENTRAL + LOTES DE CRÉDITO (Lucio, 11/07)
+
+> *"Ele pode ter, ver e gerir várias empresas de amigos — fica estilo uma **central** pra pessoas que não
+> querem ter seu usuário. (…) Já que teremos as carteiras, podemos ter **créditos e vender lotes**. Ele pode
+> **ativar a empresa com crédito e receber em dinheiro do cliente**, e ativar na hora com o saldo da carteira
+> dele."* · *"A ideia é fazer **promoções** e vender **lotes promocionais**, mostrando **lucro imediato** pra
+> ele."*
+
+### A central — já suportada pelo schema
+
+`company_members` = `company_id` + `user_id` + **`role`**. O agente pode **gerir N empresas sem ser dono de
+nenhuma**. Não precisa de tabela nova.
+
+🚨 **Regra dura — o cliente é o DONO, o agente é o GESTOR.**
+Se o agente entrar como **dono** das empresas dos amigos, você cria **carteiras-reféns**: no dia em que ele
+sair (ou não renovar), os negócios dos clientes vão embora com ele — e você estaria tirando de um cliente
+inocente um perfil que ele nem sabia estar no nome de outro.
+
+- **Cliente** = `role: owner` — mesmo que nunca faça login (conta fantasma, que ele **reivindica depois**:
+  é exatamente a **Fase 4 — claim/ghost** do roadmap).
+- **Agente** = `role: manager` — gere, edita, atende.
+- **Reatribuição** (a regra do CDBL1) vira **trocar uma linha de `company_members`**. Limpo, sem tocar na
+  empresa nem no cliente.
+
+### Lotes de crédito — o que isso resolve
+
+O agente **compra crédito em lote** (dinheiro entra **antes**), cobra o cliente **em dinheiro/PIX na hora**,
+e **ativa a empresa na hora** debitando o próprio saldo.
+
+| Problema | Como o lote resolve |
+|---|---|
+| **Fricção de cobrar na rua** *(o problema nº1 do PaP)* | O cliente paga **direto pro agente**. Sem boleto, sem cartão, sem gateway na porta |
+| **Ativação demorada** | **Instantânea** — debita do saldo, não espera webhook |
+| **Comissão** — toda a **Fase 3** (cálculo, aprovação, repasse, painel) | ⭐ **Vira SPREAD.** Comprou a R$X, vendeu a R$77,70. **A comissão se paga sozinha** — não existe mais "pagar comissão" |
+| **Caixa** | ⭐ **A casa recebe ANTES da venda.** O dinheiro entra quando ele compra o lote, não quando ele vende |
+
+**O caixa antecipado é o ponto mais forte** dado o objetivo atual (largar o Uber, montar reserva de R$10k):
+um agente que compra 10 créditos põe dinheiro no caixa **hoje** e vai atrás dos clientes depois. É o
+**inverso** do modelo de comissão, onde a casa paga depois de receber.
+
+### A conta do lote — o desconto É a comissão (e é o argumento de venda)
+
+O pitch pro agente é **lucro imediato e visível**:
+
+| Lote promocional | Ele paga | Custo/crédito | Vende a R$77,70 → recebe | **Lucro dele** | Sua receita/venda |
+|---|---|---|---|---|---|
+| avulso (1) | R$77,70 | R$77,70 | R$77,70 | R$0 | R$77,70 |
+| **5 créditos** (-20%) | R$310,80 | R$62,16 | R$388,50 | **+R$77,70** | R$62,16 |
+| **10 créditos** (-30%) | R$543,90 | R$54,39 | R$777,00 | **+R$233,10** | R$54,39 |
+| **20 créditos** (-40%) | R$932,40 | R$46,62 | R$1.554,00 | **+R$621,60** | R$46,62 |
+
+> **O pitch:** *"Compra 10 por R$543,90. Cada um você vende por R$77,70 — R$777 no bolso. **Lucro de R$233
+> no lote**, e o preço da rua continua o mesmo pro cliente."*
+
+➡️ O **desconto do lote define a comissão** — e é auto-executável: ele já embolsou a diferença na hora que
+cobrou o cliente. **Não existe folha de comissão, repasse, nem inadimplência.**
+
+### ⚠️ Riscos (dizer em voz alta ANTES de construir)
+
+1. **Crédito vendido é PASSIVO** (receita diferida). Comprou 10, usou 3 → **você deve 7 ativações**. Tem que
+   aparecer no balanço, não só na conta bancária. **Não gastar como se fosse lucro** — esse é o erro clássico
+   que quebra quem vende pré-pago.
+2. **Crédito precisa de validade.** Sem prazo, o passivo é eterno. (Ex.: 12 meses.)
+3. **O agente pode furar o preço.** Comprou a R$54,39 e pode vender a R$60 pra fechar rápido — detonando a
+   âncora dos R$77,70 na rua e competindo com os outros agentes. **Decidir:** preço **tabelado** ou liberdade.
+   *Recomendação: **tabelado**. O preço é ativo da marca, não do agente.*
+4. **⚠️ Muda a natureza fiscal do negócio** — de **agência com comissão** pra **distribuição/revenda**. A
+   empresa vende crédito ao agente (nota contra o agente); o agente cobra o cliente final. **Quem emite a
+   nota pro cliente?** Isso é conversa de **CONTADOR**, não de advogado — e precisa acontecer **antes do
+   primeiro lote vendido**.
+5. **O lote inverte o risco pro agente.** Ele põe dinheiro **antes** de vender. Se não vender, **ele** fica
+   no prejuízo (não você). Isso é ótimo pro teu caixa — e é exatamente o que **um mau desenho de promoção
+   transforma em revolta**. Casar o tamanho do lote com a capacidade real de venda dele: **um novato não
+   compra lote de 20.**
+6. **Cuidado com o discurso de "lucro imediato".** É verdade que o lucro é imediato **na venda** — mas o
+   lote é um **investimento com risco**. Vender lote grande a quem nunca vendeu nada é empurrar estoque —
+   e aí você volta pro território que decidiu evitar ("euforia alta, atividade real baixa").
+
+### Técnico — reusa a carteira virtual, não é sistema novo
+
+O mesmo ledger (`wallet_entries`) serve aos dois casos, mudando só a **origem** do crédito:
+
+| origem | como entra | como sai |
+|---|---|---|
+| **indicação convertida** | bônus automático (webhook) | abate a própria renovação ou upsell |
+| **lote comprado** | cobrança Asaas paga pelo agente → webhook credita o saldo | **ativa empresa de cliente** (debita saldo, grava `crm_invoice` com `payment_method = credito_carteira`, seta `plan_expires_at` +6m) |
+
+➡️ A ativação por crédito **não passa pelo Asaas** — é escrita direta no banco. Por isso ela **precisa gerar
+`crm_invoice` mesmo assim**, senão a venda some do LTV e da carteira. **Mais uma razão pra Fase 0 vir
+primeiro:** sem o ledger de invoices, a venda por crédito seria **invisível** — e você teria receita entrando
+sem rastro de quem vendeu pra quem.
+
 ## O que fica com quem
 
 | | Durante a qualificação | Depois de entitulado |
