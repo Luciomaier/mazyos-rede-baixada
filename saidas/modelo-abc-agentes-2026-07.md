@@ -88,6 +88,54 @@ muda a recompensa no fim. **Não decidir isso agora** — mas saber que existe, 
 do cliente precisaria de um **"indique e ganhe"** com link próprio (encaixa naturalmente no painel
 **"Meus Serviços"** da Fase 1 do roadmap).
 
+## 💱 A indicação é uma MOEDA — vale pra todo mundo (Lucio, 11/07)
+
+> *"Um usuário indicando a cota de clientes, ele **ativa também o sistema dele**."*
+
+Esta é a generalização que fecha o modelo: **indicação vale como dinheiro** — não só pra quem quer virar
+agente, mas **pro cliente comum também**. Quem indica a cota **ativa/renova o próprio plano sem pagar**.
+
+| Quem | Mantém o acesso... | ...ou, alternativamente |
+|---|---|---|
+| **Cliente** | pagando **R$77,70 / 6 meses** | **indicando a cota** → ciclo ativado **de graça** |
+| **Candidato a agente** | — | **indicando a cota** → ganha a **conta de agente** + bônus |
+| **Agente entitulado** | **ficando ativo** (produzindo no ciclo) | — |
+
+**Uma moeda só, três usos.** É o que faz a "recorrência suave" girar por toda a rede: cliente, candidato e
+agente sustentam seu lugar com a mesma coisa — **trazer negócio novo pra dentro**.
+
+### O motor de crescimento (e por que isso é grande)
+
+Todo cliente passa a ter **motivo próprio** pra trazer os vizinhos comerciantes. O canal PaP deixa de
+depender das pernas do agente: **cada venda planta a próxima**. E o incentivo é honesto — o cliente não
+ganha "dinheiro por recrutar", ele **ganha o próprio serviço**.
+
+### ⚠️ A conta que decide tudo: qual é a COTA?
+
+A cota é o **dial de caixa** — ela decide se isso **gera** dinheiro ou só **troca** dinheiro por crescimento.
+Com renovação de R$77,70 e indicações **convertidas** (que pagaram):
+
+| Cota | Entra em caixa | Deixa de entrar | Saldo | Leitura |
+|---|---|---|---|---|
+| **5 convertidas** | R$388,50 | R$77,70 | **+R$310,80** | 5× de retorno — folgado |
+| **3 convertidas** | R$233,10 | R$77,70 | **+R$155,40** | 3× — confortável |
+| **2 convertidas** | R$155,40 | R$77,70 | **+R$77,70** | 2× — ainda positivo |
+| **1 convertida** | R$77,70 | R$77,70 | **R$0** | caixa **empata** — você troca receita por 1 cliente novo |
+
+➡️ Mesmo na cota 1 você **ganha um cliente na base** (que pode indicar também), mas **não entra caixa novo**.
+Se o objetivo é **caixa** (é: substituir o Uber, construir reserva), a cota tem que ser **≥3**. Se o objetivo
+for **crescer a base rápido** numa janela específica, cota 1–2 vira uma campanha — mas com prazo, não como
+regra permanente.
+
+### Regras anti-abuso (não negociáveis, se isso for pra frente)
+
+- **Só conta indicação CONVERTIDA** — cliente que **pagou**. Indicação "apresentada" não vale nada, senão
+  vira lista telefônica.
+- **Estorno/chargeback descontam** — se o indicado pediu o dinheiro de volta, a indicação **deixa de contar**
+  (o webhook já sabe revogar em `PAYMENT_REFUNDED`/`CHARGEBACK` — a mesma trava serve aqui).
+- **Nada de auto-indicação nem CPF repetido** — o Asaas identifica cliente por documento; usar isso.
+- **Cota por ciclo, não acumulável pra sempre** — senão alguém indica 20 num mês e fica 10 anos de graça.
+
 ## ⏳ Validade do agente — a "recorrência suave" (Lucio, 11/07)
 
 > *"Ele tem que estar **ativo durante o ciclo de 6 meses**, porque é como se ele **pagasse os R$77,70
