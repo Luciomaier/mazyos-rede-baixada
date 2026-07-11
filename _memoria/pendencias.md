@@ -20,6 +20,12 @@
   `externalReference` — hoje é só `company_id|plan_slug|parceiro`, sem agente).
 
 ### Depende do Lucio (ação manual)
+- [ ] **Cancelar a fatura Asaas 855418887** (R$77,70, vence 14/07) — sobra do teste de 11/07.
+- [ ] **DECISÃO: migrar as 16 empresas dos planos legados?** (descoberto 11/07) — a base paga ainda está
+  em `pro` (12), `profissional` (3) e `premium` (1); os planos novos (`presenca`/`destaque`/`autoridade`)
+  têm **outro preço e outros recursos**. O código hoje trata os dois mundos (`LEGACY_PLAN_EQUIVALENT` em
+  `usePlans.ts`), então **não é urgente** — mas enquanto não migrar, convivem dois vocabulários de plano.
+  Migrar é decisão comercial (o que cada cliente passa a receber e a pagar), não técnica.
 - [ ] **Imprimir a folha de vendas** — conteúdo já corrigido e conferido (6 meses,
   "menos de R$13/mês", sem vitrine/vagas). PDF pronto: `marketing/folha-vendas-parceiro-v2.pdf`
   (cliente) e `marketing/folha-operador-pap.pdf` (interno). Abrir → Ctrl+P → A4, frente-e-verso.
