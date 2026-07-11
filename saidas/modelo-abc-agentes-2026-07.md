@@ -17,27 +17,56 @@ fecha.
 1. O agente convida um candidato.
 2. O candidato **indica clientes** — e acompanha o agente na porta (aprende vendo a venda acontecer).
 3. **Quem vende é o agente**, e a venda é dele: comissão, cliente, carteira.
-4. Ao cumprir a qualificação — **N indicações convertidas** (faixa citada: **5 a 10**) — o candidato ganha:
+4. Ao cumprir a qualificação — **10 indicações convertidas** *(número afinado pelo Lucio em 11/07:
+   "pra um agente bom, fechar 10 é fácil")* — o candidato ganha:
    - **o direito a uma conta de agente no sistema** (a "concessão"), e
-   - um **bônus de conclusão** (valor a definir — citado "xx reais", exemplo anterior: R$200).
+   - um **bônus de conclusão** (valor a definir).
 5. A partir daí ele opera **carteira própria, do zero** — e pode, ele mesmo, qualificar outros.
 6. **Nível acima (futuro):** possivelmente um **supervisor** sobre os agentes.
 
-## 🔑 A chave conceitual: a concessão é paga com indicação, não com dinheiro
+## 💰 O preço de entrada: 10 indicações **ou** R$77,70
 
-*(Lucio, 11/07 — é a ideia que estava escondida atrás da mecânica.)*
+*(Lucio, 11/07: "na prática, ou ele indica 10 ou paga R$77,70 pra entrar".)*
 
-As N indicações **são o preço da concessão**. Numa franquia comum, o candidato paga uma **taxa de entrada em
-dinheiro** pra ter o direito de operar. Aqui ele **paga com indicação** — com clientes reais trazidos pra
-rede.
+**Todo mundo na plataforma tem uma conta que vale R$77,70 / 6 meses** — cliente ou agente. O que muda é a
+**moeda com que se paga**:
 
-> **Não é trabalhar de graça. É comprar a concessão com indicação em vez de capital.**
+> **Não é trabalhar de graça. É comprar a entrada com indicação em vez de capital.**
 
-Isso resolve três coisas de uma vez:
+- **É o pitch de recrutamento.** *"Você não paga nada pra entrar. Me indica 10 clientes — eu vou junto e
+  fecho todos, você vê como se faz. Cumpriu, a conta de agente é sua."* Compare com a franquia que cobra
+  R$5–20 mil de taxa de entrada de quem nem sabe se sabe vender.
+- **E quem tiver pressa paga.** Os R$77,70 são a **alternativa em dinheiro** pra quem não quer (ou não
+  consegue) indicar 10.
 
-- **É o pitch de recrutamento.** *"Você não paga nada pra entrar. Me indica 5 clientes, eu vou junto e
-  fecho — você vê como se faz. Cumpriu, a conta de agente é sua, com bônus. Aí a carteira passa a ser sua."*
-  Compare com a franquia que cobra R$5–20 mil de taxa de entrada de quem nem sabe se sabe vender.
+## 🔁 Entrada × manutenção — quem paga o quê, e como
+
+⚠️ **Correção importante (Lucio, 11/07):** a indicação paga a **ENTRADA**, não a **MANUTENÇÃO** do agente.
+Na **reativação**, o agente entitulado paga **R$77,70 em dinheiro** — *"porque ele já não é mais agente em
+formação, então ele tem que vender e ganhar"*.
+
+| Quem | Entrada | Manutenção (a cada 6 meses) |
+|---|---|---|
+| **Cliente** | R$77,70 | **R$77,70** — pode abater com crédito da carteira virtual |
+| **Agente em formação** | **10 indicações convertidas** *ou* R$77,70 | — (ainda em formação) |
+| **Agente entitulado** | *(já entrou)* | **R$77,70 em dinheiro** — ele vive de comissão agora |
+
+*(Ideia futura do Lucio, não decidida: "depois podemos colocar algum benefício de indicação para agentes".)*
+
+### 💡 O pagamento É o filtro de atividade
+
+Isso resolve, de graça, o problema que a versão anterior deste doc tentava resolver com régua de
+produtividade: **agente que não vende não vai querer pagar os R$77,70 — e sai sozinho.**
+
+- **Some a necessidade de meta obrigatória**, de "quanto é ser ativo", de fiscalizar produtividade.
+- **Some junto o cheiro de subordinação** — e com ele, boa parte do risco trabalhista. Ninguém é cobrado;
+  a pessoa só decide se vale a pena renovar a própria conta.
+- A **seleção é econômica, não disciplinar.** Quem produz, paga sem sentir (uma venda cobre a conta com
+  folga). Quem não produz, se desliga sozinho.
+
+**Continua em aberto:** o que acontece com a **carteira** do agente que **não renova** — os clientes dele
+ficam desassistidos? Vão pro supervisor? Voltam pra casa? Precisa estar no termo **antes** do primeiro
+agente (ver riscos).
 - **Alinha o incentivo do agente:** cada candidato **fomenta a carteira do titular** — que é o ativo real
   (o LTV não está nos R$77,70, está na graduação do cliente pra Rede Publicidade).
 - **É a blindagem jurídica** (ver seção própria): ninguém paga pra entrar, e o candidato **não trabalha** —
@@ -88,99 +117,72 @@ muda a recompensa no fim. **Não decidir isso agora** — mas saber que existe, 
 do cliente precisaria de um **"indique e ganhe"** com link próprio (encaixa naturalmente no painel
 **"Meus Serviços"** da Fase 1 do roadmap).
 
-## 💱 A indicação é uma MOEDA — vale pra todo mundo (Lucio, 11/07)
+## 👛 Carteira virtual — o cliente indica, acumula crédito, gasta onde quiser (Lucio, 11/07)
 
-> *"Um usuário indicando a cota de clientes, ele **ativa também o sistema dele**."*
+> *"Sou um cliente do agente Barça, prospectado por ele, e indico meu amigo empresário. **Pela indicação
+> ganho um bônus que se acumula**, e depois posso usá-lo **na minha ativação ou em outros produtos** — fica
+> acumulado na **carteira virtual**."*
 
-Esta é a generalização que fecha o modelo: **indicação vale como dinheiro** — não só pra quem quer virar
-agente, mas **pro cliente comum também**. Quem indica a cota **ativa/renova o próprio plano sem pagar**.
+Aqui o cliente comum entra no jogo. Não é preciso querer virar agente: **basta indicar**.
 
-| Quem | Mantém o acesso... | ...ou, alternativamente |
+**Como funciona:**
+1. O cliente indica um amigo empresário/profissional.
+2. A indicação **converte** (o amigo paga) → o cliente ganha um **bônus em crédito**.
+3. O crédito **acumula na carteira virtual** dele.
+4. Ele gasta o saldo onde quiser:
+   - na **própria reativação** (abate os R$77,70 do ciclo seguinte), **ou**
+   - em **outros produtos** — a escada da Rede Publicidade (GMN Turbinado R$149,70, Site Parceiro
+     R$590/ano, Movimento R$250/mês).
+
+### Por que crédito é melhor que "cota → renovação grátis"
+
+*(Substitui a mecânica de cota binária que estava rascunhada antes — a do Lucio é melhor.)*
+
+- **Não é tudo-ou-nada.** Uma indicação já vale alguma coisa. A cota exigia acertar o número exato pra
+  sentir qualquer benefício.
+- **Vira alavanca de upsell.** O crédito pode ser gasto **subindo a escada** — e é justamente aí que está o
+  LTV real (o roadmap diz: o dinheiro não está nos R$77,70, está na graduação pra Rede Publicidade). Crédito
+  acumulado é um **empurrão pronto** pro GMN ou pro Site.
+- **Segura o cliente.** Saldo na carteira é **motivo pra ficar** — sair é perder o que acumulou.
+- **É mais seguro juridicamente.** O cliente **não recebe dinheiro por indicar** — recebe **crédito de
+  serviço**. Isso é programa de fidelidade, não remuneração por recrutamento. Reforça a linha anti-MLM.
+
+### ⚠️ O dial de caixa: quanto vale o crédito?
+
+**Crédito é passivo** (receita diferida): cada real de crédito é um real que **não vai entrar** depois.
+A trava é simples — **o crédito tem que ser sempre menor que o caixa que a indicação trouxe**.
+
+Com a indicação convertida trazendo **R$77,70**:
+
+| Crédito por indicação | Quantas indicações pagam 1 renovação | Custo real pra você |
 |---|---|---|
-| **Cliente** | pagando **R$77,70 / 6 meses** | **indicando a cota** → ciclo ativado **de graça** |
-| **Candidato a agente** | — | **indicando a cota** → ganha a **conta de agente** + bônus |
-| **Agente entitulado** | **ficando ativo** (produzindo no ciclo) | — |
+| **R$15,54** (20%) | 5 | 20% da receita nova — folgado |
+| **R$19,43** (25%) | 4 | confortável |
+| **R$25,90** (33%) | 3 | ainda saudável |
+| **R$38,85** (50%) | 2 | metade da receita nova vira crédito — apertado |
+| **R$77,70** (100%) | 1 | **caixa empata** — receita nova = crédito dado |
 
-**Uma moeda só, três usos.** É o que faz a "recorrência suave" girar por toda a rede: cliente, candidato e
-agente sustentam seu lugar com a mesma coisa — **trazer negócio novo pra dentro**.
-
-### O motor de crescimento (e por que isso é grande)
-
-Todo cliente passa a ter **motivo próprio** pra trazer os vizinhos comerciantes. O canal PaP deixa de
-depender das pernas do agente: **cada venda planta a próxima**. E o incentivo é honesto — o cliente não
-ganha "dinheiro por recrutar", ele **ganha o próprio serviço**.
-
-### ⚠️ A conta que decide tudo: qual é a COTA?
-
-A cota é o **dial de caixa** — ela decide se isso **gera** dinheiro ou só **troca** dinheiro por crescimento.
-Com renovação de R$77,70 e indicações **convertidas** (que pagaram):
-
-| Cota | Entra em caixa | Deixa de entrar | Saldo | Leitura |
-|---|---|---|---|---|
-| **5 convertidas** | R$388,50 | R$77,70 | **+R$310,80** | 5× de retorno — folgado |
-| **3 convertidas** | R$233,10 | R$77,70 | **+R$155,40** | 3× — confortável |
-| **2 convertidas** | R$155,40 | R$77,70 | **+R$77,70** | 2× — ainda positivo |
-| **1 convertida** | R$77,70 | R$77,70 | **R$0** | caixa **empata** — você troca receita por 1 cliente novo |
-
-➡️ Mesmo na cota 1 você **ganha um cliente na base** (que pode indicar também), mas **não entra caixa novo**.
-Se o objetivo é **caixa** (é: substituir o Uber, construir reserva), a cota tem que ser **≥3**. Se o objetivo
-for **crescer a base rápido** numa janela específica, cota 1–2 vira uma campanha — mas com prazo, não como
-regra permanente.
+➡️ **Recomendação:** começar em **20–25%**. Gera caixa de verdade (e o teu objetivo agora é caixa: largar o
+Uber, montar a reserva), e ainda dá ao cliente uma renovação grátis a cada 4–5 amigos — um prêmio que ele
+sente. **100% (1-por-1) é o limite onde o modelo para de gerar dinheiro** e só troca receita por base.
 
 ### Regras anti-abuso (não negociáveis, se isso for pra frente)
 
-- **Só conta indicação CONVERTIDA** — cliente que **pagou**. Indicação "apresentada" não vale nada, senão
+- **Só conta indicação CONVERTIDA** — o indicado **pagou**. Indicação "apresentada" não vale crédito, senão
   vira lista telefônica.
-- **Estorno/chargeback descontam** — se o indicado pediu o dinheiro de volta, a indicação **deixa de contar**
-  (o webhook já sabe revogar em `PAYMENT_REFUNDED`/`CHARGEBACK` — a mesma trava serve aqui).
-- **Nada de auto-indicação nem CPF repetido** — o Asaas identifica cliente por documento; usar isso.
-- **Cota por ciclo, não acumulável pra sempre** — senão alguém indica 20 num mês e fica 10 anos de graça.
+- **Estorno/chargeback estornam o crédito também** — se o indicado pediu o dinheiro de volta, o crédito
+  some. O webhook já revoga plano em `PAYMENT_REFUNDED`/`CHARGEBACK`; a mesma trava serve pro crédito.
+- **Sem auto-indicação nem CPF repetido** — o Asaas identifica cliente por documento; usar isso.
+- **Crédito tem validade e teto** — senão vira passivo eterno na tua conta. Ex.: expira em 12 meses; não
+  pode zerar 100% de uma fatura (sempre entra algum dinheiro).
+- **Crédito não é sacável.** Nunca vira dinheiro no bolso — só abate serviço. **É isso que mantém o
+  programa longe de "pagamento por recrutamento".**
 
-## ⏳ Validade do agente — a "recorrência suave" (Lucio, 11/07)
+### 💡 O agente também tem carteira virtual
 
-> *"Ele tem que estar **ativo durante o ciclo de 6 meses**, porque é como se ele **pagasse os R$77,70
-> também**. Desta forma gira entre a equipe de vendas e agentes: uma **recorrência suave**."*
-
-A conta de agente **tem validade** — o mesmo ciclo de 6 meses do plano do cliente. E a simetria é o coração
-da ideia:
-
-| | Como conquista | Como mantém | Ciclo |
-|---|---|---|---|
-| **Cliente** | paga R$77,70 | **paga** de novo | 6 meses |
-| **Agente** | **N indicações convertidas** (a concessão) | **fica ativo** (produz) | 6 meses |
-
-**O agente não paga a conta dele com dinheiro — paga com atividade.** É a mesma moeda da concessão: entrou
-indicando, permanece produzindo. Nada é vitalício.
-
-### Por que isso é forte (além da receita)
-
-- **É a blindagem anti-MLM mais forte do modelo.** Mata a **renda passiva**: ninguém recebe pra sempre por
-  trabalho feito uma vez. Pra continuar recebendo da carteira, tem que **continuar servindo a carteira**.
-  Isso é o oposto exato da promessa de MMN ("monte sua rede e receba dormindo").
-- **Resolve a pergunta "manutenção é direito ou dever?"** → **é os dois.** A receita recorrente da carteira
-  é a contrapartida de manter o cliente atendido. Parou de atender, para de receber.
-- **Mantém a base viva.** Agente parado não vira zumbi segurando carteira morta — o cliente dele estaria
-  desassistido, e cliente desassistido não renova.
-
-### ⚠️ A pergunta pesada que essa regra levanta (NÃO decidida)
-
-**O que acontece com a CARTEIRA do agente que ficou inativo?** É a decisão mais delicada do modelo inteiro,
-porque carteira = **receita recorrente de gente de verdade**:
-
-- **(a) Ele perde a carteira** — os clientes voltam pra casa ou vão pra outro agente (o supervisor?
-  quem assumir a manutenção?). Coerente com "quem serve, recebe" — mas é duro, e precisa estar **escrito
-  antes**, nunca decidido no calor.
-- **(b) Ele mantém a carteira, mas não pode captar novos** — mais brando; risco de carteira encostada com
-  cliente mal atendido.
-- **(c) Ele para de receber as renovações, mas o cadastro fica** — meio-termo: o dinheiro segue quem faz a
-  manutenção, o histórico fica registrado.
-
-Ligado a isso: **o que conta como "ativo"?** Quantas vendas/indicações por ciclo de 6 meses? **Não definido.**
-Se a régua for alta demais, vira pressão (e cheiro de subordinação — ver riscos jurídicos). Se for baixa
-demais, não filtra ninguém.
-
-➡️ **Seja qual for a escolha, ela precisa estar no termo assinado ANTES do primeiro agente.** Tirar carteira
-de alguém sem regra escrita é briga garantida.
+O **bônus de conclusão** do agente em formação e (no futuro) os *"benefícios de indicação para agentes"*
+que o Lucio citou podem cair **na mesma carteira** — abatendo a **reativação de R$77,70** dele. Uma
+mecânica só, servindo cliente e agente.
 
 ## O que fica com quem
 
@@ -221,37 +223,47 @@ Hoje o `externalReference` da cobrança é `company_id|plan_slug|parceiro` — *
 **Custo agora: colunas.** Custo depois: migração + reconciliar comissão paga **e carteira mal atribuída**
 (essa é a pior — mexe em quem recebe a receita recorrente).
 
-### A validade do agente reusa a máquina do trial (não é sistema novo)
+### O ciclo do agente reusa a máquina do cliente (não é sistema novo)
 
-O ciclo de 6 meses do agente (ativo → inativo) é **a mesma mecânica** do ciclo do cliente
-(`trial → pago 6m → cinza → oculto → expirado`) que o **item 4 do Sprint 2** já vai construir: coluna de
-vencimento + job agendado (**pg_cron**) que vira o estado sozinho. Muda só o **gatilho da renovação**:
+Como o agente **paga R$77,70 a cada 6 meses igual ao cliente**, ele é — pro sistema — **um assinante como
+qualquer outro**, só com papel diferente. Reusa a mesma máquina de estados + `pg_cron` do **item 4 do Sprint
+2** (`trial → pago 6m → cinza → oculto → expirado`), o mesmo webhook, a mesma renovação. **Não é feature
+nova**, é o mesmo motor com outro papel.
 
-| | gatilho que renova | o que o job checa |
+### A carteira virtual (isso SIM é greenfield — mas encaixa na Fase 1)
+
+| o que | onde | quando |
 |---|---|---|
-| **cliente** | **pagamento** (webhook Asaas) | `plan_expires_at` |
-| **agente** | **atividade** (vendas/indicações no ciclo) | `agent_active_until` + contador do ciclo |
+| **ledger de créditos** (entradas por indicação convertida, saídas por resgate) | tabela nova (`wallet_entries`) | com a Fase 1 |
+| **crédito estornado** quando o indicado toma refund/chargeback | `asaas-webhook` (já trata `PAYMENT_REFUNDED`/`CHARGEBACK`) | Fase 0 |
+| **abater crédito na cobrança** (desconto no `value` do Asaas) | `asaas-create-payment` | com a Fase 1 |
+| **saldo + "indique e ganhe"** na tela do cliente | painel **"Meus Serviços"** (já previsto na **Fase 1**) | Fase 1 |
 
-➡️ Quando o item 4 for construído, **desenhar a máquina de estados genérica o bastante pra servir aos dois**.
-Não construir o do agente agora — só não fechar a porta.
+➡️ O saldo da carteira **cai naturalmente no painel "Meus Serviços"** que a Fase 1 já ia construir. Não é um
+produto novo — é uma aba a mais na tela que já está no roadmap.
 
 ## Riscos e dials (não resolvidos — decidir com o Lucio)
 
-1. **Retenção do candidato.** Sem obrigação nenhuma, o risco não é ele "desistir revoltado" — é ele
-   simplesmente **não indicar** e a qualificação nunca acabar. O motor aqui é o **bônus + a conta de
-   agente** parecerem valer a pena. Dials: valor do bônus (**"xx reais"** — não definido) e **N = 5 ou 10**.
-2. **N = 5 ou 10?** É o **dial principal**: é literalmente o **preço da concessão**. Mais alto = mais ativo
-   pro titular e entrada mais cara; mais baixo = mais agentes formados, mais rápido.
-3. **Indicação "convertida" ou "feita"?** Conta a indicação que **virou venda paga**, ou a que só foi
-   apresentada? *(Recomendação: **convertida** — senão vira lista telefônica.)*
-4. **O titular ganha override depois que o candidato se titula?** Sem isso, o ganho dele termina na
-   formatura. Com isso, vira estrutura de rede — e o cuidado jurídico muda de patamar.
-5. **Quantos candidatos simultâneos**, se o agente vai junto em cada venda? O acompanhamento presencial é o
+1. **Quanto vale o crédito por indicação?** *(o dial de caixa — ver tabela na seção da carteira virtual.)*
+   Recomendação: **20–25%** de R$77,70 (≈R$15,54–19,43). 100% (1-por-1) é onde o modelo **para de gerar
+   caixa**.
+2. **Bônus de conclusão do agente: quanto?** Ainda "xx reais" (exemplo antes citado: R$200). Cai na carteira
+   virtual ou é dinheiro?
+3. **Retenção do candidato.** Sem obrigação nenhuma, o risco não é ele "desistir revoltado" — é ele
+   simplesmente **não indicar** e a qualificação nunca acabar. Dial: o bônus e a conta de agente parecerem
+   valer as 10.
+4. **10 indicações é o número final?** O Lucio afinou pra **10** ("pra um agente bom, fechar 10 é fácil") —
+   mas note que **quem sofre pra fechar 10 é o agente que vai junto**, não o candidato. Vale medir na
+   prática com a Gi/Barça antes de cravar.
+5. **O titular ganha override depois que o candidato se titula?** ⚠️ **É a porta de volta pro MLM.** Sem
+   isso, o ganho dele termina na formatura. Com isso, a receita passa a subir pela profundidade da rede —
+   e o argumento anti-pirâmide enfraquece. **Decidir de olhos abertos, com advogado.**
+6. **A carteira do agente que NÃO renova** (não pagou os R$77,70): os clientes dele ficam desassistidos?
+   Vão pro supervisor? Voltam pra casa? **Precisa estar no termo, escrito antes** — tirar carteira sem regra
+   escrita é briga garantida.
+7. **Quantos candidatos simultâneos**, se o agente vai junto em cada venda? O acompanhamento presencial é o
    gargalo físico — não escala como carteira escala.
-6. **Manutenção é direito ou dever?** O titular acumula receita recorrente **e** carga de atendimento. Um
-   agente com 50 clientes tem trabalho real de manutenção. É aí que **supervisor** ou um time de entrega
-   centralizado deixa de ser luxo.
-7. **Supervisor:** override sobre agentes? Quantos agentes por supervisor?
+8. **Supervisor:** override sobre agentes? Quantos agentes por supervisor?
 
 ## Cuidados jurídicos
 
