@@ -215,10 +215,31 @@ Hoje o `externalReference` da cobrança é `company_id|plan_slug|parceiro` — *
 ➡️ **Recomendação pra Fase 0:**
 1. `externalReference` carrega **`sold_by`, `credited_to` e `indicated_by`** (no caso normal — Lucio
    sozinho — os dois primeiros são ele e o terceiro é vazio).
-2. O webhook, ao criar o `crm_customer`, grava **`owner` = `credited_to`** — é isso que faz **renovação e
-   upsell caírem pro titular** sem reconciliação manual depois.
+2. O webhook, ao criar o `crm_customer`, grava **`owner_user_id` = `credited_to`** — é isso que faz
+   **renovação e upsell caírem pro titular** sem reconciliação manual depois.
 3. **`indicated_by` é o contador da qualificação** — e, de brinde, serve pra **qualquer indicação**
    (cliente satisfeito que indica outro), não só pro ABC. É um campo genérico e barato.
+
+**📋 Schema real (lido no banco 11/07) — o que existe e o que falta:**
+- ✅ **`crm_commissions` já tem `agent_user_id`** — a comissão é a parte mais pronta.
+- ❌ **`crm_customers` NÃO tem campo de dono/agente** → a "carteira" precisa de **migração**
+  (`owner_user_id`). Não é "só ligar o fio".
+- ❌ **`companies` não tem coluna de dono** — titularidade vem de `company_members` (user_id + role).
+- ❌ `crm_invoices` não tem `unit`, `sold_by`, `credited_to` nem `indicated_by`.
+- 📉 **`crm_invoices` e `crm_subscriptions` = 0 registros.** Prova empírica: o webhook nunca alimentou o
+  CRM. Detalhe completo em [`sprint-2-2026-07.md`](sprint-2-2026-07.md#fase-0).
+
+**A ativação é da EMPRESA, não do usuário** *(confirmado no código e no schema, 11/07)*: o plano mora em
+`companies.plan_slug` + `plan_expires_at`; o webhook atualiza por `company_id`. Um usuário pode ter várias
+empresas (`company_members`), **cada uma com seu próprio plano e vencimento**. Você **paga por empresa
+ativa**.
+
+➡️ **Consequência pro agente:** ele **continua sendo um usuário comum**, com as mesmas regalias (inclusive
+criar empresas). O que o diferencia é só o **papel**. Então a conta dele **não precisa de um "plano de
+agente" novo** — ele **se mantém ativo mantendo a própria empresa ativa** (paga R$77,70/6m como qualquer
+cliente, pela empresa dele). **Zero conceito de cobrança novo, zero tabela nova.** E tem uma coerência
+bonita: **o agente usa o produto que vende** — é um empreendedor da rede com o próprio negócio no portal,
+não um funcionário com uma licença.
 
 **Custo agora: colunas.** Custo depois: migração + reconciliar comissão paga **e carteira mal atribuída**
 (essa é a pior — mexe em quem recebe a receita recorrente).

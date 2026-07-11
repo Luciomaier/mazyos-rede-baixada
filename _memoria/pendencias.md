@@ -41,6 +41,11 @@
 
 ## Resolvidas
 
+- [x] **Faxina do banco de produção** (11/07/2026) — apagados **7 empresas**, **15 usuários** e **4 leads**
+  de teste. Sobrou: **3 usuários** (Lucio, Elis, Nick) e **39 empresas** (todas reais). Nenhuma empresa
+  ficou órfã (conferido antes: `company_members` dos apagados = 0).
+  ⚠️ **Falta só o Lucio:** cancelar a **fatura Asaas 855418887** (R$77,70, vence 14/07) — o Chrome não tem
+  sessão no Asaas, não dá pra fazer por aqui.
 - [x] **Teste do fluxo 77,70 ponta a ponta** (11/07/2026) — rodado em **produção**, tudo passou: link
   privilegiado → R$77,70 (de R$155,40) · "trocar de conta" · cadastro inline · auto-login · modal do CPF ·
   **checkout Asaas em R$77,70** com PIX/boleto/crédito/débito. Gate de preço server-side confirmado por
