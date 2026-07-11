@@ -257,24 +257,47 @@ bônus. Ponto.
 passa a vir da **profundidade da rede**, a energia migra de *vender pro comerciante* pra *recrutar gente*.
 Muita euforia, pouca venda real. Fica **reavaliável no futuro**, com advogado, se houver motivo.
 
-### 2. Carteira do agente que sai (não renovou): **herda a EMPRESA (CDBL1)**
+### 0. O que é o CDBL1 — a raiz da rede (Lucio, 11/07)
+
+> *"O CDBL1 é **o primeiro da rede** — geralmente o dono da empresa, ou o primeiro cadastro. Todos os
+> usuários ficam conectados **em cascata a partir do CDBL1** (Lucio), o primeiro agente."*
+
+**CDBL1 = nó raiz**, também chamado de **"cadastro Zero"**. Não é uma pessoa jurídica: é a **posição zero**
+da rede. Hoje é o **Lucio** (dono + primeiro agente). Todo usuário — cliente, candidato ou agente — pendura
+numa **cascata** a partir dele.
+
+**A cascata é um REGISTRO de genealogia, não um caminho de dinheiro.** Ela serve pra:
+- saber **quem trouxe quem** (reconhecimento, histórico, disputa de crédito),
+- decidir **reatribuição** de carteira com contexto (quem conhece aquele cliente),
+- ler **território** e densidade da rede.
+
+🚨 **TRAVA — leia antes de mexer nisso:** uma árvore de upline é, estruturalmente, a **genealogia de um
+MLM**. Ela só é inofensiva **enquanto dinheiro não fluir por ela pra cima**. O override foi rejeitado
+(seção 1) — então hoje **não flui**. O perigo é justamente esse: **com a árvore pronta no banco, ligar o
+override vira uma linha de código.** A tentação fica barata. Se um dia for ligado, que seja **decisão
+consciente com advogado**, nunca um "já que está aí".
+
+### 2. Carteira do agente que sai (não renovou): **sobe direto pro CDBL1 (a raiz)**
 
 > *"Se o agente sair, compactamos a rede para o acima… ou para a empresa, pois ela pode herdar e dar
 > sequência **sem haver injustiça e benefícios de interesses alheios**."* — Lucio
 
-**Recomendação (Claude) e decisão: a EMPRESA herda.** Não "compactar pra cima".
+**Decisão: a carteira órfã sobe DIRETO pro CDBL1 (a raiz / cadastro Zero) — pulando todos os
+intermediários.** Nunca pro upline imediato.
 
-**Por quê — "compactar pra cima" cria incentivo perverso:**
-- O **supervisor lucraria com a queda do agente abaixo dele**. Herdar carteira **por posição hierárquica** é
-  o mesmo mecanismo do override que acabou de ser rejeitado — só que pior, porque agora o de cima tem
-  **interesse no fracasso do de baixo**. É a definição literal de "benefício de interesse alheio".
-- **A empresa herdando é neutra:** ninguém ganha com a saída de ninguém.
+**A palavra que faz o modelo funcionar é "pulando".**
+- Se a carteira subisse **um nível**, o supervisor/mentor **lucraria com a queda de quem está abaixo dele**.
+  Herança por posição hierárquica é o mesmo mecanismo do override rejeitado — só que pior, porque cria
+  **interesse no fracasso alheio**. É a definição literal de "benefício de interesse alheio".
+- Subindo **direto pra raiz** (que é o dono/a empresa), **ninguém no meio ganha com o fracasso de ninguém**.
+  A raiz é neutra: ela não é um par competindo, é a casa.
 
 **Como funciona na prática:**
-1. Agente não renova (não pagou os R$77,70) → a **titularidade** dos clientes dele volta pra **empresa**.
-2. A empresa **reatribui rápido** a quem vai de fato **atender** aquele cliente — por território, por
-   atividade, por quem levantar a mão. *(Pode ser o supervisor — mas por **decisão de serviço**, nunca por
-   herança automática de hierarquia.)*
+1. Agente não renova (não pagou os R$77,70) → a **titularidade** dos clientes dele sobe pro **CDBL1**.
+2. O CDBL1 **reatribui rápido** a quem vai de fato **atender** aquele cliente — por território, por
+   atividade, por quem levantar a mão. *(Pode até ser o antigo mentor — mas por **decisão de serviço**,
+   nunca por **herança automática de hierarquia**. A diferença não é semântica: é o que impede o incentivo
+   perverso.)*
 3. **Quem passa a servir, passa a receber.** O princípio do modelo inteiro se mantém.
 
 ⚠️ **Herança é de titularidade, não abandono.** O cliente **não pode ficar desassistido** no meio do caminho
@@ -308,8 +331,15 @@ briga. Regra clara na entrada evita processo na saída.
    salário/pró-labore, ou uma carteira própria (ele também vende), ou remuneração por **entrega de serviço**
    (manutenção dos clientes reatribuídos). Vale definir *antes* de criar o cargo — senão ele vira um nível
    sem função econômica.
-9. **O que é exatamente a "CDBL1"?** *(não documentado no workspace — o Lucio precisa confirmar a entidade;
-   a conta Asaas hoje fatura como **REDE PUBLICIDADE E TECNOLOGIA**, CNPJ 64.184.761/0001-23.)*
+9. ~~O que é a CDBL1?~~ → **respondido 11/07:** é o **nó raiz / "cadastro Zero"** da rede — o dono ou
+   primeiro cadastro (hoje o **Lucio**), de quem todos descem em cascata. *(Não confundir com a pessoa
+   jurídica: a conta Asaas fatura como **REDE PUBLICIDADE E TECNOLOGIA**, CNPJ 64.184.761/0001-23.)*
+10. **A raiz precisa ser uma pessoa (Lucio) ou a PJ?** Hoje coincidem. **Quando o Lucio quiser sair da
+    operação** — ou se a holding for reestruturada — a carteira órfã estaria pendurada num **CPF**, não na
+    empresa. Vale decidir se o CDBL1 é um **papel** (transferível) em vez de uma pessoa. Barato de resolver
+    agora, caro depois.
+11. **Estrutura técnica da cascata:** `upline_id` auto-referente no usuário (barato). ⚠️ Ver a **trava** na
+    seção 0 — a árvore só é inofensiva enquanto **dinheiro não fluir por ela pra cima**.
 
 ## Cuidados jurídicos
 
