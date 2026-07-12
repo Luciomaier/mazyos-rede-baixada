@@ -1,0 +1,806 @@
+- generic [active] [ref=e1]:
+  - text: 
+  - text:  
+  - generic [ref=e3]:
+    - navigation [ref=e6]:
+      - button [ref=e7] [cursor=pointer]:
+        - generic [ref=e9]: 
+      - generic [ref=e10]:
+        - link "Logomarca Asaas Logomarca Asaas" [ref=e11] [cursor=pointer]:
+          - /url: /dashboard/index
+          - img "Logomarca Asaas" [ref=e12]
+          - img "Logomarca Asaas" [ref=e13]
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - button "Criar cobrança" [ref=e17] [cursor=pointer]:
+              - generic [ref=e18]: Criar cobrança
+            - button [ref=e19] [cursor=pointer]:
+              - generic [ref=e21]: 
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic: Criar cobrança
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic: Criar Link de Pagamento
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic: Simular Venda
+        - generic [ref=e27]:
+          - generic:
+            - generic:
+              - generic [ref=e29]:
+                - button "Início" [ref=e30] [cursor=pointer]:
+                  - generic [ref=e32]: 
+                  - generic [ref=e33]: Início
+                - generic:
+                  - tooltip
+              - generic [ref=e35]:
+                - button "Meus Clientes" [ref=e36] [cursor=pointer]:
+                  - generic [ref=e38]: 
+                  - generic [ref=e39]: Meus Clientes
+                  - generic [ref=e41]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e43]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e45]:
+                        - button "Clientes" [ref=e46] [cursor=pointer]:
+                          - generic [ref=e48]: 
+                          - generic [ref=e49]: Clientes
+                        - generic:
+                          - tooltip
+                      - generic [ref=e51]:
+                        - button "Grupos" [ref=e52] [cursor=pointer]:
+                          - generic [ref=e54]: 
+                          - generic [ref=e55]: Grupos
+                        - generic:
+                          - tooltip
+              - generic [ref=e57]:
+                - button "Cobranças 1" [ref=e58] [cursor=pointer]:
+                  - generic [ref=e60]: 
+                  - generic [ref=e61]: Cobranças
+                  - generic [ref=e65]:
+                    - generic: "1"
+                  - generic [ref=e67]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e69]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e71]:
+                        - button "Todas" [ref=e72] [cursor=pointer]:
+                          - generic [ref=e74]: 
+                          - generic [ref=e75]: Todas
+                        - generic:
+                          - tooltip
+                      - generic [ref=e77]:
+                        - button "Avulsas" [ref=e78] [cursor=pointer]:
+                          - generic [ref=e80]: 
+                          - generic [ref=e81]: Avulsas
+                        - generic:
+                          - tooltip
+                      - generic [ref=e83]:
+                        - button "Parcelamentos" [ref=e84] [cursor=pointer]:
+                          - generic [ref=e86]: 
+                          - generic [ref=e87]: Parcelamentos
+                        - generic:
+                          - tooltip
+                      - generic [ref=e89]:
+                        - button "Assinaturas" [ref=e90] [cursor=pointer]:
+                          - generic [ref=e92]: 
+                          - generic [ref=e93]: Assinaturas
+                        - generic:
+                          - tooltip
+                      - generic [ref=e95]:
+                        - button "Grupos" [ref=e96] [cursor=pointer]:
+                          - generic [ref=e98]: 
+                          - generic [ref=e99]: Grupos
+                        - generic:
+                          - tooltip
+                      - generic [ref=e101]:
+                        - button "Simulador de vendas" [ref=e102] [cursor=pointer]:
+                          - generic [ref=e104]: 
+                          - generic [ref=e105]: Simulador de vendas
+                        - generic:
+                          - tooltip
+                      - generic [ref=e107]:
+                        - button "Chargeback" [ref=e108] [cursor=pointer]:
+                          - generic [ref=e110]: 
+                          - generic [ref=e111]: Chargeback
+                        - generic:
+                          - tooltip
+                      - generic [ref=e113]:
+                        - button "Personalizar notificações 1" [ref=e114] [cursor=pointer]:
+                          - generic [ref=e116]: 
+                          - generic [ref=e117]: Personalizar notificações
+                          - generic [ref=e121]:
+                            - generic: "1"
+                        - generic:
+                          - tooltip
+              - generic [ref=e123]:
+                - button "Vendas físicas 1" [ref=e124] [cursor=pointer]:
+                  - generic [ref=e126]: 
+                  - generic [ref=e127]: Vendas físicas
+                  - generic [ref=e131]:
+                    - generic: "1"
+                - generic:
+                  - tooltip
+              - generic [ref=e133]:
+                - button "Pix 1" [ref=e134] [cursor=pointer]:
+                  - generic [ref=e136]: 
+                  - generic [ref=e137]: Pix
+                  - generic [ref=e141]:
+                    - generic: "1"
+                  - generic [ref=e143]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e145]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e147]:
+                        - button "Transferências" [ref=e148] [cursor=pointer]:
+                          - generic [ref=e150]: 
+                          - generic [ref=e151]: Transferências
+                        - generic:
+                          - tooltip
+                      - generic [ref=e153]:
+                        - button "Minhas chaves" [ref=e154] [cursor=pointer]:
+                          - generic [ref=e156]: 
+                          - generic [ref=e157]: Minhas chaves
+                        - generic:
+                          - tooltip
+                      - generic [ref=e159]:
+                        - button "Meus limites" [ref=e160] [cursor=pointer]:
+                          - generic [ref=e162]: 
+                          - generic [ref=e163]: Meus limites
+                        - generic:
+                          - tooltip
+                      - generic [ref=e165]:
+                        - button "Pix recorrentes" [ref=e166] [cursor=pointer]:
+                          - generic [ref=e168]: 
+                          - generic [ref=e169]: Pix recorrentes
+                        - generic:
+                          - tooltip
+                      - generic [ref=e171]:
+                        - button "Pix Automático 1" [ref=e172] [cursor=pointer]:
+                          - generic [ref=e174]: 
+                          - generic [ref=e175]: Pix Automático
+                          - generic [ref=e179]:
+                            - generic: "1"
+                        - generic:
+                          - tooltip
+                      - generic [ref=e181]:
+                        - button "Contestações Pix" [ref=e182] [cursor=pointer]:
+                          - generic [ref=e184]: 
+                          - generic [ref=e185]: Contestações Pix
+                        - generic:
+                          - tooltip
+              - generic [ref=e187]:
+                - button "Links de Pagamento" [ref=e188] [cursor=pointer]:
+                  - generic [ref=e190]: 
+                  - generic [ref=e191]: Links de Pagamento
+                - generic:
+                  - tooltip
+              - generic [ref=e193]:
+                - button "Cartão Asaas" [ref=e194] [cursor=pointer]:
+                  - generic [ref=e196]: 
+                  - generic [ref=e197]: Cartão Asaas
+                - generic:
+                  - tooltip
+              - generic [ref=e199]:
+                - button "Consulta Serasa" [ref=e200] [cursor=pointer]:
+                  - generic [ref=e202]: 
+                  - generic [ref=e203]: Consulta Serasa
+                - generic:
+                  - tooltip
+              - generic [ref=e205]:
+                - button "Meu Dinheiro 1" [ref=e206] [cursor=pointer]:
+                  - generic [ref=e208]: 
+                  - generic [ref=e209]: Meu Dinheiro
+                  - generic [ref=e213]:
+                    - generic: "1"
+                  - generic [ref=e215]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e217]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e219]:
+                        - button "Extrato" [ref=e220] [cursor=pointer]:
+                          - generic [ref=e222]: 
+                          - generic [ref=e223]: Extrato
+                        - generic:
+                          - tooltip
+                      - generic [ref=e225]:
+                        - button "Transferências" [ref=e226] [cursor=pointer]:
+                          - generic [ref=e228]: 
+                          - generic [ref=e229]: Transferências
+                        - generic:
+                          - tooltip
+                      - generic [ref=e231]:
+                        - button "Pague Contas 1" [ref=e232] [cursor=pointer]:
+                          - generic [ref=e234]: 
+                          - generic [ref=e235]: Pague Contas
+                          - generic [ref=e239]:
+                            - generic: "1"
+                        - generic:
+                          - tooltip
+                      - generic [ref=e241]:
+                        - button "Registro de recebíveis" [ref=e242] [cursor=pointer]:
+                          - generic [ref=e244]: 
+                          - generic [ref=e245]: Registro de recebíveis
+                        - generic:
+                          - tooltip
+              - generic [ref=e247]:
+                - button "Antecipações 1" [ref=e248] [cursor=pointer]:
+                  - generic [ref=e250]: 
+                  - generic [ref=e251]: Antecipações
+                  - generic [ref=e255]:
+                    - generic: "1"
+                  - generic [ref=e257]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e259]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e261]:
+                        - button "Minhas antecipações" [ref=e262] [cursor=pointer]:
+                          - generic [ref=e264]: 
+                          - generic [ref=e265]: Minhas antecipações
+                        - generic:
+                          - tooltip
+                      - generic [ref=e267]:
+                        - button "Antecipar recebimento" [ref=e268] [cursor=pointer]:
+                          - generic [ref=e270]: 
+                          - generic [ref=e271]: Antecipar recebimento
+                        - generic:
+                          - tooltip
+                      - generic [ref=e273]:
+                        - button "Antecipação automática 1" [ref=e274] [cursor=pointer]:
+                          - generic [ref=e276]: 
+                          - generic [ref=e277]: Antecipação automática
+                          - generic [ref=e281]:
+                            - generic: "1"
+                        - generic:
+                          - tooltip
+              - generic [ref=e283]:
+                - button "Notas Fiscais" [ref=e284] [cursor=pointer]:
+                  - generic [ref=e286]: 
+                  - generic [ref=e287]: Notas Fiscais
+                  - generic [ref=e289]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e291]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e293]:
+                        - button "Todas" [ref=e294] [cursor=pointer]:
+                          - generic [ref=e296]: 
+                          - generic [ref=e297]: Todas
+                        - generic:
+                          - tooltip
+                      - generic [ref=e299]:
+                        - button "Configurações" [ref=e300] [cursor=pointer]:
+                          - generic [ref=e302]: 
+                          - generic [ref=e303]: Configurações
+                        - generic:
+                          - tooltip
+              - generic [ref=e305]:
+                - button "Open Finance" [ref=e306] [cursor=pointer]:
+                  - generic [ref=e308]: 
+                  - generic [ref=e309]: Open Finance
+                  - generic [ref=e311]: 
+                - generic:
+                  - tooltip
+                - generic [ref=e313]:
+                  - generic:
+                    - generic:
+                      - generic [ref=e315]:
+                        - button "Meus pagamentos" [ref=e316] [cursor=pointer]:
+                          - generic [ref=e318]: 
+                          - generic [ref=e319]: Meus pagamentos
+                        - generic:
+                          - tooltip
+                      - generic [ref=e321]:
+                        - button "Minhas autorizações" [ref=e322] [cursor=pointer]:
+                          - generic [ref=e324]: 
+                          - generic [ref=e325]: Minhas autorizações
+                        - generic:
+                          - tooltip
+                      - generic [ref=e327]:
+                        - button "Contas vínculadas" [ref=e328] [cursor=pointer]:
+                          - generic [ref=e330]: 
+                          - generic [ref=e331]: Contas vínculadas
+                        - generic:
+                          - tooltip
+              - generic [ref=e333]:
+                - button "Negativação" [ref=e334] [cursor=pointer]:
+                  - generic [ref=e336]: 
+                  - generic [ref=e337]: Negativação
+                - generic:
+                  - tooltip
+              - generic [ref=e339]:
+                - button "Seguros 1" [ref=e340] [cursor=pointer]:
+                  - generic [ref=e342]: 
+                  - generic [ref=e343]: Seguros
+                  - generic [ref=e347]:
+                    - generic: "1"
+                - generic:
+                  - tooltip
+              - generic [ref=e349]:
+                - button "Indicar Amigo" [ref=e350] [cursor=pointer]:
+                  - generic [ref=e352]: 
+                  - generic [ref=e353]: Indicar Amigo
+                - generic:
+                  - tooltip
+              - generic [ref=e355]:
+                - button "Meus benefícios 1" [ref=e356] [cursor=pointer]:
+                  - generic [ref=e358]: 
+                  - generic [ref=e359]: Meus benefícios
+                  - generic [ref=e363]:
+                    - generic: "1"
+                - generic:
+                  - tooltip
+    - generic [ref=e364]:
+      - generic [ref=e368]:
+        - generic [ref=e372]:
+          - generic:
+            - generic [ref=e374]:
+              - generic:
+                - generic [ref=e376]:
+                  - generic: Saldo em conta
+                - heading "R$ 51,86" [level=5] [ref=e378]:
+                  - generic:
+                    - generic: R$ 51,86
+            - generic "Ocultar saldo" [ref=e379]:
+              - button [ref=e381] [cursor=pointer]:
+                - generic [ref=e383]: 
+              - generic:
+                - tooltip
+        - generic [ref=e384]:
+          - generic:
+            - generic [ref=e386]:
+              - generic:
+                - button [ref=e389] [cursor=pointer]:
+                  - generic [ref=e391]: 
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - heading "Central de Navegação" [level=6]:
+                            - generic: Central de Navegação
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - 'button "Logomarca BASE by Asaas Base by Asaas, seu ERP integrado! Um ERP completo, gratuito e integrado com a sua Conta Digital Asaas. Onde você pode: Controlar seu fluxo de caixa Gerenciar seu comercial de ponta a ponta Organizar seu estoque Emitir suas notas fiscais de produto e serviço Ativar gratuitamente"':
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - img "Logomarca BASE by Asaas"
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - heading "Base by Asaas, seu ERP integrado!" [level=6]:
+                                              - generic: Base by Asaas, seu ERP integrado!
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - generic:
+                                                    - generic: "Um ERP completo, gratuito e integrado com a sua Conta Digital Asaas. Onde você pode:"
+                                                  - list:
+                                                    - listitem: Controlar seu fluxo de caixa
+                                                    - listitem: Gerenciar seu comercial de ponta a ponta
+                                                    - listitem: Organizar seu estoque
+                                                    - listitem: Emitir suas notas fiscais de produto e serviço
+                                    - generic: Ativar gratuitamente
+                            - separator
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - link "Logomarca Flapp Store Flapp Store Novo A loja de soluções integradas ideais para acelerar seu negócio. Acessar a Flapp Store":
+                                      - /url: https://flappstore.asaas.com
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Logomarca Flapp Store"
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - heading "Flapp Store" [level=6]:
+                                                    - generic: Flapp Store
+                                                - generic:
+                                                  - generic:
+                                                    - generic:
+                                                      - generic:
+                                                        - generic: Novo
+                                          - generic:
+                                            - generic:
+                                              - generic: A loja de soluções integradas ideais para acelerar seu negócio.
+                                          - generic: Acessar a Flapp Store
+                                  - text:    
+            - generic [ref=e393]:
+              - generic:
+                - button "5" [ref=e396] [cursor=pointer]:
+                  - generic [ref=e398]: 
+                  - generic [ref=e402]:
+                    - generic: "5"
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - heading "Alertas" [level=6]:
+                            - generic: Alertas
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic: 
+                                - generic:
+                                  - generic:
+                                    - generic: Estamos carregando os alertas
+                          - text: 
+            - generic [ref=e404]:
+              - generic:
+                - button [ref=e407] [cursor=pointer]:
+                  - generic [ref=e409]: 
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - heading "lucio@redepublicidade.com.br" [level=6]:
+                            - generic: lucio@redepublicidade.com.br
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: "Banco: 461 - Asaas I.P S.A"
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - text: Agência
+                                          - generic:
+                                            - generic: "0001"
+                                          - text: "- Conta"
+                                          - generic:
+                                            - generic: 6892560-1
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - button:
+                                        - generic:
+                                          - generic: 
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - link "Minha conta":
+                                  - /url: /config/index
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Minha conta
+                            - generic:
+                              - generic:
+                                - link "Meus Benefícios Novo":
+                                  - /url: /promotionalArea/index
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Meus Benefícios
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: Novo
+                            - generic:
+                              - generic:
+                                - link "Planos":
+                                  - /url: /customerPlan/index
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Planos
+                            - generic:
+                              - generic:
+                                - link "Taxas":
+                                  - /url: /config/index?tab=fees
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Taxas
+                            - generic:
+                              - generic:
+                                - link "Termos e Contratos":
+                                  - /url: https://central.ajuda.asaas.com/hc/pt-br/sections/32097395091995-Termos-e-contratos
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Termos e Contratos
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Ajuda
+                            - generic:
+                              - generic:
+                                - link "Integrações":
+                                  - /url: /customerConfigIntegrations/index
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Integrações
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 
+                                  - generic:
+                                    - generic:
+                                      - generic: Sair
+      - generic [ref=e410]:
+        - generic:
+          - text: 
+          - generic [ref=e414]:
+            - generic [ref=e417]:
+              - generic [ref=e421]:
+                - generic:
+                  - link "Integrações" [ref=e424] [cursor=pointer]:
+                    - /url: /customerConfigIntegrations/index
+                    - generic [ref=e426]: 
+                    - generic [ref=e427]: Integrações
+                  - generic [ref=e429]:
+                    - generic [ref=e431]: 
+                    - generic [ref=e433]: Webhooks
+              - heading "Webhooks" [level=4] [ref=e437]:
+                - generic: Webhooks
+            - generic [ref=e440]:
+              - generic:
+                - generic [ref=e442]:
+                  - generic [ref=e445]:
+                    - link "Início" [ref=e446] [cursor=pointer]:
+                      - /url: /customerConfigIntegrations/index
+                      - generic [ref=e447]:
+                        - generic [ref=e449]: 
+                        - heading "Início" [level=6] [ref=e451]:
+                          - generic: Início
+                    - link "Chaves de API" [ref=e452] [cursor=pointer]:
+                      - /url: /customerApiAccessToken/index
+                      - generic [ref=e453]:
+                        - generic [ref=e455]: 
+                        - heading "Chaves de API" [level=6] [ref=e457]:
+                          - generic: Chaves de API
+                    - link "Segurança" [ref=e458] [cursor=pointer]:
+                      - /url: /apiAccessControl/index
+                      - generic [ref=e459]:
+                        - generic [ref=e461]: 
+                        - heading "Segurança" [level=6] [ref=e463]:
+                          - generic: Segurança
+                    - link "Webhooks" [ref=e464] [cursor=pointer]:
+                      - /url: /customerConfigIntegrations/webhooks
+                      - generic [ref=e465]:
+                        - generic [ref=e467]: 
+                        - heading "Webhooks" [level=6] [ref=e469]:
+                          - generic: Webhooks
+                    - link "Logs de Requisições" [ref=e470] [cursor=pointer]:
+                      - /url: /customerConfigIntegrations/logs
+                      - generic [ref=e471]:
+                        - generic [ref=e473]: 
+                        - heading "Logs de Requisições" [level=6] [ref=e475]:
+                          - generic: Logs de Requisições
+                    - link "Logs de Webhooks" [ref=e476] [cursor=pointer]:
+                      - /url: /customerConfigIntegrations/webhookLogs
+                      - generic [ref=e477]:
+                        - generic [ref=e479]: 
+                        - heading "Logs de Webhooks" [level=6] [ref=e481]:
+                          - generic: Logs de Webhooks
+                  - generic [ref=e486]:
+                    - generic:
+                      - generic [ref=e488]:
+                        - generic [ref=e489]:
+                          - heading "Meus Webhooks" [level=5] [ref=e495]:
+                            - generic: Meus Webhooks
+                          - button "Adicionar Webhook" [ref=e502] [cursor=pointer]:
+                            - generic [ref=e504]: 
+                            - generic [ref=e505]: Adicionar Webhook
+                        - generic [ref=e511]:
+                          - generic [ref=e514]:
+                            - generic [ref=e516]:
+                              - generic:
+                                - button "Nome" [ref=e518]:
+                                  - generic [ref=e520]:
+                                    - generic:
+                                      - generic: Nome
+                                  - text:  
+                                - button "Situação" [ref=e522]:
+                                  - generic [ref=e524]:
+                                    - generic:
+                                      - generic: Situação
+                                  - text:  
+                                - button "Eventos Penalizados" [ref=e526]:
+                                  - generic [ref=e528]:
+                                    - generic:
+                                      - generic: Eventos Penalizados
+                                  - text:  
+                              - button "Ações" [ref=e530]:
+                                - generic [ref=e532]:
+                                  - generic:
+                                    - generic: Ações
+                                - text:  
+                            - generic [ref=e533]:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic [ref=e535]:
+                                        - generic:
+                                          - generic [ref=e539]:
+                                            - generic:
+                                              - generic: Assinatura Uni Masso
+                                          - generic [ref=e547]:
+                                            - generic: Ativado
+                                          - generic [ref=e552]:
+                                            - generic: "0"
+                                        - button [ref=e555]:
+                                          - generic [ref=e558]:
+                                            - generic [ref=e559]:
+                                              - generic [ref=e560]:
+                                                - button [ref=e562] [cursor=pointer]:
+                                                  - generic [ref=e564]: 
+                                                - generic:
+                                                  - tooltip
+                                              - generic [ref=e565]:
+                                                - button [ref=e567] [cursor=pointer]:
+                                                  - generic [ref=e569]: 
+                                                - generic:
+                                                  - tooltip
+                                            - text: 
+                                            - text: 
+                                      - generic [ref=e571]:
+                                        - generic:
+                                          - generic [ref=e575]:
+                                            - generic:
+                                              - generic: Rede Baixada
+                                          - generic [ref=e583]:
+                                            - generic: Ativado
+                                          - generic [ref=e588]:
+                                            - generic: "0"
+                                        - button [ref=e591]:
+                                          - generic [ref=e594]:
+                                            - generic [ref=e595]:
+                                              - generic [ref=e596]:
+                                                - button [ref=e598] [cursor=pointer]:
+                                                  - generic [ref=e600]: 
+                                                - generic:
+                                                  - tooltip
+                                              - generic [ref=e601]:
+                                                - button [ref=e603] [cursor=pointer]:
+                                                  - generic [ref=e605]: 
+                                                - generic:
+                                                  - tooltip
+                                            - text: 
+                                            - text: 
+                          - generic [ref=e610]:
+                            - generic: 1 a 2 do total de 2 itens
+                      - text:                                                                                       
+                - link "Ficou com dúvidas? Consulte nossa Documentação sobre Webhooks." [ref=e612] [cursor=pointer]:
+                  - /url: https://docs.asaas.com/docs/sobre-os-webhooks
+                  - generic [ref=e613]:
+                    - generic [ref=e615]: 
+                    - generic [ref=e616]: Ficou com dúvidas? Consulte nossa Documentação sobre Webhooks.
+                  - generic [ref=e618]: 
+                - generic:
+                  - generic:
+                    - text: 
+                    - generic:
+                      - generic: Remover Webhook
+                      - generic:
+                        - generic: Tem certeza que deseja remover essa configuração de webhook?
+                - generic:
+                  - generic:
+                    - text: 
+                    - generic:
+                      - generic: Remover penalização
+                      - generic:
+                        - generic: Tem certeza que deseja remover a penalização de todos os eventos dessa configuração?
+  - text: 
+  - generic:
+    - generic:
+      - text: 
+      - generic:
+        - generic:
+          - generic:
+            - generic: Gerentes de conta
+            - generic: "Segunda a sexta: das 8h às 22h."
+            - generic: "Sábados, domingos e feriados: das 8h às 18h."
+          - generic:
+            - generic: Suporte automatizado 24/7
+          - generic:
+            - generic:
+              - text: 
+              - generic: Chat sem sair da página
+            - text:   
+        - generic:
+          - generic: Outros canais
+          - generic:
+            - generic:
+              - text: 
+              - generic: Confira nossos artigos e tire suas dúvidas
+            - generic:
+              - text: 
+              - generic: Materiais sobre gestão financeira, tecnologia e negócios
+  - text:   
+  - generic:
+    - generic:
+      - text: 
+      - generic:
+        - generic:
+          - generic: Ative seu acesso e aproveite todos os benefícios que o nosso ERP oferece para sua empresa!
+        - generic:
+          - generic:
+            - text: 
+            - generic: Integrado com a sua Conta Digital Asaas
+          - generic:
+            - text: 
+            - generic: Sem mensalidade
+          - generic:
+            - text: 
+            - generic: Sem limite de usuários
+        - generic: Quer saber mais sobre o Base?
+  - text:  
+  - generic:
+    - generic:
+      - generic [ref=e620]:
+        - iframe [ref=e621]:
+          - button "Fechar mensagem da empresa" [ref=f12e4] [cursor=pointer]:
+            - img [ref=f12e5]
+        - iframe [ref=e622]:
+          - button "Posso ajudar?" [ref=f13e5] [cursor=pointer]
+      - iframe [ref=e623]:
+        - button "Abrir janela de mensagens" [ref=f14e5] [cursor=pointer]:
+          - img [ref=f14e7]
+          - img [ref=f14e10]

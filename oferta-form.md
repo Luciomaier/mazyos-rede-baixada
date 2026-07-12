@@ -1,0 +1,185 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "Rede Baixada" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "Rede Baixada" [ref=e9]
+        - button [ref=e11] [cursor=pointer]:
+          - img
+    - main [ref=e12]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - img [ref=e16]
+          - text: Preço exclusivo — só pra quem recebe a visita
+        - heading "Sua empresa no Google, com preço de parceiro" [level=1] [ref=e19]
+        - paragraph [ref=e20]: Quando alguém busca o seu serviço na sua cidade, sua empresa aparece. E eu monto o seu perfil pra você — você não precisa fazer nada.
+      - generic [ref=e23]:
+        - generic [ref=e25]:
+          - img [ref=e26]
+          - text: Oferta de Parceiro
+        - img [ref=e29]
+        - heading "Presença" [level=3] [ref=e31]
+        - paragraph [ref=e32]: Tudo que sua empresa precisa pra ser encontrada online.
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: De R$ 155,40
+          - generic [ref=e35]:
+            - generic [ref=e36]: R$ 77,70
+            - generic [ref=e37]: / 6 meses
+          - paragraph [ref=e38]: Menos de R$ 13/mês · renova por R$ 77,70 a cada 6 meses
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - img [ref=e41]
+            - text: Sua empresa indexada no Google (SEO local)
+          - listitem [ref=e43]:
+            - img [ref=e44]
+            - text: "Perfil completo: nome, endereço e WhatsApp direto"
+          - listitem [ref=e46]:
+            - img [ref=e47]
+            - text: 5 fotos no perfil
+          - listitem [ref=e49]:
+            - img [ref=e50]
+            - text: Horário de funcionamento sempre visível
+          - listitem [ref=e52]:
+            - img [ref=e53]
+            - text: Diferenciais da sua categoria
+          - listitem [ref=e55]:
+            - img [ref=e56]
+            - text: Selo Fundador (entre os 100 primeiros)
+          - listitem [ref=e58]:
+            - img [ref=e59]
+            - text: Eu monto seu perfil e seu anúncio — você não mexe em nada
+        - generic [ref=e61]:
+          - paragraph [ref=e62]: Ativar agora — leva 2 minutos
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - text: Nome do negócio
+              - textbox "Nome do negócio" [ref=e65]:
+                - /placeholder: "Ex.: Ótica Central"
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - text: Categoria
+                - combobox [ref=e68] [cursor=pointer]:
+                  - generic: Escolher
+                  - img [ref=e69]
+              - generic [ref=e71]:
+                - text: Cidade
+                - combobox [ref=e72] [cursor=pointer]:
+                  - generic: Escolher
+                  - img [ref=e73]
+            - generic [ref=e75]:
+              - text: WhatsApp do negócio
+              - textbox "WhatsApp do negócio" [ref=e76]:
+                - /placeholder: (13) 90000-0000
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - text: Seu e-mail
+              - textbox "Seu e-mail" [ref=e79]:
+                - /placeholder: seu@email.com
+            - generic [ref=e80]:
+              - text: Senha
+              - generic [ref=e81]:
+                - textbox "Senha" [ref=e82]:
+                  - /placeholder: Mínimo 6 caracteres
+                - button [ref=e83] [cursor=pointer]:
+                  - img [ref=e84]
+            - paragraph [ref=e87]:
+              - text: Já tem conta?
+              - button "Entrar" [ref=e88] [cursor=pointer]
+        - button "Ativar agora — R$ 77,70" [ref=e89] [cursor=pointer]
+        - paragraph [ref=e90]:
+          - text: Preço travado enquanto você for parceiro ativo. Ao ativar, você concorda com os
+          - link "Termos" [ref=e91] [cursor=pointer]:
+            - /url: /termos
+          - text: e a
+          - link "Privacidade" [ref=e92] [cursor=pointer]:
+            - /url: /privacidade
+          - text: .
+    - contentinfo [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - generic [ref=e98]:
+                - img [ref=e99]
+                - generic [ref=e103]: Rede Baixada
+              - paragraph [ref=e104]: Conectando negócios e empreendedores do litoral Paulista desde 2016. Sua plataforma regional de serviços e oportunidades.
+            - generic [ref=e105]:
+              - generic [ref=e106]:
+                - img [ref=e107]
+                - generic [ref=e110]: Mongaguá, SP - Brasil
+              - generic [ref=e111]:
+                - img [ref=e112]
+                - generic [ref=e115]: contato@redebaixada.com.br
+              - generic [ref=e116]:
+                - img [ref=e117]
+                - generic [ref=e119]: (13) 99615-6544
+            - generic [ref=e120]:
+              - link [ref=e121] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e122]
+              - link [ref=e124] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e125]
+              - link [ref=e128] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e129]
+              - link [ref=e131] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e132]
+          - generic [ref=e136]:
+            - heading "Empresa" [level=4] [ref=e137]
+            - list [ref=e138]:
+              - listitem [ref=e139]:
+                - link "Sobre Nós" [ref=e140] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e141]:
+                - link "Equipe" [ref=e142] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e143]:
+                - link "Carreiras" [ref=e144] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e145]:
+                - link "Blog" [ref=e146] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e147]:
+            - heading "Serviços" [level=4] [ref=e148]
+            - list [ref=e149]:
+              - listitem [ref=e150]:
+                - link "Cadastrar Empresa" [ref=e151] [cursor=pointer]:
+                  - /url: /auth/register
+              - listitem [ref=e152]:
+                - link "Publicar Vaga" [ref=e153] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e154]:
+                - link "Anunciar" [ref=e155] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e156]:
+                - link "API" [ref=e157] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e158]:
+            - heading "Suporte" [level=4] [ref=e159]
+            - list [ref=e160]:
+              - listitem [ref=e161]:
+                - link "Central de Ajuda" [ref=e162] [cursor=pointer]:
+                  - /url: https://wa.me/5513996156544?text=Olá!%20Preciso%20de%20ajuda%20com%20a%20Rede%20Baixada.
+              - listitem [ref=e163]:
+                - link "Contato" [ref=e164] [cursor=pointer]:
+                  - /url: https://wa.me/5513996156544?text=Olá!%20Preciso%20de%20ajuda%20com%20a%20Rede%20Baixada.
+              - listitem [ref=e165]:
+                - link "FAQ" [ref=e166] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e167]:
+                - link "Termos de Uso" [ref=e168] [cursor=pointer]:
+                  - /url: "#"
+        - generic [ref=e170]:
+          - generic [ref=e171]:
+            - heading "Receba nossas novidades" [level=4] [ref=e172]
+            - paragraph [ref=e173]: Fique por dentro das melhores oportunidades da região
+          - generic [ref=e174]:
+            - textbox "Seu melhor e-mail" [ref=e175]
+            - button "Inscrever" [ref=e176] [cursor=pointer]
+        - paragraph [ref=e178]: © 2025 Rede Baixada. Todos os direitos reservados.

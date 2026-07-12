@@ -125,3 +125,63 @@ converte dias depois nasceria órfã.
 ciclo) podiam produzir o pior estado possível: **cliente que PAGOU e continua oculto**, ou trial que
 pagou e amanheceu cinza porque o relógio velho continuou correndo. Uma função = uma transação = isso
 não pode acontecer. O estorno tem a gêmea (`company_revoke_payment`).
+
+---
+
+# 🚨 Adendo (12/07) — o ensaio de porta a porta achou uma mina da Fase 0
+
+Rodei o fluxo PaP **de verdade** (link real com `?k=` **e** `&v=`, celular simulado, ponta a ponta).
+Achou dois bugs que nenhum teste de banco pegaria — os dois matavam a venda **na calçada**.
+
+### 1. O `externalReference` estourava o limite do Asaas → **o cliente não conseguia pagar**
+
+```
+invalid_externalReference: [...] exceeds the maximum size of [100]
+```
+
+O formato v2 da Fase 0 (`company_id|plan|offer|unit|sold_by|indicated_by`) tem **141 caracteres** com os
+dois uuids. O Asaas corta em **100**. Toda cobrança gerada por um **link com `?v=`** — que é o link do
+vendedor, exatamente o que a Fase 0 criou pra não deixar venda órfã — **era rejeitada antes de nascer**.
+
+Não explodiu ainda só porque os links em uso hoje são só `?k=` (69 chars). Era uma mina esperando o
+primeiro vendedor com link próprio — ou seja, esperando o momento em que o negócio começasse a escalar.
+
+**v3 = `company_id|plan_slug|offer|unit`** (67 chars). A atribuição mudou de casa: mora em
+`companies.sold_by/indicated_by`, que é onde ela **já nasce** desde o Bloco 3. O `create-payment` carimba
+na empresa (sem roubar carteira de quem já é dono) e o webhook lê de lá — com fallback pras posições 4/5
+caso ainda exista alguma cobrança v2 no ar. De quebra, a atribuição virou dado consultável em vez de
+string espremida num campo de texto.
+
+### 2. Atribuição inválida no link **impedia o perfil de nascer**
+
+O `?v=` ia direto pra uma coluna uuid com FK. Link torto (ou vendedor que não existe mais) → o INSERT
+estourava e o perfil não era criado. Agora: valida o formato, e se o banco recusar a referência (23503),
+**recria sem atribuição**. Regra que ficou escrita no código: *perder de quem é a comissão é ruim; perder
+o cliente é pior — reconciliar atribuição é uma query, reconquistar o cara é outra visita.*
+
+### Ensaio completo, verificado em produção (`main = 71546de`)
+
+| passo | resultado |
+|---|---|
+| Link `?k=…&v=…` abre | ✅ R$77,70 (de R$155,40), `?v=` guardado na sessão |
+| Cadastro inline → auto-login | ✅ 6 campos, sem redirect, sem confirmar e-mail |
+| **Perfil nasce NO AR** | ✅ `approved` + `trial` (7d) + plano Presença + **`sold_by` = Lucio** |
+| CPF → checkout Asaas | ✅ R$77,70, "Plano Presença - Rede Baixada Oferta Parceiro 6 meses" |
+| Webhook `PAYMENT_CONFIRMED` | ✅ `trial → active`, parceiro por 6 meses (12/01/2027) |
+| Carteira (`crm_customers`) | ✅ ativo, **dono = Lucio**, MRR R$12,95 |
+| Assinatura + Fatura | ✅ semestral ativa · fatura R$77,70 confirmada, **PIX**, **vendedor = Lucio** |
+| **Atribuição sem os uuids na cobrança** | ✅ a fatura saiu com o vendedor certo — o conserto se sustenta |
+| Idempotência | ✅ 3 eventos → **1** fatura, validade não empilhou |
+| Estorno | ✅ `active → expired`, fatura `refunded`, assinatura `canceled`, cliente `cancelado` |
+| Rastro | ✅ limpo (39 empresas, 3 usuários, 0 eventos) |
+
+### ⚠️ Mudou como se testa o PaP
+
+**Testar o fluxo agora PUBLICA uma empresa de verdade no portal** (é o efeito do publish-first: o perfil
+nasce `approved` + visível). Antes ele nascia `pending`, invisível, e o teste não aparecia pra ninguém.
+Todo ensaio precisa nascer como **"TESTE ..."** e ser apagado no fim — e, enquanto durar, ele está no ar.
+
+### Ainda não testado
+
+- **Repescagem chegando de verdade no e-mail** → depende de `BREVO_API_KEY`.
+- **Cronômetro QR → PIX ≤ 2 min** → só dedo humano, celular real, primeira visita.
