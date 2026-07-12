@@ -81,10 +81,14 @@
 - [x] **Funil de conversão** (jun/2026) — criar empresa leva direto ao `/planos`; banner
   "escolher plano" na lista, no dashboard e pós-criação. Checkout coleta CPF/CNPJ.
 
-## 🚨 Backup do banco (URGENTE — 12/07/2026)
-O Supabase está no **Free Plan, que NÃO tem backup nenhum**. 39 empresas reais, clientes pagantes e
-o CRM financeiro rodando sem cópia. Em 12/07 perdi a descrição da empresa "Jota Vimax" num teste e
-não houve como restaurar. **Pro (~US$25/mês) = 7 dias de backup diário.**
+## Backup do banco — Supabase Pro (decidido: assim que as primeiras vendas entrarem)
+O Supabase está no **Free Plan, que NÃO tem backup nenhum**. **Pro (~US$25/mês) = 7 dias de backup
+diário.** Decisão do Lucio (12/07): comprar quando a receita da rua começar a entrar.
+
+⚠️ **Mitigado em parte (12/07):** existe agora a tabela `companies_history` — toda alteração/exclusão
+de empresa guarda a versão anterior, e `company_restore_content(<snapshot>)` desfaz. Isso cobre o
+risco REAL (alguém escrever por cima de dado bom), que é diferente do que o backup cobre (o banco
+morrer). Os dois se complementam — o Pro nunca vai devolver UM campo.
 
 ## Reescrever o "Sobre" da empresa Jota Vimax
 Descrição perdida em 12/07 (erro em teste de RLS contra linha real). Irrecuperável.
