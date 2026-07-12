@@ -4,6 +4,60 @@
 
 ---
 
+## 🧭 A SEPARAÇÃO QUE ORGANIZA TUDO (conclusão do Lucio, no fim da noite)
+
+**PaP e Recuperação são DUAS OPERAÇÕES DIFERENTES.** Não é a mesma venda com público diferente —
+são dois produtos de vendas distintos. Misturar as duas foi o que embaralhou o conselho.
+
+| | **PaP (rua)** | **Recuperação** |
+|---|---|---|
+| Quem | negócio que nunca te viu | ex-cliente que **já pagou** |
+| O perfil | **não existe** — nasce na visita | **já existe** — e ele *É* o portal |
+| O link | `?k=&v=` | `?k=&v=&c=` (claim) |
+| Canal | porta, celular dele | telefone / WhatsApp |
+| Argumento | *"olha teu negócio no ar"* | *"voltamos — e você já está no ar"* |
+| Se não pagar | **some** (grátis: não existia) | **NÃO PODE SUMIR** ← a decisão travada |
+| Prontidão | 🟢 **um PIX de distância** | 🔴 **travada na decisão** |
+
+**Ordem decidida: a rua PRIMEIRO.** Motivos:
+1. O PaP está pronto; a recuperação precisa de decisão + kanban + os 60 do WordPress.
+2. **PaP é dinheiro novo; recuperação é dinheiro parado** — parado há 12 meses, aguenta mais 3 dias.
+3. E a rua devolve **a taxa de conversão real** — que é o dado que falta pra decidir a agressividade
+   da recuperação. Hoje essa decisão seria no escuro.
+
+---
+
+## 🎯 O ÚNICO GATE DO PaP: um PIX de verdade (15 min)
+
+**Nenhum dinheiro real jamais passou pelo caminho completo.** Todos os testes do webhook foram POST
+direto (pagamento fake) — isso prova que o webhook **funciona**, mas **não prova que o Asaas o chama**,
+com o payload e o evento certos. O elo `cliente paga PIX → Asaas dispara → sistema ativa` **nunca rodou**.
+
+E é justamente o elo que, se falhar, falha **na frente do cliente**.
+
+**O teste:** abrir o próprio link → empresa "TESTE — Apagar" → **pagar R$77,70 no PIX de verdade** →
+conferir ativação (6 meses + fatura no CRM) → **estornar no Asaas**. Custo: R$77,70 por alguns minutos
+(volta) + centavos de taxa. **Crava também o cronômetro QR→PIX**, o único número que só dedo humano mede.
+
+Depois: **imprimir a folha com o QR** (`Minha Área → Meu Link → Baixar o QR`) e ir pra rua.
+
+---
+
+## 💡 A jogada que ele ainda NÃO usou: o perfil pré-montado
+
+O `?c=` abre três formas de "eu crio pra você", não uma:
+
+| situação | link | o que acontece |
+|---|---|---|
+| Rua, na hora | `?k=&v=` | o perfil **nasce ali**, no celular dele |
+| **Perfil pré-montado** | `?k=&v=&c=` | monta **antes** da visita (do Google, da fachada); chega e mostra: *"já está no ar"* |
+| Reconquista | `?k=&v=&c=` | o perfil já existe (migrado) |
+
+**A do meio é a mais forte e nunca foi usada.** Chegar com o perfil pronto na tela não é promessa,
+é entrega.
+
+---
+
 ## 🔴 A DECISÃO QUE FICOU EM ABERTO (é a primeira coisa de amanhã)
 
 **Quando o trial de 7 dias da RECONQUISTA acabar e o ex-cliente não pagar, o que acontece com o perfil dele?**
