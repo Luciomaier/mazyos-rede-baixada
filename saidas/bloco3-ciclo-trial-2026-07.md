@@ -185,3 +185,91 @@ Todo ensaio precisa nascer como **"TESTE ..."** e ser apagado no fim — e, enqu
 
 - **Repescagem chegando de verdade no e-mail** → depende de `BREVO_API_KEY`.
 - **Cronômetro QR → PIX ≤ 2 min** → só dedo humano, celular real, primeira visita.
+
+---
+
+# Adendo 2 (12/07) — a carteira do vendedor, e um erro meu que custou dado
+
+## 🩸 INCIDENTE: perdi a descrição da empresa "Jota Vimax" (dado real, irrecuperável)
+
+Testando a nova policy de RLS, usei uma **linha real de produção** como cobaia em vez de criar
+uma empresa descartável. Escrevi por cima da `description` e, ao "desfazer", gravei **`null`** —
+sem ter guardado o valor original. Wayback e índice do Google não ajudam (o portal é SPA; o texto
+nunca vai pro HTML). **Não há como restaurar.** Alguém precisa reescrever o "Sobre" da Jota Vimax.
+
+Auditado: **só ela** foi afetada.
+
+**Regra que fica:** teste de permissão/escrita **nunca** contra linha real. Cria uma empresa
+`TESTE ...`, testa nela, apaga. Se por algum motivo precisar tocar numa real, **leia e guarde a
+linha inteira antes** — e restaure o valor, não `null`.
+
+## 🚨 O PROJETO NÃO TEM BACKUP NENHUM
+
+O incidente acima expôs isto, que é muito maior que ele: o Supabase diz, literalmente,
+**"Free Plan does not include project backups"**.
+
+39 empresas reais, clientes pagantes e um CRM financeiro rodando **sem nenhuma cópia**. Hoje foi
+uma descrição perdida por descuido; amanhã pode ser uma migration errada. O **Pro (~US$25/mês)**
+dá 7 dias de backup diário. É a coisa mais barata a comprar agora.
+➡️ **Pendência do Lucio.**
+
+---
+
+## ✅ A carteira do vendedor (`main = 48387d6`)
+
+**Problema:** a Elis vende um cliente na rua e depois **não consegue ver nem editar o perfil dele**.
+E "eu monto seu perfil e seu anúncio, você não faz nada" é o que fecha a venda — o **done-for-you
+É o produto**. Sem isso, o vendedor vende e não consegue entregar.
+
+**Causa:** o sistema só conhecia dois jeitos de mandar numa empresa:
+
+| função | quem é |
+|---|---|
+| `can_manage_company()` | membro/dono (`company_members`) → **o CLIENTE** |
+| `can_moderate_company()` | moderador do **bairro/categoria** → **território** |
+
+Nenhum dos dois é *"eu vendi esta empresa"*. São **eixos diferentes**:
+
+> **TERRITÓRIO** = quem fiscaliza uma região (moderação de conteúdo)
+> **CARTEIRA** = quem trouxe e cuida do cliente (relação comercial) ← **não existia**
+
+Conflatar os dois deixava o vendedor **cego**: a empresa criada no porta a porta **nem bairro tem**
+(o formulário só pede cidade), então nunca cairia no filtro de território. E a query era
+`enabled: hasAssignments` — vendedor **sem área atribuída** (a Elis, hoje) não via **nada**, nem a
+própria venda.
+
+A carteira já existia no banco desde o Bloco 3 (`companies.sold_by`). Faltava ligar:
+
+- **RLS**: a policy de UPDATE reconhece `sold_by = auth.uid()` → **quem vendeu, edita**.
+- **`useAgentCompanies`**: carteira **sempre** + território quando houver. Sem gate de atribuição.
+- **AgentDashboard**: quem tem carteira não bate mais no muro de "sem atribuições".
+- **AgentCompanies**: selo **"Minha"**, coluna de **Ciclo** (Trial · faltam 5d) e **"Editar perfil"**
+  — botão que **já existia e falhava em silêncio**, porque a RLS barrava.
+
+**Verificado contra a RLS real:** Elis **edita** a carteira dela (204) e **não consegue** alterar
+empresa de terceiro (0 linhas).
+
+## ✅ Link do vendedor no dash dele (`main = 6c7897b`)
+
+`Dashboard → Minha Área → Meu Link`: link + **QR pra imprimir** + copiar. A chave da oferta **não
+foi pro front** (no bundle, qualquer um leria o JS e teria o R$77,70) — vem da edge function
+`agent-link`, que confere o papel de quem pede.
+
+**Pra ter link, o vendedor precisa ter conta no portal.** Barça e Gi ainda não têm.
+Verificado: a Elis pega o link dela sozinha, e os testes do Lucio com esse link nasceram com
+`sold_by = Elis` ✅.
+
+## ✅ O CPF: mantido, mas escondido de quem não decidiu
+
+O Asaas **não emite cobrança sem CPF** — a pergunta era *quando* pedir. Pra quem vai pagar custa 10
+segundos. O estrago é pedir documento pra quem ainda não decidiu (*"por que você quer meu CPF se é
+grátis?"*), no momento mais frágil da visita.
+
+**Um botão "grátis 7 dias" ao lado do "Ativar agora — R$77,70" foi DESCARTADO**: grátis ao lado de
+pago, com o mesmo peso, entrega o caminho fácil de bandeja — **pro cliente E pro vendedor**. Ninguém
+pede dinheiro com um botão "de graça" brilhando ao lado.
+
+O grátis **nunca é oferecido**: é uma **saída discreta dentro do modal do CPF** — só aparece pra
+quem já clicou em ativar. Leva o cliente **pro próprio perfil no ar**, com faixa de "faltam X dias"
+que **só o dono vê**. O indeciso termina a visita olhando o negócio dele publicado, não um
+formulário de pagamento que acabou de recusar.

@@ -80,3 +80,18 @@
   revoga (free/pendente). Webhook seguro (token na URL) e idempotente.
 - [x] **Funil de conversão** (jun/2026) — criar empresa leva direto ao `/planos`; banner
   "escolher plano" na lista, no dashboard e pós-criação. Checkout coleta CPF/CNPJ.
+
+## 🚨 Backup do banco (URGENTE — 12/07/2026)
+O Supabase está no **Free Plan, que NÃO tem backup nenhum**. 39 empresas reais, clientes pagantes e
+o CRM financeiro rodando sem cópia. Em 12/07 perdi a descrição da empresa "Jota Vimax" num teste e
+não houve como restaurar. **Pro (~US$25/mês) = 7 dias de backup diário.**
+
+## Reescrever o "Sobre" da empresa Jota Vimax
+Descrição perdida em 12/07 (erro em teste de RLS contra linha real). Irrecuperável.
+
+## BREVO_API_KEY
+A repescagem do trial está no ar em **no-op** (roda, conta o que mandaria, não envia). Ligar a chave
+liga os e-mails do ciclo (dia 0 / 5 / 7 / 14).
+
+## Contas de vendedor pro Barça e pra Gi
+Sem conta no portal, não existe link de vendedor (`?v=`) — e a venda deles nasceria órfã.
