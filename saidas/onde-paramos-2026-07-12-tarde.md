@@ -132,6 +132,23 @@ O portal sozinho **não paga uma equipe**. A meta de 386 clientes é uma máquin
 - **Estorno → comissão `cancelado`** automático.
 - RLS conferida: existe "Agents can view own commissions" — o vendedor **lê a própria comissão**.
 
+**"Candidato a Publi" no card da carteira** (`21e87c8`) — o megafone que o vendedor aperta **ainda
+dentro da loja**, com a observação da visita. Migration `20260712170000_candidato_publi.sql`.
+> **O portal é o cavalo de troia** (palavras do Lucio). Quem paga a conta é a **Rede Publicidade**
+> (R$250/mês = **19× um cliente de portal**). Mas cavalo só serve se alguém abrir a porta por dentro —
+> e o **vendedor é a única pessoa que vai pisar dentro daquela loja**. Ele vê a fachada, o movimento, o
+> Instagram parado. Sem um lugar pra anotar, isso **morre na calçada, uma visita por vez** — e daqui a
+> dois meses seriam 200 clientes no portal e **zero memória** de quais valiam a pena.
+>
+> **O VALOR da comissão da Publi fica pra depois** (a Publi não tem forma — mesma disciplina do tráfego
+> pago). **O CAMPO nasce agora**, porque colher é barato e recuperar é impossível.
+>
+> ⚠️ **Tabela própria, NÃO coluna em `companies`**: `companies` é de **leitura pública** (o portal
+> renderiza dela) — uma nota tipo *"dono tem grana mas é desorganizado"* vazaria pro mundo.
+>
+> ⚠️ **Requer `db push` antes de usar.** Risco hoje = zero (o Barça e a Gi ainda não têm conta, então
+> o Lucio é o único com carteira de vendedor).
+
 **Limpeza:** as 2 empresas de teste foram apagadas (portal de volta a **37**).
 
 ---
