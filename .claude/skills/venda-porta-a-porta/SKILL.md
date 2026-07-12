@@ -27,9 +27,17 @@ que o Uber — esse é o objetivo: provar consistência e largar o Uber).
 
 Todo prospect sai da visita **dentro do funil** — ninguém sai como "não" puro:
 
-- **Quente** (já quer, gostou do preço) → **fecha na hora**: cria login, paga R$77,70 (PIX/cartão), perfil no ar.
-- **Morno / "vou pensar" / em cima do muro** → **trial grátis**: ativa a conta de graça, monta o perfil, e o sistema cuida do link no vencimento + nutrição na janela.
-- **Frio / "agora não"** → **agenda volta** ou entra numa lista de re-visita. Não força.
+> ⚠️ **Mudou em 12/07/2026:** o trial **deixou de ser o plano B do indeciso**. Agora os dois
+> caminhos são **o mesmo caminho**: em ~2 minutos o perfil está no ar pra todo mundo, com selo. O
+> pagamento virou só um passo que acontece **agora ou dentro de 7 dias**.
+>
+> Isso vira o pitch do avesso: **você não pede permissão pra vender — você publica e mostra.**
+
+- **Quente** → **fecha na hora**: o perfil sobe, ele digita o CPF, paga o R$77,70 no PIX. Parceiro por 6 meses.
+- **Morno / "vou pensar"** → **não insista**. O perfil **já subiu** quando você clicou em "Ativar".
+  Toque em *"Prefiro ver meu perfil primeiro"* no modal do CPF e **mostre o negócio dele no ar, no
+  celular dele**. O relógio de 7 dias corre sozinho a partir daí.
+- **Frio ("agora não")** → agenda a volta. Não força. Vizinho não queima ponte.
 
 A regra de ouro: **sempre criar o login na visita**. O login é o sinal de compra — quem
 cria, comprou (só falta pagar). Quem não cria, não estava pronto; vira re-visita.
@@ -54,20 +62,24 @@ Por que cada peça importa:
 - **Preço travado:** o anti-cancelamento — sair = perder o preço de parceiro. Segura a recorrência.
 - **Janela de 6 meses:** cria o re-contato semestral pra renovar (R$77,70) e oferecer planos maiores (upsell).
 
-> **Como cobrar hoje:** ✅ **no ar e verificado ponta a ponta (11/07/2026)**. O **link privilegiado**
-> `/oferta-parceiro?k=b036e660589d546db056951c` (o QR da folha) faz tudo sozinho: cadastro enxuto na
-> própria página → auto-login → modal do CPF → **checkout Asaas em R$77,70** (PIX, boleto, crédito ou
-> débito) → o webhook ativa **presença por 6 meses**. O gate do preço é server-side: sem o `?k=`, o preço
-> é o do site. **Não precisa mais gerar cobrança na mão no painel.**
+> **Como funciona hoje** (✅ tudo no ar, verificado ponta a ponta em 12/07/2026):
 >
-> Se o celular já estiver logado (na tua conta ou na do cliente anterior), toque **"trocar de conta"** no
-> rodapé do card — é o que te deixa emendar uma venda na outra no mesmo aparelho.
+> **Pegue SEU link no portal:** `Dashboard → Minha Área → Meu Link`. Lá está o link e o **QR pra
+> imprimir na folha**. Ele carrega seu crachá (`&v=`) — é isso que faz a venda, a **carteira** e a
+> **renovação de 6 meses** caírem no **seu** nome. Link sem crachá = venda órfã.
 >
-> ⚠️ **O que ainda é manual** (não confie no sistema pra isso): o **trial** do indeciso (não tem relógio,
-> não expira, não nutre sozinho — controle na planilha e mande o link por WhatsApp) e a **atribuição do
-> vendedor** (o link não sabe quem vendeu — se não for você, anote). E-mails transacionais não existem.
-
----
+> **O QR faz o caminho inteiro sozinho:** cadastro enxuto → auto-login → **o perfil SOBE NO AR na
+> hora, em trial de 7 dias, com selo de Verificado** → CPF → checkout Asaas em R$77,70 (PIX, boleto,
+> cartão) → vira parceiro por 6 meses. O gate de preço é server-side: sem o `?k=`, é o preço do site.
+>
+> ### 🚨 As duas regras que não dá pra errar (cada uma já custou uma venda inteira em teste)
+>
+> **1. Faça no celular do CLIENTE.** No seu, se você estiver logado, o sistema entende que a compra
+> é pra **sua** empresa — e nem erro dá. Se precisar usar o seu: **aba anônima**, ou toque em
+> "trocar de conta" no rodapé do card.
+>
+> **2. O e-mail é o do CLIENTE.** É pra ele que vão os avisos dos 7 dias. Se você puser o seu pra ir
+> mais rápido, **quem vai ser cobrado é você** — e o cliente nunca fica sabendo que o perfil morreu.
 
 ## Fase 1 — Preparar o dia (antes de sair)
 
@@ -78,7 +90,8 @@ Por que cada peça importa:
 
 **Material na mão:**
 - A **folha** impressa (vantagens + R$77,70) — ver `folha-vendas.md` nesta pasta.
-- Celular com o site `redebaixada.com.br` aberto e login funcionando (pra criar a conta na hora).
+- **Seu QR** (`Dashboard → Minha Área → Meu Link`) impresso na folha — é o crachá que credita a venda a você.
+- Celular carregado. ⚠️ **O cadastro é feito no celular DO CLIENTE** — o seu é só apoio.
 - Maquininha / PIX pronto pra cobrar os R$77,70 na hora.
 - Lista/planilha pra anotar cada visita (nome, contato, status, próxima ação).
 
@@ -109,30 +122,41 @@ Por que cada peça importa:
      Entrega no mesmo dia amarra a venda: ele vê o valor entregue, não só prometido.
 
    **→ Hesitou ("vou pensar" / muro / morno):**
-   - Não empurra. Oferece o **trial grátis**: "Deixa eu já te deixar no ar de graça por
-     [X dias] pra você ver funcionando, sem compromisso."
-   - **Cria o login mesmo assim** (é o sinal de compra — não pula esse passo).
-   - Monta o perfil/anúncio dele igual. Ele entra na janela de nutrição (Fase 4).
+   - **Não empurra — e não precisa.** O perfil dele **já subiu** no instante em que você tocou em
+     "Ativar agora". Ele está no ar, com selo, agora.
+   - No modal do CPF, toque em **"Prefiro ver meu perfil primeiro"**. Nunca feche o modal na cara
+     dele nem insista no CPF: pedir documento pra quem não decidiu vira desconfiança ("por que
+     você quer meu CPF se é grátis?") — bem no momento mais frágil da visita.
+   - **Abra o portal e busque o negócio dele, na frente dele.** Ele vê o próprio negócio publicado,
+     com o selo de **Verificado**, no celular dele, na mão dele. **Isso é a venda.**
+     > "Pronto, você já está no ar. Fica assim por 7 dias, sem pagar nada. Se valer a pena, o link
+     > tá aqui. Se não, ele apaga sozinho e a gente não se fala mais."
+   - Ele não está mais comprando uma promessa — está decidindo se **mantém** uma coisa que já é
+     dele. É outro jogo mental. O resto (Fase 4) o sistema faz sozinho.
 
    **→ Frio ("agora não" / "vem outra hora"):**
    - Agenda a volta ou anota pra re-visita. Pega o contato. Sai bem — vizinho não queima ponte.
 
-## Fase 4 — Trial → nutrição → link (o braço que converte depois)
+## Fase 4 — O que o sistema faz sozinho depois que você vai embora
 
-Pra quem entrou no trial, a venda continua sozinha na janela entre ativar e vencer:
+✅ **Nada disso é planilha.** Está no ar desde 12/07/2026 e roda sem você:
 
-- **Ativação:** conta grátis no ar, perfil montado (valor entregue antes de cobrar).
-- **Nutrição na janela:** lembretes/provas de valor até o vencimento (ex: "seu perfil já
-  apareceu em X buscas", "tá no ar, dá uma olhada"). Modelo que o Lucas validou em outro nicho.
-- **Vencimento:** dispara o **link de pagamento** dos R$77,70 pra manter o perfil no ar.
+| quando | o que acontece |
+|---|---|
+| **Dia 0** | Perfil no ar, com selo. E-mail: *"[negócio] já está no ar"* |
+| **Dia 5** | E-mail: *"faltam 2 dias"* |
+| **Dia 7** | 🩶 O perfil **fica cinza**: aparece apagado e **ninguém consegue mais clicar nele**. E-mail: *"O perfil da [negócio] ficou cinza"* — **é este e-mail que converte**, porque ele PERDEU algo que já era dele |
+| **Dia 14** | Sai das buscas. E-mail: *"Nada foi apagado — volta em 1 clique"* |
+| **Pagou (a qualquer momento)** | Volta pro ar na hora. Parceiro por 6 meses |
 
-> ⚠️ **Dependências de sistema** (sem isso, esse braço é manual):
-> - **E-mails transacionais** — confirmação de cadastro, ativação do trial, lembrete de
->   vencimento e link de pagamento. (Hoje a plataforma **promete** "enviamos confirmação" e
->   não envia — gap a fechar. Ver pendências.)
-> - **Modo trial no portal** — ativar conta grátis com prazo e gerar o link no vencimento.
-> Enquanto não existir no portal: rodar **manual** (ativar na mão, controlar vencimento na
-> planilha/CRM, mandar link por WhatsApp). O Mini CRM pode segurar esse controle.
+O dono também vê um aviso de *"faltam X dias"* toda vez que abre o próprio perfil (só ele vê —
+o público nunca sabe que é trial).
+
+> ⚠️ **Único gargalo:** os e-mails só saem depois que o `BREVO_API_KEY` for ligado. A máquina de
+> estados (cinza → oculto → expirado) **já roda** e não depende disso.
+>
+> **WhatsApp em massa** segue bloqueado até a verificação Meta. 1:1 na mão pode — e continua sendo
+> o canal mais forte pra repescagem enquanto isso.
 
 ## Fase 5 — Objeções (calibradas no tom vizinho)
 
@@ -151,7 +175,7 @@ Responder com pergunta/escuta, nunca com pressão:
 
 - Anotar cada visita: **nome, contato, ramo, status** (fechou / trial / re-visita / não), próxima ação.
 - Calcular o **R$/hora** do dia e comparar com o Uber (~R$150/5h = R$30/h). Benchmark: R$338,50/4h = **R$84,60/h**.
-- Quem entrou no trial: registrar **data de vencimento** pra disparar o link.
+- ~~Registrar data de vencimento do trial~~ — **o sistema faz** (relógio + repescagem automáticos).
 - Re-visitas: agendar a volta. Não deixar lead esfriar sem follow-up.
 
 ---
