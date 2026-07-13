@@ -189,6 +189,127 @@ papel, então o link dela carimba venda e o perfil que ela criar nasce publicado
 
 ---
 
+## 💪 O BRAÇO FORTE — a escada da folha virou sistema
+
+> "O portal é o cavalo de troia." Quem paga a conta é isto: **1 Plano Movimento (R$250/mês) = 19
+> clientes de portal.** O portal sozinho é máquina de vender pra ficar no zero.
+
+⚠️ **A FONTE DA VERDADE É A FOLHA**, não o código
+(`.claude/skills/venda-porta-a-porta/folha-vendas.md`). É ela que vai impressa na mão do vendedor.
+*Aconteceu:* o Lucio me disse "GMN R$497"; a folha dizia **R$149,70** (decidido 07/07 com a Elis).
+**A folha ganhou** — senão o vendedor promete um preço na calçada e o sistema cobra outro.
+
+A escada virou catálogo (`rp_products`), com preço, ciclo, **quando ofertar** e a letra miúda:
+
+| degrau | produto | preço | quando |
+|---|---|---|---|
+| 1 | Portal (Presença) | R$ 77,70/6m | na visita |
+| 1.5 | GMN Turbinado | R$ 149,70 | **na ENTREGA**, nunca na visita |
+| 1.5 | Combo "No Google 2×" | R$ 197,70 | só se **ELE** puxar |
+| 1.7 | Site Parceiro | R$ 590/ano | "eu queria era um site" · executa **Nick** |
+| 2 | **Plano Movimento** | R$ 250/mês | ~30 dias depois |
+
+**O nome da rua é "Plano Movimento"** — nunca "Publi". E a folha proíbe chamar de "básico".
+
+### 🚨 O bug que ninguém tinha visto
+A regra de comissão era indexada **só por tipo**. A mensalidade do Movimento cairia na recorrência
+do **PORTAL** — R$15 em vez de R$25. E pior: como o cliente já pagou o portal antes, a **PRIMEIRA**
+mensalidade viraria "recorrência", e o vendedor **perderia os R$50 da entrada** na venda mais
+importante que ele faz. Em silêncio, todo mês. Agora a regra é por **(PRODUTO, tipo)**.
+
+### A comissão — ~20% da entrada, ~10% da recorrência
+Portal R$50 (+15) · **Movimento R$50 + R$25/MÊS enquanto durar** · GMN R$30 · **Combo R$80** ·
+Site R$120 (+59) · Alteração R$0.
+**Uma padaria = R$155 + R$25/mês pra sempre** pro vendedor. É o que PRENDE vendedor.
+
+🧭 **LIÇÃO CARA:** eu tinha posto o combo pagando **R$60**, contra R$80 vendendo separado — o
+vendedor **perderia R$20** vendendo o que a casa quer. **Comissão de combo nunca pode ser menor que
+a soma das partes**, senão você paga o vendedor pra sabotar o produto. Corrigido pra R$80.
+
+### O candidato BATE NA PORTA (o Lucio pegou isso)
+A esteira nova (`/dashboard/admin/crm/braco-forte`) é **passiva** — o Barça marca a padaria às 15h
+dentro da loja e o Lucio abre o painel três dias depois, com o cara já frio.
+Agora: gatilho no banco → pg_net → edge function → **e-mail na hora**, com o nome da loja, **o
+degrau em que o dono mordeu**, o que o vendedor viu lá dentro, e o botão de WhatsApp pronto.
+Escrito pra ser agido do celular, **sem abrir painel**.
+
+### 🐛 Três falhas SILENCIOSAS achadas no caminho
+1. **`verify_jwt`** — a função nova não estava no `config.toml` → o gateway do Supabase barrava com
+   `401 UNAUTHORIZED_NO_AUTH_HEADER` **antes** de a função rodar. Candidato marcado, e-mail nunca saía.
+2. 🔴 **O CRON DA REPESCAGEM TINHA 5 SEGUNDOS.** `timeout_milliseconds` default do pg_net, que
+   ninguém tocou. A rodada das 12:00 **estourava todo dia**. A varredura de 200 eventos + Resend
+   nunca coube nisso. **Voávamos cegos.** Agora 120s.
+3. **O remetente** — eu tinha inventado um "nao-responda@"; o Resend só aceita o domínio verificado.
+
+Fica no projeto: **`diag_avisos()`** — "por que o e-mail não chegou" deixa de ser adivinhação.
+
+---
+
+## 📱 Bugs do celular (todos corrigidos e verificados)
+
+- 🔒 **O LOGOUT PRENDIA.** `signOut()` revoga no servidor; com o token morto (celular parado dias),
+  o servidor diz "Auth session missing!", o código dava `throw` e **não limpava nada** → erro
+  vermelho e o cara **continuava logado, sem conseguir sair**. Agora: tenta global, e se falhar
+  limpa o local e apaga a chave `sb-*` na marra.
+- **O diálogo não tinha teto nem rolagem** — defeito do componente **base**: o rodapé (onde ficam
+  "Salvar"/"Marcar") saía da tela, inalcançável. `max-h-[90dvh] overflow-y-auto`
+  (**dvh**, não vh: a barra do navegador some e volta).
+- **O botão azul saía 84px pra fora** (tela 375, botão terminava em 459). `min-width:auto` de item
+  flex **impede o encolhimento** — em vez de espremer, empurra pra fora.
+
+## 🗺️ A home NÃO TINHA MAPA
+
+A seção "Mapa Interativo" era um **`{/* Map Placeholder */}`**: caixa de gradiente azul com um
+ícone. Do celular, "uma tela azul". E o ativo estava lá: **32 das 41 empresas já tinham lat/lng**.
+
+**O pino diferencia quem paga:** grande, azul, **com a logo** = paga. Pontinho cinza = free.
+É demonstração de rua — o vendedor abre a home dentro da loja: *"o pino do teu concorrente é aquele
+grande, com a marca; o teu é o pontinho cinza"*. O cinza **continua clicável** (esconder do
+VISITANTE seria atirar no próprio pé — a pressão é sobre o dono, não sobre o cliente dele).
+
+Dois problemas medidos: `fitBounds` em todos os pinos afastava tanto que os 29 de Mongaguá viravam
+um bolo (agora enquadra na cidade mais densa); e **5 empresas estão na MESMA coordenada exata** —
+cluster com raio pequeno (30px), só quem se sobrepõe vira número. **44 pares empilhados → 0.**
+
+## 📍 A busca de endereço não achava NADA
+
+O código grudava **", Baixada Santista, SP, Brasil"** em toda consulta — e "Baixada Santista" é uma
+**REGIÃO**, que o OpenStreetMap não indexa. **Zero pra tudo.**
+
+E trocar pela cidade não bastava. Endereço brasileiro quebra o Nominatim de dois jeitos:
+- **o NÚMERO** — texto livre com número quase sempre falha. A busca **estruturada** (`street=`/`city=`) tolera.
+- **o BAIRRO** — contradiz o OSM ("Balneário Jussara" vs "Itapoan"). Agora **corta no " - "**.
+
+```
+"Av. Anna Seckler Malacco, 78 - Balneário Jussara"  (texto livre)   → 0
+street="Av. Anna Seckler Malacco, 78" + city="Mongaguá"             → 1 ✅
+```
+E **resultado único = pino na hora** (antes ele buscava, via o endereço na lista, o mapa continuava
+vazio, e concluía que quebrou).
+
+## 🚨 Falso alarme que vale registrar
+
+O `robots.txt` e o `sitemap.xml` deram **403 (Vercel Security Checkpoint)** — o que mataria o
+portal (o produto É aparecer no Google). **Era eu:** centenas de `curl` conferindo deploy pelos
+bytes acionaram a **DDoS Mitigation** automática da Vercel contra o meu IP (Firewall confirmou:
+Bot Protection **Inactive**, Custom Rules **0**, "Challenged 104" ≈ regra DDoS 105, Allowed 216).
+**Nada a desligar. O Google não está bloqueado.**
+👉 **Não verificar deploy com rajada de curl** — usar o navegador.
+
+---
+
+## 🔴 O que ainda NÃO existe
+
+1. **A COBRANÇA RECORRENTE.** O Asaas só sabe cobrar de uma vez (`/payments`). Mensalidade é outro
+   objeto (`/subscriptions`) — **sem isso o Plano Movimento não vira MRR**, e é ele que paga a equipe.
+   👉 **É o próximo passo.**
+2. **Cortar os 26 campos** do formulário.
+3. **Ligar leads aos perfis** (`crm_leads.company_id` NULO em todos).
+4. **Terminar a importação: faltam ~25** (manual, pelo formulário, opção "Cliente antigo").
+
+---
+
 **Commits:** `b946549` (nascimento + PIX) · `a079baf` (acervo) · `89ecf7a` (barra fixa) ·
-`83fe4f0` (botão da recuperação + e-mail honesto) · `d4badf2` (o Lucio também vende) ·
-`e7988d1` (a tela do acerto).
+`83fe4f0` (recuperação + e-mail honesto) · `d4badf2` (o Lucio também vende) · `e7988d1` (a tela do
+acerto) · `214941b` (lançamento manual) · `7311eb6` (o braço forte) · `23b6dec` (combo) ·
+`60e0739` (3 bugs do celular) · `77eab44` (mapa + busca de endereço) · `3d7796c` (pino na hora).
