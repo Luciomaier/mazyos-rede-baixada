@@ -116,26 +116,79 @@ comentários, sem tipos). Se usar, `git checkout` depois.
 
 ---
 
+---
+
+## 💰 A SEXTA-FEIRA DEIXA DE SER NA MÃO
+
+**A tela do acerto** — `/dashboard/admin/crm/acerto`. Abre e responde, em ordem: **quanto sai do
+bolso na sexta**, pra quem, quanto de cada um. Um card por vendedor, botão "Já paguei".
+
+Três decisões que valem mais que a tela:
+
+- **O front não manda o valor.** Ele manda *"paguei o fulano"* e o **banco** decide quanto era. Uma
+  tela aberta há 20 minutos — ou uma comissão estornada entre o render e o clique — pagaria errado.
+- **É impossível pagar o que ainda não venceu.** A trava está no `where` da função, não na tela.
+- **A tela NÃO paga.** O PIX é você, no teu banco. Aqui só se *baixa* a comissão. O dia em que o
+  sistema mandar PIX sozinho, um bug vira prejuízo.
+
+**Saldo negativo é real, não erro de conta.** Quando o cliente estorna *depois* de a comissão ter
+sido paga, não se apaga o pagamento — lança-se o contrário. A tela diz **"deve R$ 50 · abate do
+próximo acerto"**, não "recebe agora: R$ -50,00". É literalmente o estado da Elis hoje.
+
+**Os 3 números do vendedor** (`/dashboard/minha-area/comissoes`), na ordem em que ele pensa na rua:
+*fechando agora* (o número que sobe quando ele vende — é o que prova que bater perna paga) ·
+*cai na sexta, dia N* (já é dele, não muda mais) · **"Preciso antes"** (pedido de adiantamento: o
+Lucio decide, não paga sozinho — é a ponte do vendedor novo, que senão espera 12 dias pelo primeiro
+PIX e desiste antes de ver).
+
+## 🏆 O LUCIO TAMBÉM VENDE
+
+Pela regra de hoje, "vendedor" é `moderator` **puro** — e o Lucio é admin, de propósito, pra que a
+importação não vire trial. Efeito colateral: o perfil que **ele** criasse nascia invisível.
+
+E agora sabemos que **a importação dos ~60 é MANUAL, pelo mesmo formulário** (uns 37 já entraram —
+são o acervo de hoje). Ou seja: ele usa a **mesma tela pra duas coisas opostas**. Então a tela
+pergunta — escrito pela consequência, não pelo nome do estado:
+
+| escolha | o que acontece |
+|---|---|
+| **Cliente antigo (importação)** *(default)* | no ar agora, **sem prazo**. Nunca sai das buscas. |
+| **Visita porta a porta** | no ar agora, com selo e WhatsApp, **7 dias**. ⚠️ Não pagou, **sai do ar**. |
+| **Só cadastrar** | invisível até você aprovar. |
+
+Default é *acervo* porque **o engano tem lado**: marcar "rua" num cliente antigo põe um relógio de 7
+dias no pescoço dele — o massacre, uma linha por vez. O contrário custa uma mensalidade, não um
+cliente. **O vendedor não vê essa escolha**: pro Barça e pra Gi o gatilho faz sozinho, sempre. Um
+checkbox na calçada, com o dono da loja olhando, é uma coisa a esquecer.
+
+## 👥 O time de rua
+
+**Elis · Matheus "Barça" · Gi** — todos `moderator`. ✅ **A Gi está completa**: tem conta e tem o
+papel, então o link dela carimba venda e o perfil que ela criar nasce publicado em trial.
+
+---
+
 ## 🔴 O que ainda NÃO existe
 
-1. **A tela do acerto** ("quem recebe nesta sexta") + **painel do vendedor com 3 números**
-   (fechando agora / cai na sexta dia N / "preciso antes"). Sem isso, o acerto semanal é na mão.
-2. **As 3 alavancas** — bump +R$47 · anual R$137 · **Rede Publicidade**. Nenhuma construída.
+1. **As 3 alavancas** — bump +R$47 · anual R$137 · **Rede Publicidade**. Nenhuma construída.
    O portal sozinho não paga equipe: **Publi = R$250/mês = 19× um cliente de portal**.
-3. **Cortar os 26 campos** do formulário do painel. (Quiz é fácil — mas **não usar Typebot**: iframe
-   externo, a sessão e o crachá `?v=` não atravessam. E **não trocar de framework**.)
-4. **Ligar leads aos perfis** (`crm_leads.company_id` NULO em todos; 34/35 casam).
-5. **Importar os ~60 do WordPress** — devem nascer com `lifecycle_track = 'acervo'`.
+2. **Cortar os 26 campos** do formulário. (Confirmado ao dirigir a tela: é gigante. Quiz é fácil —
+   mas **não usar Typebot**: iframe externo, a sessão e o crachá `?v=` não atravessam. E **não
+   trocar de framework**.)
+3. **Ligar leads aos perfis** (`crm_leads.company_id` NULO em todos; 34/35 casam).
+4. **Terminar a importação: faltam ~25.** Manual, pelo formulário, na opção "Cliente antigo".
 
 ## Pendências do Lucio
 
-- Faturas Asaas (`855418887` + `op4crxlwhc1jn5pe`) · **"Sobre" da Jota Vimax** · export do WordPress
-- **A Gi ainda não se cadastrou.** Sem conta → sem link → a venda dela nasce órfã.
+- Faturas Asaas (`855418887` + `op4crxlwhc1jn5pe`) · **"Sobre" da Jota Vimax**
 - **Lixo de teste no banco** (`Teste 35 elis`, `teste usuário cliente`, `Teste`) — inclusive a
-  comissão "paga" da Elis, que **eu simulei** pra testar o estorno. Ela nunca recebeu PIX.
+  comissão "paga" da Elis, que **eu simulei** pra testar o estorno. Ela nunca recebeu PIX. O
+  contra-lançamento de −R$50 está **vivo** e é o "deve R$ 50" que aparece na tela do acerto.
+  **Limpar isso zera a tela.** Não fiz — falta teu OK.
 - ⚠️ **NÃO apagar a "Neri salgados"** — prospecto real, trial até 19/07, trilho `company` (rua).
 
 ---
 
 **Commits:** `b946549` (nascimento + PIX) · `a079baf` (acervo) · `89ecf7a` (barra fixa) ·
-`83fe4f0` (botão da recuperação + e-mail honesto).
+`83fe4f0` (botão da recuperação + e-mail honesto) · `d4badf2` (o Lucio também vende) ·
+`e7988d1` (a tela do acerto).
