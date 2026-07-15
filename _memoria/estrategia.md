@@ -19,6 +19,12 @@ Fonte: `../holding-maier/_memoria/estrategia.md`.
 
 Decidido (com apoio de IA): o Rede Baixada vira a **plataforma única do grupo ("uma rede só")** — um registro de cliente que gradua de assinante-do-portal → cliente-da-agência (Rede Publicidade), com carteira/faturas/comissões/serviços num lugar só, separados por **tag de unidade (RB × Rede Publicidade)**. **UniMasso fica fora** (SaaS próprio; só compartilha a conta Asaas). Não criar ERP separado — monólito modular, evolução **faseada** (Fase 0 = ligar o CRM ao webhook Asaas). Viável porque o backbone de ERP **já existe no schema** (só falta ligar). Roadmap completo: [`../saidas/roadmap-plataforma-unica-2026-07.md`](../saidas/roadmap-plataforma-unica-2026-07.md).
 
+## 🗺️ Regionalização + posicionamento — 15/07/2026
+
+**RB agora é a Baixada, não só Mongaguá.** Expansão pra **Praia Grande e Itanhaém** (muito mais estabelecimentos). A trava era de TEXTO (a home dizia "Oficial de Mongaguá", cidade fixa) e já perdeu prospectos de PG no passado. Corrigido: home = "Plataforma de Negócios da **Baixada Santista**", "Oficial de Mongaguá" virou crédito ("chegando em PG e Itanhaém"), cidade virou **dropdown real** (bairros já existem pra toda a Baixada). Folha regionalizada ("na sua cidade", "Fundador da sua cidade"). Empresas ainda 92% Mongaguá → PG/Itanhaém = pitch **"seja o primeiro Fundador da sua cidade"**.
+
+**Posicionamento — de "EuGência" pra Agência.** Não é "o Lucio faz", é **"a Rede Publicidade faz com IA"** — time enxuto, rápido, preço imbatível. Os dois Redes são **dobradinha**: o Baixada abre a porta (oferta validada), a Rede Publicidade entrega e cuida. A IA é o *motivo pra acreditar* no preço/velocidade, não a manchete. Essa frase de autoridade vive no Treinamento do Agente e na folha.
+
 ## Fase
 
 **Reativação da Rede Baixada** (jun/2026). Voltar a oferecer e fechar as primeiras vendas/cadastros. Meta de 12 meses: R$5.000/mês.
