@@ -18,6 +18,12 @@
 - [ ] **P2 item 3 — referência externa por unidade** (RB × UniMasso) — edge function de pagamento.
   ➡️ Absorvido pela **Fase 0** do Sprint 2 (junto com a tag de unidade e o **vendedor** no
   `externalReference` — hoje é só `company_id|plan_slug|parceiro`, sem agente).
+- [ ] **Criar categoria/bairro NA HORA pelo agente na rua** (15/07) — hoje são `AdminRoute` (só admin
+  cria); o agente pica da lista pronta. Fazer um "não achou? digite a nova" self-serve, mas com
+  **curadoria**: entra já usável e fica marcado pra revisão do admin (evita bagunça de nomes:
+  "Restaurante" × "Restaurantes"). Bairro pode liberar direto (é fato); categoria fica pra revisão.
+  ⚠️ Enquanto isso, a venda **NUNCA trava** por isso: admin adiciona na hora, ou pica a mais próxima e
+  refina depois. Gatilho pra construir: quando a Gi/Barça entrarem no volume.
 
 ### Depende do Lucio (ação manual)
 - [ ] **Cancelar a fatura Asaas 855418887** (R$77,70, vence 14/07) — sobra do teste de 11/07.
