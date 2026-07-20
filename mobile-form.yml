@@ -1,0 +1,213 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - main [ref=e226]:
+    - generic [ref=e227]:
+      - button "Toggle Sidebar" [ref=e228] [cursor=pointer]:
+        - img
+        - generic [ref=e229]: Toggle Sidebar
+      - button [ref=e467] [cursor=pointer]:
+        - img [ref=e232]
+        - img
+    - main [ref=e236]:
+      - generic [ref=e237]:
+        - button "Voltar" [ref=e238] [cursor=pointer]:
+          - img
+          - text: Voltar
+        - generic [ref=e239]:
+          - heading "Novo Cadastro" [level=1] [ref=e240]
+          - paragraph [ref=e241]: Cadastre sua empresa ou perfil profissional no diretório
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - paragraph [ref=e245]: Como este perfil nasce?
+            - paragraph [ref=e246]:
+              - text: Você usa esta tela pra importar cliente antigo
+              - emphasis [ref=e247]: e
+              - text: pra vender na rua. Não é a mesma coisa.
+          - generic [ref=e248]:
+            - button "Cliente antigo (importação) Vai pro ar agora, sem prazo nenhum. Nunca sai das buscas — nem se não pagar. É o portal." [pressed] [ref=e249] [cursor=pointer]:
+              - img [ref=e250]
+              - generic [ref=e252]: Cliente antigo (importação)
+              - generic [ref=e253]: Vai pro ar agora, sem prazo nenhum.
+              - generic [ref=e254]: Nunca sai das buscas — nem se não pagar. É o portal.
+            - button "Visita porta a porta Vai pro ar agora, com selo e WhatsApp, por 7 dias. ⚠️ Se não pagar em 7 dias, o perfil SAI do ar." [ref=e255] [cursor=pointer]:
+              - img [ref=e256]
+              - generic [ref=e261]: Visita porta a porta
+              - generic [ref=e262]: Vai pro ar agora, com selo e WhatsApp, por 7 dias.
+              - generic [ref=e263]: ⚠️ Se não pagar em 7 dias, o perfil SAI do ar.
+            - button "Só cadastrar Fica invisível, esperando você aprovar. Ninguém vê o perfil até você liberar." [ref=e264] [cursor=pointer]:
+              - img [ref=e265]
+              - generic [ref=e270]: Só cadastrar
+              - generic [ref=e271]: Fica invisível, esperando você aprovar.
+              - generic [ref=e272]: Ninguém vê o perfil até você liberar.
+        - generic [ref=e274]:
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - text: Imagem de Capa
+              - generic [ref=e277]:
+                - img "Preview" [ref=e459] [cursor=pointer]
+                - generic [ref=e460]:
+                  - button "Alterar" [ref=e461] [cursor=pointer]:
+                    - img
+                    - text: Alterar
+                  - button "Remover" [ref=e462] [cursor=pointer]:
+                    - img
+                    - text: Remover
+              - paragraph [ref=e285]: "Recomendado: 1200x400 pixels. Pode enviar a foto direto da câmera — ela é otimizada automaticamente."
+            - generic [ref=e286]:
+              - text: Logo
+              - generic [ref=e289] [cursor=pointer]:
+                - img [ref=e290]
+                - generic [ref=e294]: Logo 400x400
+              - paragraph [ref=e295]: "Recomendado: 400x400 pixels. Fundo transparente (PNG) é preservado."
+            - generic [ref=e296]:
+              - text: Imagem para Redes Sociais
+              - generic [ref=e299] [cursor=pointer]:
+                - img [ref=e300]
+                - generic [ref=e304]: Imagem OG 1200x630
+              - paragraph [ref=e305]: "Esta imagem aparecerá quando seu perfil for compartilhado no WhatsApp, Facebook, LinkedIn, etc. Recomendado: 1200x630 pixels"
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - generic [ref=e308]:
+                - img [ref=e309]
+                - text: Empresa em Destaque
+              - paragraph [ref=e311]: Empresas em destaque aparecem na seção principal da página inicial
+            - switch "Empresa em Destaque" [ref=e312] [cursor=pointer]
+            - checkbox
+          - generic [ref=e313]:
+            - text: Tipo de Cadastro *
+            - combobox "Tipo de Cadastro *" [ref=e314] [cursor=pointer]:
+              - generic: Empresa
+              - img [ref=e315]
+            - combobox [ref=e317]
+            - paragraph [ref=e318]: Cadastro para empresa ou estabelecimento comercial
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - text: Nome da Empresa *
+              - textbox "Nome da Empresa *" [ref=e321]:
+                - /placeholder: "Ex: Auto Center Praiano"
+            - generic [ref=e322]:
+              - text: Slug (URL) *
+              - textbox "Slug (URL) *" [ref=e323]:
+                - /placeholder: "ex: auto-center-praiano"
+              - paragraph [ref=e324]: "Usado na URL: /empresa/slug"
+          - generic [ref=e325]:
+            - generic [ref=e326]:
+              - generic [ref=e327]: Descrição
+              - button "Fale e a IA escreve" [ref=e328] [cursor=pointer]:
+                - img
+                - text: Fale e a IA escreve
+            - textbox "Descrição" [ref=e329]:
+              - /placeholder: Descreva sua empresa em poucas palavras...
+            - paragraph [ref=e330]: 0/1500 caracteres
+          - generic [ref=e331]:
+            - generic [ref=e332]:
+              - text: Categoria *
+              - combobox "Categoria *" [ref=e333] [cursor=pointer]:
+                - generic: Selecione uma categoria
+                - img [ref=e334]
+              - combobox [ref=e336]
+            - generic [ref=e337]:
+              - text: Cidade *
+              - combobox "Cidade *" [ref=e338] [cursor=pointer]:
+                - generic: Selecione uma cidade
+                - img [ref=e339]
+              - combobox [ref=e341]
+          - generic [ref=e342]:
+            - text: Bairro
+            - combobox "Bairro" [disabled] [ref=e343]:
+              - generic: Selecione uma cidade primeiro
+              - img [ref=e344]
+            - combobox [disabled] [ref=e346]
+            - paragraph [ref=e347]: Opcional - ajuda clientes a encontrar sua empresa mais facilmente
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - text: Telefone
+              - textbox "Telefone" [ref=e350]:
+                - /placeholder: (13) 3333-3333
+            - generic [ref=e351]:
+              - text: WhatsApp
+              - textbox "WhatsApp" [ref=e352]:
+                - /placeholder: (13) 99999-9999
+          - generic [ref=e353]:
+            - generic [ref=e354]:
+              - text: Email
+              - textbox "Email" [ref=e355]:
+                - /placeholder: contato@empresa.com
+            - generic [ref=e356]:
+              - text: Website
+              - textbox "Website" [ref=e357]:
+                - /placeholder: https://www.empresa.com
+          - generic [ref=e358]:
+            - text: Endereço
+            - textbox "Endereço" [ref=e359]:
+              - /placeholder: Rua, número, bairro
+          - generic [ref=e360]:
+            - generic [ref=e361]:
+              - img [ref=e362]
+              - text: Localização no Mapa
+            - generic [ref=e365]:
+              - generic [ref=e367]:
+                - generic [ref=e368]:
+                  - img [ref=e369]
+                  - textbox "Buscar endereço..." [ref=e372]
+                - button [disabled]:
+                  - img
+              - generic [ref=e374]:
+                - generic:
+                  - generic [ref=e375]:
+                    - button "Zoom in" [ref=e463] [cursor=pointer]: +
+                    - button "Zoom out" [ref=e464] [cursor=pointer]: −
+                  - generic [ref=e378]:
+                    - link "Leaflet" [ref=e465] [cursor=pointer]:
+                      - /url: https://leafletjs.com
+                      - img [ref=e380]
+                      - text: Leaflet
+                    - text: "| ©"
+                    - link "OpenStreetMap" [ref=e466] [cursor=pointer]:
+                      - /url: https://www.openstreetmap.org/copyright
+                    - text: contributors
+              - paragraph [ref=e385]: 💡 Clique no mapa para definir a localização ou busque um endereço acima
+            - paragraph [ref=e386]: A localização será exibida na aba "Mapa" do perfil da empresa
+          - generic [ref=e387]:
+            - heading "Redes Sociais e Google Meu Negócio" [level=3] [ref=e388]
+            - generic [ref=e389]:
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - img [ref=e392]
+                  - text: Instagram
+                - textbox "Instagram" [ref=e395]:
+                  - /placeholder: "@suaempresa ou URL completa"
+              - generic [ref=e396]:
+                - generic [ref=e397]:
+                  - img [ref=e398]
+                  - text: Facebook
+                - textbox "Facebook" [ref=e400]:
+                  - /placeholder: https://facebook.com/suaempresa
+            - generic [ref=e401]:
+              - generic [ref=e402]:
+                - generic [ref=e403]:
+                  - img [ref=e404]
+                  - text: LinkedIn
+                - textbox "LinkedIn" [ref=e408]:
+                  - /placeholder: https://linkedin.com/company/suaempresa
+              - generic [ref=e409]:
+                - generic [ref=e410]:
+                  - img [ref=e411]
+                  - text: YouTube
+                - textbox "YouTube" [ref=e414]:
+                  - /placeholder: https://youtube.com/@seucanal
+            - generic [ref=e415]:
+              - generic [ref=e416]:
+                - text: TikTok
+                - textbox "TikTok" [ref=e417]:
+                  - /placeholder: "@suaempresa ou URL completa"
+              - generic [ref=e418]:
+                - generic [ref=e419]:
+                  - img [ref=e420]
+                  - text: Google Meu Negócio
+                - textbox "Google Meu Negócio" [ref=e424]:
+                  - /placeholder: https://g.page/suaempresa
+                - paragraph [ref=e425]: Cole o link do seu perfil no Google Maps
+          - button "Publicar no portal (sem prazo)" [ref=e427] [cursor=pointer]

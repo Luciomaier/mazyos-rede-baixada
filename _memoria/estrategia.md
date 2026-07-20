@@ -25,6 +25,41 @@ Decidido (com apoio de IA): o Rede Baixada vira a **plataforma única do grupo (
 
 **Posicionamento — de "EuGência" pra Agência.** Não é "o Lucio faz", é **"a Rede Publicidade faz com IA"** — time enxuto, rápido, preço imbatível. Os dois Redes são **dobradinha**: o Baixada abre a porta (oferta validada), a Rede Publicidade entrega e cuida. A IA é o *motivo pra acreditar* no preço/velocidade, não a manchete. Essa frase de autoridade vive no Treinamento do Agente e na folha.
 
+## 🚀 Plano SEO + Conteúdo + E-mail + Conversão — 19/07/2026 (DECIDIDO, faseado)
+
+Plano completo: [`saidas/plano-seo-conteudo-email-2026-07-19.md`](../saidas/plano-seo-conteudo-email-2026-07-19.md).
+Tese: conteúdo + páginas de hub trazem tráfego de graça → cai em perfil REAL → "X pessoas viram"
+fecha a venda. 4 camadas: (1) **hub de páginas** cidade/categoria/bairro com texto único + perfis
+reais + schema (a brecha exata do concorrente, que tem categorias VAZIAS); (2) **hidratação** =
+acervo curado (trilho acervo NÃO some — é a camada de SEO; rua é venda); (3) **blog** em
+`redebaixada.com.br/blog` DENTRO do portal (evergreen 80% + hype/news + patrocinado); (4) **e-mail
+dois motores**: Resend transacional (100/dia, 3k/mês) × **Brevo marketing** (conta compartilhada
+UniMasso/Holos, ilimitada) em **domínio SEPARADO**. ⚠️ **GUARDA-CHUVA: todo link pago = `rel="sponsored"`**
+(senão penalidade de domínio) + página de hub só entra com ≥3–5 perfis (thin content derruba). Build
+é do Claude; matéria-prima é a rua do Lucio (anti-fragmentação). Fase 0 AGORA (custo zero): banco de
+conteúdo de rua + acoplar no discurso de venda. Depois hub → blog → Brevo → monetização.
+
+## 🧭 Diretriz das frentes de cadastro — 19/07/2026 (mesa /planejar: painel 5 lentes + entrevista)
+
+**Norte:** o Lucio planta perfis na rua e no trajeto; **a máquina cobra** (Resend + ciclo de
+vida, LIGADOS em produção) — ele nunca é o cobrador. Decisões do dono cruzadas com o painel:
+
+- **Modo Rua (F1+F2 fundidas):** a visita fecha na hora (77,70) OU planta trial "rua" (perfil
+  no ar 7 dias) + WhatsApp com link de reivindicar **no mesmo dia**. Regras: só empresa que ele
+  viu/conversou · trial começa no dia do contato · e-mail da empresa sempre preenchido (senão o
+  ciclo cobra o próprio Lucio) · pedir o e-mail real do dono na visita.
+- **Reconquista dos 37: WhatsApp-first, Lucio assume** (número pequeno, histórico dele; ligação
+  fria de cobrança trava — dado de projeto, não defeito). Lote semanal; liga só pra quem responder.
+- ⚰️ **Popular PG/Itanhaém em massa: morto** (casca sem dono = passivo reputacional — o erro
+  exato do concorrente aquitemnegocios; ver `saidas/analise-aquitemnegocios-2026-07-19.md`).
+- 🌱 **Tráfego pago: gate completo** — 10 vendas manuais primeiro → LP pública "Fundador da sua
+  cidade" (77,70) → ads verba mínima (R$10–15/dia).
+- **Legados (16 planos antigos): todo antigo que voltar vira Parceiro R$77,70/6m.** Uma regra só.
+- **Resposta estrutural ao concorrente (SEO):** acervo curado + páginas cidade×bairro×categoria
+  — copiar a máquina de indexação deles, nunca o atalho da raspagem. Monitorar o sitemap deles 1×/mês.
+- Kill criteria 30 dias: claim de perfil plantado <10–15% → repensar trilho · reconquista <5
+  fechamentos → base fria morta, não insistir.
+
 ## Fase
 
 **Reativação da Rede Baixada** (jun/2026). Voltar a oferecer e fechar as primeiras vendas/cadastros. Meta de 12 meses: R$5.000/mês.

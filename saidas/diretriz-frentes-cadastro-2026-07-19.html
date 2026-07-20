@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Diretriz — Frentes de cadastro da Rede Baixada</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Georgia, "Times New Roman", serif; color: #1a1a1a; line-height: 1.5; font-size: 11pt; }
+  h1 { font-size: 20pt; margin: 0 0 2pt; border-bottom: 3px solid #1791CF; padding-bottom: 6pt; }
+  .sub { color: #555; font-size: 9.5pt; margin: 0 0 16pt; font-style: italic; }
+  h2 { font-size: 13pt; margin: 18pt 0 6pt; color: #0f5f8a; border-bottom: 1px solid #ccc; padding-bottom: 3pt; }
+  h3 { font-size: 11pt; margin: 12pt 0 3pt; }
+  p, li { font-size: 10.5pt; }
+  ul { margin: 4pt 0 8pt; padding-left: 18pt; }
+  li { margin-bottom: 3pt; }
+  .norte { background: #f0f8fc; border-left: 4px solid #1791CF; padding: 10pt 14pt; margin: 8pt 0 4pt; font-size: 11.5pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1px solid #bbb; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; vertical-align: top; }
+  th { background: #1791CF; color: #fff; }
+  .quente { background: #fff4ec; }
+  .rota-nova { color: #c2410c; font-weight: bold; }
+  .morto { color: #7a7a7a; }
+  .callout { background: #fffbe6; border: 1px solid #e6c200; border-radius: 4px; padding: 8pt 12pt; margin: 10pt 0; font-size: 10pt; }
+  .footer { margin-top: 20pt; padding-top: 8pt; border-top: 1px solid #ccc; color: #777; font-size: 8.5pt; }
+  strong { color: #000; }
+</style>
+</head>
+<body>
+  <h1>Diretriz — Frentes de cadastro</h1>
+  <p class="sub">Rede Baixada · 19/07/2026 · mesa de planejamento (painel de 5 lentes + entrevista do dono). Decisão, não descrição.</p>
+
+  <div class="norte">
+    <strong>O norte:</strong> você planta perfis na rua e no trajeto; <strong>a máquina cobra</strong> — você nunca mais é o cobrador. O sistema de e-mail (Resend) está ligado e o ciclo de vida roda sozinho. O seu papel é plantar e responder quem esquenta.
+  </div>
+
+  <h2>Os dois pés</h2>
+  <h3>🦶 O pé que constrói — Modo Rua (a visita e o trajeto são uma frente só)</h3>
+  <p>A visita <strong>fecha na hora</strong> (link do seu vendedor, R$77,70) <strong>ou planta um trial</strong>: dono ausente/na dúvida → cria o perfil "rua" (nasce no ar, 7 dias, selo + WhatsApp) e manda o link de reivindicar+pagar <strong>pelo WhatsApp, no mesmo dia</strong>. Três regras:</p>
+  <ul>
+    <li>Só empresa que <strong>você viu ou conversou</strong> — nada de popular cidade em massa.</li>
+    <li>O <strong>trial começa no dia do WhatsApp</strong>, nunca antecipado (senão fica cinza sem ter falado com você).</li>
+    <li><strong>Preencha o e-mail da empresa</strong> — é pra onde a máquina cobra. Vazio, ela cobra você. Peça o e-mail real do dono na visita.</li>
+  </ul>
+
+  <h3>🦶 O pé que segura — a máquina de cobrança (já ligada)</h3>
+  <p>Resend em produção. O trial que você planta dispara boas-vindas na manhã seguinte (cron 09:00) e depois cobra sozinho: "faltam 2 dias" → cinza → saiu do ar → recibo ao pagar. O não-pagamento vira decisão do cliente, não falha de follow-up seu.</p>
+
+  <h2>A reconquista dos 37 ex-clientes</h2>
+  <ul>
+    <li><strong>WhatsApp primeiro</strong>: mensagem com o perfil + as visualizações ("93 pessoas já viram sua página") + o link de pagar. <strong>Ligação só pra quem responder.</strong></li>
+    <li>Você assume por ora (número pequeno, você tem o histórico). Lote pequeno por semana, começando pelas maiores visualizações.</li>
+    <li>Todo antigo que voltar entra como <strong>Parceiro R$77,70/6 meses</strong> — uma regra só.</li>
+  </ul>
+
+  <h2>Ajuste de rota — o que muda</h2>
+  <table>
+    <tr><th>Rota anterior</th><th>Rota decidida (19/07)</th></tr>
+    <tr><td>Reconquista = ligar 5–8/dia</td><td class="rota-nova">WhatsApp-first; ligar só quem responde; você assume</td></tr>
+    <tr><td>Perfil plantado sem trilho (os 4–5 de ontem)</td><td class="rota-nova">Vira lead no CRM → ligação amanhã pedindo e-mail → planta conforme o calor</td></tr>
+    <tr><td>Popular Praia Grande / Itanhaém em massa</td><td class="morto">⚰️ Morto — casca sem dono é passivo, não ativo</td></tr>
+    <tr><td>Tráfego pago leve agora</td><td class="rota-nova">🌱 Gate: 10 vendas manuais → LP pública "Fundador" → ads R$10–15/dia</td></tr>
+    <tr><td>16 legados sem decisão</td><td class="rota-nova">Todo antigo que voltar vira Parceiro 77,70/6m</td></tr>
+  </table>
+
+  <h2>A ligação de amanhã (20/07) — os cartões da mão</h2>
+  <table>
+    <tr><th>Temperatura</th><th>Ação</th></tr>
+    <tr class="quente"><td>🔥 Quente ("quanto é?")</td><td>Fecha: manda seu link de vendedor no WhatsApp; ele cria login e paga</td></tr>
+    <tr><td>🌤 Morno (na dúvida)</td><td>"Deixo 7 dias no ar pra ver" → planta trial "rua" + WhatsApp com link de reivindicar</td></tr>
+    <tr><td>❄️ Frio (esquivou)</td><td>Fica como lead no CRM — sem perfil, sem relógio, sem desgaste</td></tr>
+  </table>
+  <p style="font-size:10pt;">O pretexto honesto: <em>"Estive aí ontem, tô deixando o perfil da [empresa] pronto — me passa teu melhor e-mail que é pra onde vão o comprovante e os avisos."</em> Pedido pequeno que ninguém nega, e a reação te dá a temperatura.</p>
+
+  <h2>Quando o dono disser "já estou no aquitemnegocios"</h2>
+  <p style="font-size:10pt;">Abra a ficha dele no site deles, no seu celular. É casca raspada do Google Maps (importaram 21 mil de uma vez em março): <strong>sem foto dele, zero avaliações, texto genérico, e o WhatsApp travado — só destrava pagando R$299,90 por ano</strong>, com anúncio de terceiro na página dele. A Rede Baixada é daqui, veio até a porta, sai hoje com foto real, selo de verdade e WhatsApp funcionando por R$77,70/6 meses — metade do preço anual deles — e 7 dias grátis pra decidir.</p>
+
+  <div class="callout">
+    <strong>Termômetro de 30 dias (quando parar de insistir):</strong> se os perfis que você planta convertem menos de ~1 em 7, o trilho precisa mudar. Se a reconquista fecha menos de 5 dos 37, a base fria está morta — não force. Dado decide, não teimosia.
+  </div>
+
+  <p class="footer">Gerado pela mesa /planejar da Rede Baixada. Análise do concorrente: saidas/analise-aquitemnegocios-2026-07-19.md · Registro: _memoria/estrategia.md.</p>
+</body>
+</html>

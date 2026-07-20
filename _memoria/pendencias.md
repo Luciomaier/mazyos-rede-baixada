@@ -27,11 +27,10 @@
 
 ### Depende do Lucio (ação manual)
 - [ ] **Cancelar a fatura Asaas 855418887** (R$77,70, vence 14/07) — sobra do teste de 11/07.
-- [ ] **DECISÃO: migrar as 16 empresas dos planos legados?** (descoberto 11/07) — a base paga ainda está
-  em `pro` (12), `profissional` (3) e `premium` (1); os planos novos (`presenca`/`destaque`/`autoridade`)
-  têm **outro preço e outros recursos**. O código hoje trata os dois mundos (`LEGACY_PLAN_EQUIVALENT` em
-  `usePlans.ts`), então **não é urgente** — mas enquanto não migrar, convivem dois vocabulários de plano.
-  Migrar é decisão comercial (o que cada cliente passa a receber e a pagar), não técnica.
+- [x] **DECISÃO TOMADA (19/07): os 16 legados viram Parceiro R$77,70/6m QUANDO voltarem** — na
+  reconquista, todo antigo que reativar entra como `presenca` via link de claim (uma regra, um
+  vocabulário). Quem não voltar fica como está (`LEGACY_PLAN_EQUIVALENT` segue traduzindo).
+  Sem migração em lote no banco — a migração acontece cliente a cliente, no pagamento.
 - [ ] **Imprimir a folha de vendas** — conteúdo já corrigido e conferido (6 meses,
   "menos de R$13/mês", sem vitrine/vagas). PDF pronto: `marketing/folha-vendas-parceiro-v2.pdf`
   (cliente) e `marketing/folha-operador-pap.pdf` (interno). Abrir → Ctrl+P → A4, frente-e-verso.
@@ -99,9 +98,12 @@ morrer). Os dois se complementam — o Pro nunca vai devolver UM campo.
 ## Reescrever o "Sobre" da empresa Jota Vimax
 Descrição perdida em 12/07 (erro em teste de RLS contra linha real). Irrecuperável.
 
-## BREVO_API_KEY
-A repescagem do trial está no ar em **no-op** (roda, conta o que mandaria, não envia). Ligar a chave
-liga os e-mails do ciclo (dia 0 / 5 / 7 / 14).
+## ~~BREVO_API_KEY~~ — RESOLVIDA (obsoleta; conferido 19/07)
+O provedor é **Resend**, não Brevo — e está **LIGADO em produção** desde 12–13/07
+(`RESEND_API_KEY` + remetente setados, domínio verificado, e-mails reais testados). O ciclo
+(dia 0 / "faltam 2 dias" / cinza / oculto / recibo) sai de verdade no cron das 09:00.
+Brevo só existe em comentário no código: é o plano FUTURO pra campanha em massa (dormentes),
+em provedor separado pra não sujar a reputação transacional — isso sim seria dev novo.
 
-## Contas de vendedor pro Barça e pra Gi
-Sem conta no portal, não existe link de vendedor (`?v=`) — e a venda deles nasceria órfã.
+## ~~Contas de vendedor pro Barça e pra Gi~~ — RESOLVIDA (13/07)
+Elis, Barça e Gi têm conta `moderator` — o link `?v=` de cada um já carimba a venda.

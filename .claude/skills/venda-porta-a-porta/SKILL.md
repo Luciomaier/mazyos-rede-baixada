@@ -80,6 +80,13 @@ Por que cada peça importa:
 >
 > **2. O e-mail é o do CLIENTE.** É pra ele que vão os avisos dos 7 dias. Se você puser o seu pra ir
 > mais rápido, **quem vai ser cobrado é você** — e o cliente nunca fica sabendo que o perfil morreu.
+>
+> **3. Peça o e-mail REAL na visita — é o canal da cobrança automática.** Cartão de visita quase
+> nunca traz o e-mail que o dono abre. Sem ele, a máquina fica muda e sobra só o seu WhatsApp na
+> mão. No caso "planta agora, dono ausente/na dúvida": cadastra sem inventar e-mail (deixa vazio),
+> manda o WhatsApp com o link no mesmo dia, e **pesca o e-mail na conversa** ("me passa teu melhor
+> e-mail que o sistema te manda o comprovante e os avisos"). No momento em que ele reivindica o
+> perfil, os e-mails passam a ir pro login dele — o buraco se fecha sozinho.
 
 ## Fase 1 — Preparar o dia (antes de sair)
 
