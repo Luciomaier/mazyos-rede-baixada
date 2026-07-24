@@ -28,6 +28,11 @@ Decidido (com apoio de IA): o Rede Baixada vira a **plataforma única do grupo (
 ## 🚀 Plano SEO + Conteúdo + E-mail + Conversão — 19/07/2026 (DECIDIDO, faseado)
 
 Plano completo: [`saidas/plano-seo-conteudo-email-2026-07-19.md`](../saidas/plano-seo-conteudo-email-2026-07-19.md).
+> ✅ **Camadas 1 e 3 CONSTRUÍDAS em 23/07** (ver política do 1º ano acima): 8 hubs
+> cidade×categoria (`/empresas/mongagua/restaurantes`) e o blog (`/blog`) estão no código, com
+> gate ≥3 perfis, schema (ItemList/Breadcrumb/FAQ/Article) e pre-render pro robô. **Os 8 hubs
+> estão DESPUBLICADOS** esperando o Lucio aprovar os textos em
+> [`saidas/textos-hubs-2026-07-23.md`](../saidas/textos-hubs-2026-07-23.md).
 Tese: conteúdo + páginas de hub trazem tráfego de graça → cai em perfil REAL → "X pessoas viram"
 fecha a venda. 4 camadas: (1) **hub de páginas** cidade/categoria/bairro com texto único + perfis
 reais + schema (a brecha exata do concorrente, que tem categorias VAZIAS); (2) **hidratação** =
@@ -38,6 +43,28 @@ UniMasso/Holos, ilimitada) em **domínio SEPARADO**. ⚠️ **GUARDA-CHUVA: todo
 (senão penalidade de domínio) + página de hub só entra com ≥3–5 perfis (thin content derruba). Build
 é do Claude; matéria-prima é a rua do Lucio (anti-fragmentação). Fase 0 AGORA (custo zero): banco de
 conteúdo de rua + acoplar no discurso de venda. Depois hub → blog → Brevo → monetização.
+
+## 🏛️ POLÍTICA DO 1º ANO: todo cadastro real é acervo — 23/07/2026 (DECIDIDA, no ar)
+
+**Decisão do Lucio:** perfil de negócio **constatado real** (a visita do agente é a constatação;
+o orgânico passa pela moderação) **nunca mais sai do ar nem do Google** — nem o plantado na rua
+que não fechou. É o "legado de cadastros": o portal só ACUMULA página. Revisar em jul/2027.
+
+A pressão comercial muda de endereço, não desaparece: deixa de ser *"teu perfil some"* e vira
+***"quem te encontra não consegue mais te CHAMAR"*** — o selo de Verificado e o botão de WhatsApp
+continuam derivando do plano pago e apagando sozinhos no vencimento. **A PÁGINA é o portal; o
+CONTATO é o produto.** É essa fronteira que deixa acumular página sem canibalizar a venda.
+
+No banco: `lifecycle_track` default `'acervo'`, os 45 perfis migrados, trilho `'company'` (a
+esteira que some) dormente nas policies — reverter é UPDATE, sem deploy. Trial de rua segue
+7 dias, mas termina em `listed` (perde selo/WhatsApp, fica no ar) em vez de sumir.
+
+**Consequência operacional:** a pergunta do dia seguinte à visita deixou de ser "quanto tempo
+falta?" e virou **"o dono já reivindicou?"**. Por isso o admin ganhou os chips
+*Plantadas (sem dono) · Reivindicadas · Selo vencido*, o vendedor ganhou o badge "Aguardando dono"
++ **botão de copiar o link de reivindicação** (`&c=`, agora pela `agent-link` — acabou o uuid na
+mão), e o CRM ganhou o card "Plantadas aguardando claim". Casa com o kill criterion de 30 dias
+(claim <10–15% → repensar trilho).
 
 ## 🧭 Diretriz das frentes de cadastro — 19/07/2026 (mesa /planejar: painel 5 lentes + entrevista)
 

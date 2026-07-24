@@ -1,9 +1,9 @@
 ---
 name: aprovar-post
 description: >
-  Aprova e publica um post da fila — flipa o blog de draft pra published, copia os PNGs do
-  carrossel pro public folder do site, faz commit e push (Netlify/Vercel deploya), aguarda
-  o deploy, e posta o carrossel no Instagram + Facebook via Meta Graph API. Use quando o
+  Aprova e publica um post da fila — sobe os PNGs do carrossel pro Storage, flipa o post de
+  draft pra published na tabela blog_posts do portal (fica no ar na hora, sem deploy), e
+  posta o carrossel no Instagram + Facebook via Meta Graph API. Use quando o
   usuário disser "aprovar post X", "publicar o post do tema Y", "/aprovar-post X", ou quando
   quiser disparar a publicação automática de um conteúdo já criado pela skill /publicar-tema.
 ---
@@ -35,17 +35,20 @@ Se algo disso faltar: parar e apontar pro guia de setup (criar `marketing/automa
 
 ## Argumento
 
-`/aprovar-post <slug>` — onde `<slug>` é o nome do arquivo do blog **sem `.md`**.
+`/aprovar-post <slug>` — onde `<slug>` é o `slug` da linha em `blog_posts`.
 
 Exemplo: `/aprovar-post como-conservar-produto`
 
-Se o usuário não passou slug, listar os blogs em draft (arquivos com `draft: true`) e perguntar qual.
+Se o usuário não passou slug, listar os posts em rascunho
+(`GET /rest/v1/blog_posts?status=eq.draft` com sessão admin) e perguntar qual.
 
 ## Workflow
 
-### Passo 1 — Localizar arquivos
+### Passo 1 — Localizar o post e as peças
 
-- Blog: `site/.../blog/<slug>.md` (caminho depende do stack — Astro, Hugo, etc.)
+- Blog: a linha em `blog_posts` com esse `slug` (Supabase `donaobtlwqrjmvjqflxz`). Ler com
+  sessão **admin** — a RLS esconde rascunho do anon. **Não existe pasta `site/`**: o blog vive
+  no portal, em `redebaixada.com.br/blog/<slug>`.
 - Carrossel: procurar `marketing/conteudo/<slug>-*` (a pasta tem sufixo de data)
 - Validar que existem PNGs em `<pasta-carrossel>/instagram/slide-XX.png` (2 a 10)
 - Validar que existem `legenda.md` e `legenda-linkedin.md`
@@ -62,42 +65,40 @@ Mostrar pro usuário:
 
 Perguntar: **"Confirma publicação? (sim/não)"**. Só seguir se ele disser sim.
 
-### Passo 3 — Flipar draft pra false
+### Passo 3 — Subir os PNGs do carrossel pro Storage
 
-Editar o frontmatter do blog: `draft: true` → `draft: false`.
-
-### Passo 4 — Copiar PNGs pro public folder do site
+A Meta API busca a imagem por **URL pública** — por isso os slides sobem antes de publicar.
 
 - Origem: `marketing/conteudo/<slug>-<data>/instagram/slide-*.png`
-- Destino: `site/.../public/img/posts/<slug>/slide-*.png`
-- Criar pasta de destino se não existir
-- Sobrescrever se já existir (caso seja re-publicação)
+- Destino: bucket **`company-assets`**, pasta `blog/<slug>/slide-XX.png` (upsert, pra
+  re-publicação sobrescrever)
+- A URL pública fica `https://donaobtlwqrjmvjqflxz.supabase.co/storage/v1/object/public/company-assets/blog/<slug>/slide-01.png`
 
-### Passo 5 — Commit + push
+Se algum upload falhar, parar antes de publicar — post no ar sem carrossel é meio trabalho.
 
-```bash
-git add site/<caminho>/blog/<slug>.md site/<caminho>/public/img/posts/<slug>/
-git commit -m "publicar: <título do blog>"
-git push origin main
+### Passo 4 — Publicar o post
+
+```
+PATCH /rest/v1/blog_posts?slug=eq.<slug>
+{ "status": "published", "published_at": "<agora em ISO>" }
 ```
 
-Esperar push terminar com sucesso.
+Com sessão admin. Se o post não tiver `cover_url`, usar a URL pública do `slide-01.png`.
 
-### Passo 6 — Aguardar deploy
+**Não há commit nem deploy:** o portal lê do banco. A página fica no ar na hora, e o
+`generate-sitemap` passa a emitir `/blog/<slug>` na próxima leitura do robô.
 
-Deploy automático (Netlify/Vercel) leva ~1-2 min. Validar que o post está no ar:
-
-```bash
-curl -sf -o /dev/null -w "%{http_code}" "$SITE_URL/blog/$slug/"
-```
-
-Aguardar HTTP 200 (com timeout de 5 min). Também checar que pelo menos `slide-01.png` está acessível:
+### Passo 5 — Conferir que está no ar
 
 ```bash
-curl -sf -o /dev/null -w "%{http_code}" "$SITE_URL/img/posts/$slug/slide-01.png"
+curl -sf -o /dev/null -w "%{http_code}" "https://redebaixada.com.br/blog/<slug>"
 ```
 
-Sem isso, a Meta API vai falhar — ela busca a imagem por URL pública.
+Aguardar HTTP 200 e conferir que o `<title>` do HTML é o do post (o `api/blog-og.js` injeta
+title/description/OG server-side — é o que o robô e o WhatsApp leem).
+
+⚠️ **Uma requisição por vez, sem rajada de `curl`** — rajada aciona a DDoS Mitigation da Vercel
+contra o próprio IP e tudo vira 403.
 
 ### Passo 7 — Postar no Instagram
 
@@ -130,7 +131,7 @@ Mostrar:
 ```
 ✓ Post publicado: <título>
 
-Site:        <SITE_URL>/blog/<slug>/
+Site:        https://redebaixada.com.br/blog/<slug>
 Instagram:   <link do post>
 Facebook:    <link do post>
 LinkedIn:    pendente — texto pronto em legenda-linkedin.md (postar manual)
@@ -138,14 +139,15 @@ LinkedIn:    pendente — texto pronto em legenda-linkedin.md (postar manual)
 
 ## Tratamento de erro
 
-- Push falhou: rollback do `draft: false` (restaura `draft: true`), relata e para
-- Deploy não subiu em 5 min: relata, pergunta se quer continuar mesmo assim ou abortar
-- Insta API falhou: para e relata. Site já está no ar, blog publicado — só o post no feed que não foi
+- Upload dos slides falhou: para ANTES de publicar (sem imagem pública a Meta API falha)
+- PATCH de publicação falhou: relata e para — nada foi publicado
+- Página não responde 200 em 2 min: rollback (`status: "draft"`), relata e para
+- Insta API falhou: para e relata. O post já está no ar no portal — só o feed que não foi
 - FB falhou mas Insta OK: relata, sugere tentar de novo só o FB depois
 
 ## Princípios
 
 1. **Confirmação humana antes de qualquer coisa irreversível.** Nunca pular o passo 2.
-2. **Idempotente onde possível.** Re-rodar com mesmo slug deve detectar publicação prévia (blog não-draft, PNGs já no public/) e perguntar se é pra re-postar ou só atualizar.
+2. **Idempotente onde possível.** Re-rodar com mesmo slug deve detectar publicação prévia (`status = published`, PNGs já no Storage) e perguntar se é pra re-postar ou só atualizar.
 3. **Falha cedo, falha alto.** Qualquer pré-requisito faltando = abortar e explicar o que falta.
 4. **Logar tudo.** Cada passo imprime o que está fazendo e o resultado.

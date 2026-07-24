@@ -18,7 +18,9 @@ Skill orquestradora. Pega um tema → entrega artigo no blog + carrossel + 3 leg
 - **Estratégia de conteúdo:** `marketing/seo/05-estrategia-conteudo.md` (lista mestra de temas, criada pelo `/seo`)
 - **Outras pesquisas SEO:** `marketing/seo/01-pesquisa-demanda.md`, `02-analise-concorrencia.md`, `08-geo-otimizacao-ia.md`
 - **Skill carrossel:** `.claude/skills/carrossel/SKILL.md` — usar pra fase do carrossel
-- **Site (blog):** `site/` — destino dos artigos. Estrutura comum: Astro em `site/astro-site/src/content/blog/`, ou WordPress, ou outro. Se ainda não tiver site, perguntar antes
+- **Blog (destino dos artigos):** a tabela `blog_posts` do Supabase do portal — o blog vive em
+  `redebaixada.com.br/blog`, DENTRO do portal (subdiretório concentra a autoridade no domínio
+  de 2013). Não existe pasta `site/` neste projeto. Ver "Passo 2" pra como gravar.
 - **Tom de voz:** `_memoria/preferencias.md`
 - **Contexto:** `_memoria/empresa.md`, `identidade/design-guide.md`
 
@@ -45,30 +47,32 @@ Antes de escrever, ler o que tem nas pesquisas SEO sobre esse tema:
 
 ### Passo 2 — Escrever o blog post
 
-**Destino:** depende do stack do site. Padrões comuns:
-- Astro: `site/astro-site/src/content/blog/<slug>.md`
-- WordPress: gerar markdown que o usuário cola no editor
-- Outro: confirmar com o usuário
+**Destino:** a tabela `blog_posts` do Supabase do portal (`donaobtlwqrjmvjqflxz`). A escrita
+exige sessão de **admin** (RLS) — logar pelo REST com a conta admin e inserir:
 
-**Slug:** kebab-case curto, sem stopwords. Ex: "Como conservar carne salgada no restaurante" → `conservar-carne-salgada`.
-
-**Frontmatter (se o stack usa markdown com frontmatter):**
-
-```yaml
----
-title: "Título atrativo, próximo da keyword"
-description: "Meta description 150-160 caracteres, com keyword e benefício pro leitor"
-publishedAt: YYYY-MM-DD
-author: "<nome configurado em _memoria/empresa.md>"
-keywords:
-  - keyword principal
-  - variação 1
-  - variação 2
-draft: true
----
+```
+POST /rest/v1/blog_posts
+{
+  "slug": "<kebab-case curto, sem stopwords>",
+  "title": "Título atrativo, próximo da keyword",
+  "excerpt": "Meta description 150-160 caracteres, com keyword e benefício pro leitor",
+  "content_md": "<o artigo em markdown>",
+  "cover_url": null,
+  "city_name": "Mongaguá",         // a cidade do assunto (opcional, alimenta o silo)
+  "hub_slug": "restaurantes",      // o hub irmão — vira o botão "Abrir o guia" no fim do post
+  "category_id": "<uuid>",         // opcional
+  "status": "draft"
+}
 ```
 
-**Sempre começar com `draft: true`.** O usuário revisa e flipa pra `false` quando aprovar.
+**Sempre inserir com `status: "draft"`.** O Lucio revisa e o `/aprovar-post` flipa pra
+`published` (que é quando entra no sitemap e vira página indexável).
+
+⚠️ **Post patrocinado:** setar `is_sponsored: true` + `sponsor_name` + `sponsor_url`. O portal
+carimba `rel="sponsored"` em todo link externo e mostra o rótulo "Publicidade" sozinho — nunca
+publicar link pago sem esses campos (penalidade manual de domínio).
+
+**Slug:** kebab-case curto, sem stopwords. Ex: "Como conservar carne salgada no restaurante" → `conservar-carne-salgada`.
 
 **Estrutura do artigo (800-1500 palavras):**
 
