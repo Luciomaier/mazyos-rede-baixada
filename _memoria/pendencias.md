@@ -5,6 +5,17 @@
 
 ## Abertas
 
+### ⭐ TRAVANDO A MÁQUINA DE PÁGINAS (23/07 — cobrar na abertura da próxima sessão)
+- [ ] **Aprovar os textos dos 8 hubs** — `saidas/textos-hubs-2026-07-23.md`. Os hubs estão
+  construídos e no ar, mas `is_published = false`: página sem texto próprio aprovado não publica
+  (regra anti-thin). Responder "todos" ou quais → eu ligo, valido o schema e submeto o sitemap
+  no Search Console. **É o único gate humano do sistema.**
+- [ ] **Os números da semana de rua** (pendente desde 18/07): cadastros, pago na hora × trial
+  plantado, objeções recorrentes.
+- [ ] **Os dados dos 4–5 cartões** de 18/07 — a ligação de 20/07 não rodou por falta deles.
+- [ ] **As 37 plantadas** — fila de reconquista WhatsApp-first, agora visível no CRM
+  ("Plantadas aguardando claim: 37") e com botão de copiar link de claim no celular.
+
 ### Backlog de execução — dev do portal (Lucio + Claude; **Nick fora** por ora)
 > Ponto de retomada detalhado: `saidas/onde-paramos-2026-07-09.md`.
 - [x] **P1 — visão do agente mobile** — **na `main` e em produção** (`main = 8e767bc`, 10/07), junto
