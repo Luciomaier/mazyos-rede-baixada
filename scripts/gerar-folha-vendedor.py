@@ -57,7 +57,10 @@ def main() -> int:
     ap.add_argument("--telefone", default="", help='ex: "(13) 98155-2646" — vazio omite do rodapé')
     ap.add_argument("--negocios", default="55", help="negócios reais no portal (do banco)")
     ap.add_argument("--cidades", default="4", help="cidades com negócio cadastrado (do banco)")
-    ap.add_argument("--anos", default="10 anos", help="tempo de casa (história, não métrica)")
+    # 13 anos = desde 2013, o primeiro anúncio pago (prova no arquivo do Facebook). Decidido em
+    # 04/08 pra acabar com as quatro versões que circulavam: "2016" no rodapé do site, "6 anos"
+    # no template da folha, "10 anos" aqui e "13 anos" na história.
+    ap.add_argument("--anos", default="13 anos", help="tempo de casa (história, não métrica)")
     ap.add_argument("--fotos", default="6", help="fotos do Plano Presença (plans.max_photos)")
     ap.add_argument("--manter-numeros", action="store_true",
                     help="não mexe nos números da pág. 2 — folha idêntica à do Lucio, só troca nome e QR")
@@ -104,9 +107,13 @@ def main() -> int:
             '<div class="prova"><b>3</b><span>cidades na região</span></div>',
             f'<div class="prova"><b>{a.cidades}</b><span>cidades na Baixada</span></div>',
         )
-        html = html.replace(
-            '<div class="prova"><b>6 anos</b><span>conectando o comércio local</span></div>',
+        # Por regex, e não por string literal: o template já trocou de "6 anos" pra "13 anos" uma
+        # vez (04/08), e um `replace` literal não avisa quando erra o alvo — ele só não substitui,
+        # e a folha sai com o número velho sem ninguém notar.
+        html = re.sub(
+            r'<div class="prova"><b>[^<]*anos</b><span>conectando o comércio local</span></div>',
             f'<div class="prova"><b>{a.anos}</b><span>conectando o comércio local</span></div>',
+            html,
         )
     html = html.replace(
         "<title>Folha de Vendas — Parceiro R$77,70 (v3)</title>",

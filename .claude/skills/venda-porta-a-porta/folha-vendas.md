@@ -16,7 +16,7 @@
 
 ## FRENTE — a oferta
 
-**[logo RedeBaixada]** · Portal de Negócios da Baixada Santista · *Conectando negócios locais há 6 anos*
+**[logo RedeBaixada]** · Portal de Negócios da Baixada Santista · *Conectando negócios locais há 13 anos*
 
 ### Sua empresa aparece no Google quando seu cliente busca por você.
 Quando alguém digita *"[sua categoria] em Mongaguá"* no Google, sua empresa aparece nos
