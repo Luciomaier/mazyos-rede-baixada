@@ -1,0 +1,117 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "Inter";
+    src: url("inter-700.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: transparent; }
+
+  /* Cada peça é renderizada sozinha: o chromium tira o screenshot da janela inteira, então
+     o corpo tem exatamente o tamanho da arte. A escolha do que renderizar vem do #hash. */
+  body > section { display: none; }
+  body.completo   #completo   { display: flex; }
+  body.compacto   #compacto   { display: flex; }
+  body.branco     #branco     { display: flex; }
+  body.marca      #marca      { display: flex; }
+
+  section {
+    align-items: center;
+    justify-content: flex-start;
+    width: max-content;
+    padding: 0;
+  }
+
+  /* ── PROPORÇÃO (a queixa era "ícone grande, texto estranho") ──────────────────────────
+     marca ............ 120px
+     nome ............. 76px  → altura de caixa alta ≈ 55px
+     slogan ........... 15px com 0.24em de espaçamento
+     bloco de texto ... ≈ 55 + 10 + 15 = 80px  → a marca fica 1,5× o texto: ela lidera sem
+                        esmagar. Antes o ícone tinha quase o dobro do bloco de texto.
+     respiro .......... 28px entre marca e texto (0,23 da marca)
+  */
+  /* `display:block` mata a folga de linha de base do <img> inline — era ela que
+     cortava o rodapé da marca no arquivo exportado. */
+  .marca { display: block; width: 120px; height: 120px; flex: 0 0 auto; }
+  .texto { margin-left: 28px; }
+
+  .nome {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 76px;
+    line-height: 0.98;
+    letter-spacing: -0.028em;   /* Inter em corpo grande pede aperto: sem isso o nome "boia" */
+    white-space: nowrap;
+  }
+  .nome .rede    { font-weight: 700; color: #1791CF; }
+  .nome .baixada { font-weight: 800; color: #F97A1F; }
+
+  .slogan {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    color: #6B7A8A;
+    margin-top: 10px;
+    white-space: nowrap;
+  }
+  /* O slogan alinha nas DUAS pontas do nome — é o que faz o bloco parecer desenhado, e não
+     duas coisas empilhadas por acaso. */
+  .slogan-linha { display: flex; justify-content: space-between; }
+
+  /* versão para fundo escuro */
+  .branco .nome .rede, .branco .nome .baixada { color: #FFFFFF; }
+  .branco .slogan { color: rgba(255,255,255,0.75); }
+  body.branco { background: #0D2B3E; }
+
+  .so-marca { display: block; width: 512px; height: 512px; }
+
+  /* Exportação em 3x sem depender do device-scale-factor do chromium (que estava
+     multiplicando a janela E a arte, cortando a peça). Aqui a ampliação é do CSS: 1 pixel
+     de janela = 1 pixel do arquivo, e o corte fica exato. */
+  body.x3 > section { transform: scale(3); transform-origin: top left; }
+</style>
+
+<section id="completo">
+  <img class="marca" src="marca.svg" alt="">
+  <div class="texto">
+    <div class="nome"><span class="rede">Rede</span><span class="baixada">Baixada</span></div>
+    <div class="slogan slogan-linha"><span>CONECTA</span><span>DIVULGA</span><span>FORTALECE</span></div>
+  </div>
+</section>
+
+<section id="compacto">
+  <img class="marca" src="marca.svg" alt="">
+  <div class="texto">
+    <div class="nome"><span class="rede">Rede</span><span class="baixada">Baixada</span></div>
+  </div>
+</section>
+
+<section id="branco" class="branco">
+  <img class="marca" src="marca-branca.svg" alt="">
+  <div class="texto">
+    <div class="nome"><span class="rede">Rede</span><span class="baixada">Baixada</span></div>
+    <div class="slogan slogan-linha"><span>CONECTA</span><span>DIVULGA</span><span>FORTALECE</span></div>
+  </div>
+</section>
+
+<section id="marca">
+  <img class="so-marca" src="marca.svg" alt="">
+</section>
+
+<div id="medida" style="position:fixed;left:-9999px"></div>
+<script>
+  const [peca, escala] = (location.hash.slice(1) || "completo").split("@");
+  document.body.className = peca + (escala === "3" ? " x3" : "");
+  // Mede a arte ativa e escreve no DOM: o --dump-dom devolve isso, e aí o screenshot sai
+  // exatamente do tamanho da peça, sem sobra de transparência em volta.
+  addEventListener("load", () => {
+    const s = document.getElementById(peca);
+    const r = s.getBoundingClientRect();
+    document.getElementById("medida").textContent =
+      "MEDIDA:" + Math.ceil(r.width) + "x" + Math.ceil(r.height);
+  });
+</script>

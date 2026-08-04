@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Rede Baixada">
+  <defs>
+    <linearGradient id="azul" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D66A5"/>
+      <stop offset="0.55" stop-color="#1791CF"/>
+      <stop offset="1" stop-color="#30BAE8"/>
+    </linearGradient>
+    <linearGradient id="laranja" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#FFA94D"/>
+      <stop offset="0.5" stop-color="#F97A1F"/>
+      <stop offset="1" stop-color="#E96A0F"/>
+    </linearGradient>
+    <clipPath id="cartao">
+      <rect x="11" y="11" width="78" height="78" rx="15"/>
+    </clipPath>
+  </defs>
+
+  <!-- moldura: quadrado arredondado da marca -->
+  <rect x="0" y="0" width="100" height="100" rx="24" fill="#FFFFFF"/>
+
+  <!-- o "cartão" branco: é ele que faz a marca funcionar pequena, porque cria contraste
+       interno mesmo quando o ícone tem 16px -->
+  <rect x="11" y="11" width="78" height="78" rx="15" fill="#0D2B3E"/>
+
+  <!-- as ondas (a Baixada). Duas camadas: a de trás mais clara, pra dar profundidade sem
+       precisar de sombra — sombra some na impressão em preto e branco -->
+  <g clip-path="url(#cartao)">
+    <path d="M 11 72 C 24 64 33 78 50 71 C 67 64 77 77 89 69 L 89 89 L 11 89 Z" fill="#2E6E8E"/>
+    <path d="M 11 79 C 25 71 34 85 50 78 C 66 71 77 83 89 76 L 89 89 L 11 89 Z" fill="#30BAE8"/>
+  </g>
+
+  <!-- o pin: sólido de propósito. Pin vazado vira anel quando reduz pra favicon -->
+  <path d="M 50 24 C 60.5 24 69 32.5 69 43 C 69 54.5 55.5 65.5 50 71.5 C 44.5 65.5 31 54.5 31 43 C 31 32.5 39.5 24 50 24 Z"
+        fill="url(#laranja)"/>
+  <!-- brilho discreto, só pra o pin não ficar chapado ao lado do gradiente do fundo -->
+  <ellipse cx="45.5" cy="38.5" rx="7" ry="6" fill="#FFFFFF" opacity="0.22"/>
+</svg>
