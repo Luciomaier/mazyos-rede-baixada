@@ -1,7 +1,8 @@
 # A fase de cadastramento e indexação — 09/08/2026
 
-> Estado real lido do banco e da produção hoje, não da memória.
-> **Regra que rege tudo isto:** a PÁGINA é o portal, o CONTATO é o produto.
+> Números lidos do banco de produção e do sitemap no ar. O ranking de categorias
+> vem de pesquisa externa, com o nível de evidência declarado em cada linha.
+> **Regra que rege tudo:** a PÁGINA é o portal, o CONTATO é o produto.
 
 ---
 
@@ -9,65 +10,137 @@
 
 | Número | Valor | Leitura |
 |---|---|---|
-| URLs no sitemap | **92** (era 87 em 06/08) | acumulando sozinho, como projetado |
+| URLs no sitemap | **92** (era 87 em 06/08) | acumulando sozinho |
 | Empresas aprovadas | **63** | +4 desde 06/08 |
-| Hubs cadastrados | **8** | todos publicados — **não há nada represado** |
-| Hubs de cidade | 2 (Mongaguá, Itanhaém) | Praia Grande não tem |
+| **Páginas de hub** | **11** | 8 de categoria + **3 de cidade** |
+| Hubs represados | **0** | os 8 cadastrados estão todos publicados |
 
-**Descoberta importante:** não existe hub esperando aprovação de texto. Os 8 que
-existem são exatamente os 8 pares cidade×categoria que passam do gate de ≥3
-perfis vivos. Para ter página nova, precisa **criar hub novo** — e para criar hub
-novo, precisa do 3º cadastro naquele par.
+**Descoberta que muda a alavanca:** não existe hub esperando aprovação de texto.
+Os 8 que existem são exatamente os 8 pares que passam do gate de ≥3 perfis vivos.
+Para ter página nova, precisa de **cadastro novo** — é a rua que destrava o Google.
 
----
-
-## 2. A alavanca: 5 pares a UMA empresa de virar página
-
-Cada um destes precisa de **um único cadastro** para nascer uma página indexável:
-
-| Cidade | Categoria | Tem | Falta | Já no portal |
-|---|---|---|---|---|
-| Itanhaém | **Comércio** | 2 | **1** | Cheiro do Belém · Magia Divina |
-| Itanhaém | **Saúde** | 2 | **1** | Centro Aquático Ideal · Acquarius |
-| Praia Grande | **Serviços** | 2 | **1** | WL Advogados · Grow Beach |
-| Mongaguá | **Pet & Veterinário** | 2 | **1** | — |
-| Mongaguá | **Imóveis** | 2 | **1** | — |
-
-> **É isto que transforma a rua em SEO.** Não é "mais uma venda": é uma página
-> nova no Google, que passa a trabalhar de graça para sempre. Cinco cadastros
-> escolhidos a dedo valem mais, em indexação, que vinte cadastros aleatórios.
-
-**Rota sugerida (uma tarde):** um pet shop e uma imobiliária em Mongaguá, uma
-loja e uma clínica em Itanhaém, um prestador em Praia Grande. **5 portas = 5
-páginas novas.**
+⚠️ **O hub de cidade depende do hub de categoria.** O sitemap só publica
+`/empresas/<cidade>` se aquela cidade tiver ao menos um guia vivo. Praia Grande
+tem 4 empresas e **nenhuma** página, por isso.
 
 ---
 
-## 3. O desequilíbrio que ninguém tinha visto
+## 2. Se os 5 forem preenchidos: 11 → 16. Com a recategorização, 17.
 
-| Cidade | Empresas | Hubs de categoria |
+| Cenário | Categoria | Cidade | **Total** |
+|---|---|---|---|
+| Hoje | 8 | 3 | **11** |
+| Só recategorizar Itanhaém | 10 | 3 | **13** |
+| Só os 5 cadastros | 13 | 3 | **16** |
+| **Os dois juntos** | **14** | **3** | **17** |
+
+> 🎁 **Praia Grande/Serviços vale por dois:** é o único cadastro que acende o hub
+> da categoria **e** o hub da cidade de Praia Grande ao mesmo tempo.
+
+---
+
+## 3. O ranking de categorias — o que o Google realmente quer
+
+⚠️ **Aviso metodológico honesto:** não existe ranking público confiável de volume
+de busca por categoria no Brasil. Volume real exige ferramenta paga (Keyword
+Planner, Ahrefs). Quem entregar tabela numerada está inventando. Abaixo, cada
+linha vem com o nível de evidência.
+
+| Categoria | Evidência | O que sustenta |
 |---|---|---|
-| Mongaguá | 43 | 7 |
-| **Itanhaém** | **15** | **1** ← desproporcional |
-| Praia Grande | 4 | 0 |
-| Peruíbe | 1 | 0 |
+| **Alimentação** | 🟢 medido | "restaurantes próximos de mim" **+210%** no Brasil (Think with Google); nº1 em "perto de mim" no mundo; maior nº de visualizações no Google Meu Negócio (~2.520/mês, BrightLocal) |
+| **Saúde** | 🟡 indício | "dentista perto de mim" ~40,5 mil buscas/mês (fonte secundária — ordem de grandeza) |
+| **Beleza** | 🟡 indício | Recorrente e hiperlocal: ninguém atravessa cidade pra cortar cabelo |
+| **Manutenção** | 🟡 indício | Eletricista, encanador, chaveiro — urgente, sem fidelidade de marca |
+| **Automóveis** | 🟡 indício | Borracharia, oficina, guincho — urgência + trânsito de veraneio |
+| **Pet & Veterinário** | 🟠 inferência | Recorrente e emocionalmente urgente |
+| **Imóveis** | 🟢 medido (sazonal) | Temporada da Baixada **+50–80%**; ~125 mil imóveis de temporada na região |
 
-Itanhaém tem 1/3 das empresas de Mongaguá e 1/7 das páginas. O motivo está no
-item 4.
+**Baixo potencial de busca local:** Marketing Digital (busca-se nacionalmente,
+não "perto de mim"), Educação, Eventos, Construção.
+
+### 🔴 "Serviços" e "Comércio" não estão em nenhum tier
+São as suas **duas maiores categorias** — e ninguém digita "comércio em Mongaguá".
+Elas são grandes por **erro de cadastro**, não por demanda. Isso reforça a
+recategorização do item 5.
 
 ---
 
-## 4. 🔴 "Serviços" virou lixeira — e isso custa busca
+## 4. 🥊 O buraco na armadura do concorrente (conferido no sitemap dele)
 
-**10 das 15 empresas de Itanhaém** e **10 de Mongaguá** estão em "Serviços".
-Existem **16 categorias** no portal, mas a genérica está absorvendo tudo.
+**aquitemnegocios.com.br: 16.826 URLs e ZERO páginas de cidade×categoria.**
 
-O problema é de SEO puro: **ninguém busca "serviços em Itanhaém"**. As pessoas
-buscam "floricultura em Itanhaém", "lava rápido em Itanhaém", "auto center".
-Uma empresa na categoria errada é uma empresa que não aparece na busca que
-importa — e uma página de hub que nunca nasce.
+Ele tem 89 páginas de categoria **nacionais** — a dele se chama literalmente
+*"Restaurante | Guia de Empresas **Brasil**"*. Está brigando por "restaurante" no
+Brasil inteiro, onde não tem chance, em vez de "restaurante em Santos", onde teria.
 
-**Recategorizações óbvias (Itanhaém), só de olhar o nome:**
+👉 **A página que falta nele, você já tem.** `/empresas/mongagua/restaurantes`
+existe. **Sua arquitetura está certa e a dele está errada** — com 21 mil perfis
+contra 63. A jogada não é copiá-lo: é replicar o padrão que você já tem em mais
+pares antes que ele perceba.
+
+**Presença dele na Baixada** (contagem no sitemap — corrige a estimativa anterior,
+que dizia que ele estava ausente do litoral sul):
+
+| Cidade | Perfis dele |
+|---|---|
+| Santos | 484 |
+| Praia Grande | 458 |
+| São Vicente | 352 |
+| Guarujá | 337 |
+| Cubatão | 220 |
+| **Itanhaém** | **141** |
+| **Peruíbe** | **115** |
+| **Mongaguá** | **104** |
+
+Ele **está** no litoral sul. Não é campo vazio — é campo onde ele é fraco (1/4 da
+massa de Santos) e onde você tem presença física e 13 anos de marca.
+
+O blog dele (~109 posts, quase todos "guia de [categoria] em [cidade]") entrega o
+que ele acha que converte: farmácia, borracharia, oficina mecânica, supermercado,
+encanador, chaveiro, energia solar, vidraçaria. **Ele sabe que cidade×categoria é
+o caminho — mas só faz isso no blog, não na estrutura do site.**
+
+---
+
+## 5. A ordem de ataque (cruzando fila real × ranking de busca)
+
+### 🥇 Prioridade 1 — os 5 a um cadastro, nesta ordem
+
+| # | Alvo | Tier | Já tem no portal | Que porta bater |
+|---|---|---|---|---|
+| 1 | **Praia Grande / Serviços** | — | Grow Beach · WL Advogados | **vale 2 páginas** (abre a cidade). Qualquer prestador: contador, gráfica, dedetizadora |
+| 2 | **Itanhaém / Saúde** | 🟡 alto | Acquarius · Centro Aquático | clínica, dentista, fisioterapeuta, psicólogo |
+| 3 | **Mongaguá / Pet** | 🟠 médio | Casa de ração Bryan · Agro Fenix | pet shop com banho e tosa, ou veterinário |
+| 4 | **Mongaguá / Imóveis** | 🟢 sazonal | Jupyara · Daiane Goulart | imobiliária — **ver alerta de calendário** |
+| 5 | **Itanhaém / Comércio** | 🔻 fraco | Cheiro do Belém · Magia Divina | genérica: menos valiosa que as de cima |
+
+### ⏰ ALERTA DE CALENDÁRIO — Imóveis
+Temporada é **sazonal e precisa estar indexado ANTES do verão**. Página de
+imobiliária de temporada escrita em dezembro chega tarde: o Google leva semanas
+pra indexar e rankear. **Alvo: no ar em setembro/outubro.**
+
+### 🥈 Prioridade 2 — os 4 a dois cadastros
+- **Peruíbe / Serviços** (tem 1) — **o mais alavancado da lista**: 2 cadastros
+  abrem uma cidade inteira (categoria + cidade), onde ele tem 115 perfis e você 1.
+- **Itanhaém / Beleza** (tem 1) — tier 🟡, e Beleza já provou volume em Mongaguá (5).
+- Praia Grande / Automóveis (tem 1) — tier 🟡.
+- Praia Grande / Comércio (tem 1) — genérica, baixa prioridade.
+
+### 🥉 Prioridade 3 — as categorias que faltam INTEIRAS
+Nenhuma cidade tem hub de **Alimentação** fora de Mongaguá — e Alimentação é a
+única categoria 🟢 **medida** do ranking. Restaurante em Itanhaém e em Praia
+Grande é a categoria de maior busca comprovada e você tem **zero** perfis nas duas.
+**3 restaurantes em Itanhaém = 1 hub na categoria mais buscada que existe.**
+
+Mesma lógica para **Manutenção** (eletricista/encanador/chaveiro): tier 🟡 e
+**zero hubs em qualquer cidade**.
+
+---
+
+## 6. Recategorizar Itanhaém — 15 min, +2 hubs, custo zero
+
+**10 das 15 empresas de Itanhaém** estão em "Serviços". Recategorizando 7:
 
 | Empresa | Hoje | Deveria ser |
 |---|---|---|
@@ -76,38 +149,36 @@ importa — e uma página de hub que nunca nasce.
 | Roger motos | Serviços | **Automóveis** |
 | Lava rápido Giovani | Serviços | **Automóveis** |
 | W & M Eventos | Serviços | **Eventos** |
-| Old Floricultura | Serviços | **Comércio** ou Casa & Jardim |
-| Floricultura Anny | Serviços | **Comércio** ou Casa & Jardim |
+| Old Floricultura | Serviços | **Casa & Jardim** ⏳ |
+| Floricultura Anny | Serviços | **Casa & Jardim** ⏳ |
 
-> ⚠️ **Efeito colateral a respeitar:** mexer nestas 7 derruba "Itanhaém/Serviços"
-> de 10 para 3 — continua passando do gate, mas por pouco. Em compensação
-> **acende Automóveis (3) na hora**, e leva Comércio de 2 para 4. Saldo: de
-> 1 hub para 3 em Itanhaém, sem sair de casa.
+**Conta simulada (não estimada):** Itanhaém sai de **1 hub para 3**. Serviços cai
+pra exatamente 3 (segura no gate por um fio), **Automóveis nasce com 3**, Comércio
+sobe pra 4.
 
-**Decisão necessária do Lucio antes de eu mexer:** as duas floriculturas são
-Comércio ou Casa & Jardim? (Casa & Jardim casa melhor com o que as pessoas
-buscam para planta; Comércio é mais literal para "loja de flores".)
+⏳ **Decisão pendente:** as floriculturas vão pra **Casa & Jardim** ou **Comércio**?
+Com o ranking na mesa, **Casa & Jardim ficou mais defensável** — "floricultura" e
+"jardinagem" têm busca própria; "comércio" não tem nenhuma.
 
 ---
 
-## 5. O que trava a indexação e não é código
+## 7. O que trava e não é código
 
 **O Search Console.** Nenhuma das 92 URLs pode ser confirmada como indexada sem
-ele. Não sabemos se o Google já rastreou os 8 hubs de 27/07 — e a meta combinada
-(≥70% indexado em 30 dias) **está correndo sem ninguém medir**. Os 30 dias
-venceram em 26/08.
-
-Isso é acesso, não desenvolvimento: só o dono do domínio consegue.
+ele. A meta combinada (≥70% indexado em 30 dias, contada de 27/07) **vence em
+26/08** e ninguém está medindo. É acesso, não desenvolvimento.
 
 ---
 
-## 6. Ordem recomendada
+## 8. Ordem recomendada
 
-1. ✅ **Fotos destravadas** — feito hoje (`1c9980d`).
+1. ✅ **Fotos destravadas** — feito em 09/08 (`1c9980d`), **já validado na prática**:
+   a Smart Hair foi salva com logo, capa e descrição às 18h52.
 2. **Recategorizar as 7 de Itanhaém** — 15 min, +2 hubs, custo zero.
-3. **Search Console** — submeter `sitemap-dinamico.xml` e ler o que já indexou.
-4. **Os 5 cadastros cirúrgicos** — a rota de rua acima, +5 hubs.
-5. Escrever os textos dos hubs novos (intro + FAQ; é o gate anti-thin).
+3. **Search Console** — submeter o sitemap e ler o que já indexou.
+4. **Os 5 cadastros cirúrgicos** — na ordem do item 5.
+5. **Restaurantes em Itanhaém/Praia Grande** — a categoria 🟢 medida onde você tem zero.
+6. Escrever os textos dos hubs novos (intro + FAQ — é o gate anti-thin).
 
-**Projeção honesta:** 8 → 15 hubs sem nenhuma linha de código nova. O que muda
-não é o portal — é quantas buscas ele responde.
+**Projeção honesta:** 11 → 17 páginas sem uma linha de código nova, e com um
+caminho claro pra 20+ atacando Alimentação e Manutenção.
