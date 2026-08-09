@@ -16,9 +16,10 @@
   automotivo que saiu). Migrations `20260809220000` + `20260809223000`, portal `7f6f326`.
 - [ ] 🌼 **O 3º de Casa & Jardim em Itanhaém** — as 2 floriculturas já estão lá; UMA floricultura,
   jardinagem ou paisagismo a mais acende o hub "casa & jardim em Itanhaém".
-- [ ] 🔴 **Search Console** — submeter `sitemap-dinamico.xml` (92 URLs) e ler quanto indexou.
-  A meta de ≥70% em 30 dias (contada de 27/07) **vence em 26/08** e ninguém está medindo.
-  Só o dono do domínio consegue: é acesso, não desenvolvimento.
+- [ ] 🔴 **Search Console** — passo a passo pronto em `saidas/guia-search-console-2026-08.md`
+  (verificar propriedade → submeter os 2 sitemaps → pedir indexação dos 12 → ler a %).
+  Meta de ≥70% **vence em 26/08**. Se escolher verificação por Tag HTML, mandar o código
+  pro Claude subir no site. ⚠️ O site NÃO tem tag de verificação ainda (conferido 09/08).
 - [ ] **Os 5 cadastros cirúrgicos** (cada um vira uma página no Google): pet shop e imobiliária
   em Mongaguá · loja e clínica em Itanhaém · um prestador em Praia Grande.
 
