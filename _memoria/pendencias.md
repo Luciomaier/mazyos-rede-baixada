@@ -5,6 +5,34 @@
 
 ## Abertas
 
+### ⭐ INDEXAÇÃO E CADASTRO (09/08) — plano em `saidas/plano-indexacao-cadastro-2026-08-09.md`
+- [x] **Fotos destravadas** (`1c9980d` na main) — o botão Salvar abortava em silêncio num campo
+  obrigatório que não existe na tela (`category`). Ver a regra em `_memoria/` e na memória.
+- [ ] 🔁 **Refazer o cadastro da Smart Hair (Eliane Rolin)** — está no banco desde 06/08 sem
+  categoria e sem logo. Agora salva.
+- [ ] 🟠 **DECISÃO (15 min, vale 2 hubs):** as floriculturas de Itanhaém (Old Floricultura e
+  Floricultura Anny) são **Comércio** ou **Casa & Jardim**? Com a resposta eu recategorizo 7
+  empresas e Itanhaém sai de 1 pra 3 hubs, sem código nenhum.
+- [ ] 🔴 **Search Console** — submeter `sitemap-dinamico.xml` (92 URLs) e ler quanto indexou.
+  A meta de ≥70% em 30 dias (contada de 27/07) **vence em 26/08** e ninguém está medindo.
+  Só o dono do domínio consegue: é acesso, não desenvolvimento.
+- [ ] **Os 5 cadastros cirúrgicos** (cada um vira uma página no Google): pet shop e imobiliária
+  em Mongaguá · loja e clínica em Itanhaém · um prestador em Praia Grande.
+
+### 🚨 COBRANÇA (07/08 — depois da limpeza do Asaas)
+> 📋 **Handoff de código pronto**: `saidas/handoff-cobranca-asaas-2026-08-07.md`. Quem for mexer
+> em cobrança abre esse arquivo antes — inclui o que já está feito e não commitado.
+- [ ] 🔴 **`npx supabase login`** e subir os consertos — o CLI está com **403** nos dois projetos
+  e o código está pronto no disco, sem deploy. Até subir: **o bug do UniMasso segue criando
+  assinatura órfã a cada clique** (`asaas-create-checkout:248`). É a torneira aberta.
+- [ ] **Mandar as 3 mensagens**: Giovani, Naldo e Adeilton (textos prontos na conversa de 07/08).
+- [ ] **Edificar Veículos ainda é cliente de tráfego pago?** A assinatura de R$250/mês (74 dias
+  parada) foi cancelada na limpeza. Se ainda for cliente, é conversa no WhatsApp e refaz.
+- [ ] **UniMasso: criar a function `cancel-subscription`** — o front chama, ela nunca existiu.
+  Ninguém consegue cancelar sozinho, e foi por isso que a base de churn cobrou por meses.
+- ✅ Feito: conta de 263 → 44 cobranças vivas · 53 clientes com a cobrança de atraso desligada ·
+  38 assinaturas mortas canceladas · ferramenta em `scripts/auditoria-asaas.py`.
+
 ### ⭐ TRAVANDO A MÁQUINA DE PÁGINAS (23/07 — cobrar na abertura da próxima sessão)
 - [ ] **Aprovar os textos dos 8 hubs** — `saidas/textos-hubs-2026-07-23.md`. Os hubs estão
   construídos e no ar, mas `is_published = false`: página sem texto próprio aprovado não publica
