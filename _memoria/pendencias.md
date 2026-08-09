@@ -8,11 +8,14 @@
 ### ⭐ INDEXAÇÃO E CADASTRO (09/08) — plano em `saidas/plano-indexacao-cadastro-2026-08-09.md`
 - [x] **Fotos destravadas** (`1c9980d` na main) — o botão Salvar abortava em silêncio num campo
   obrigatório que não existe na tela (`category`). Ver a regra em `_memoria/` e na memória.
-- [ ] 🔁 **Refazer o cadastro da Smart Hair (Eliane Rolin)** — está no banco desde 06/08 sem
-  categoria e sem logo. Agora salva.
-- [ ] 🟠 **DECISÃO (15 min, vale 2 hubs):** as floriculturas de Itanhaém (Old Floricultura e
-  Floricultura Anny) são **Comércio** ou **Casa & Jardim**? Com a resposta eu recategorizo 7
-  empresas e Itanhaém sai de 1 pra 3 hubs, sem código nenhum.
+- [x] **Smart Hair (Eliane Rolin) completada pelo Lucio** (09/08 18h52) — logo, capa, categoria
+  e descrição salvas. O conserto das fotos validado em uso real.
+- [x] **Itanhaém recategorizada EM PRODUÇÃO** (09/08) — 7 empresas saíram da lixeira "Serviços"
+  (floriculturas→Casa & Jardim, decisão do Lucio). Itanhaém: 1→2 hubs. Sitemap: 93 URLs.
+  `/empresas/itanhaem/automoveis` no ar; texto do hub de Serviços reescrito (prometia o
+  automotivo que saiu). Migrations `20260809220000` + `20260809223000`, portal `7f6f326`.
+- [ ] 🌼 **O 3º de Casa & Jardim em Itanhaém** — as 2 floriculturas já estão lá; UMA floricultura,
+  jardinagem ou paisagismo a mais acende o hub "casa & jardim em Itanhaém".
 - [ ] 🔴 **Search Console** — submeter `sitemap-dinamico.xml` (92 URLs) e ler quanto indexou.
   A meta de ≥70% em 30 dias (contada de 27/07) **vence em 26/08** e ninguém está medindo.
   Só o dono do domínio consegue: é acesso, não desenvolvimento.
@@ -22,8 +25,9 @@
 ### 🚨 COBRANÇA (07/08 — depois da limpeza do Asaas)
 > 📋 **Handoff de código pronto**: `saidas/handoff-cobranca-asaas-2026-08-07.md`. Quem for mexer
 > em cobrança abre esse arquivo antes — inclui o que já está feito e não commitado.
-- [ ] 🔴 **`npx supabase login`** e subir os consertos — o CLI está com **403** nos dois projetos
-  e o código está pronto no disco, sem deploy. Até subir: **o bug do UniMasso segue criando
+- [ ] 🔴 **Subir os consertos de cobrança — DESTRAVOU em 09/08**: o CLI voltou a funcionar
+  (`npx supabase projects list` OK, o 403 acabou). O código segue pronto no disco
+  (4 arquivos modificados no portal). Até subir: **o bug do UniMasso segue criando
   assinatura órfã a cada clique** (`asaas-create-checkout:248`). É a torneira aberta.
 - [ ] **Mandar as 3 mensagens**: Giovani, Naldo e Adeilton (textos prontos na conversa de 07/08).
 - [ ] **Edificar Veículos ainda é cliente de tráfego pago?** A assinatura de R$250/mês (74 dias
