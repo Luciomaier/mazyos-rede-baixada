@@ -33,6 +33,16 @@ REST = BASE + "/index.php?rest_route="
 SAIDA = Path(__file__).resolve().parent.parent / "dados"
 # Números do portal (não são da empresa) — o WhatsApp genérico do site.
 NUMEROS_DO_PORTAL = {"5513981552646", "13981552646", "981552646"}
+# E-mails de IMPLANTADOR (contratados pra cadastrar perfis no WP antigo) — o
+# Lucio confirmou em 10/08 que NÃO são de cliente. matheus assina 95 perfis,
+# negueba 64, redebaixada é o portal, elis_bella é a Elis (equipe). O CSV sai
+# com o campo vazio nesses casos; o e-mail real entra na ligação.
+EMAILS_DE_IMPLANTADOR = {
+    "matheus.silvac137@gmail.com",
+    "negueba013.jpg@gmail.com",
+    "redebaixada@gmail.com",
+    "elis_bella@hotmail.com",
+}
 CIDADES = [
     "Praia Grande", "Mongaguá", "Mongagua", "Itanhaém", "Itanhaem",
     "Peruíbe", "Peruibe", "São Vicente", "Sao Vicente", "Santos",
@@ -109,7 +119,9 @@ def extrair_pagina(slug: str) -> dict:
     email = ""
     m = re.search(r'href="mailto:([^"?]+)', pagina)
     if m:
-        email = html.unescape(m.group(1))
+        email = html.unescape(m.group(1)).strip()
+        if email.lower() in EMAILS_DE_IMPLANTADOR:
+            email = ""
 
     return {"telefones": telefones, "whatsapps": whats, "endereco": endereco, "email": email}
 
