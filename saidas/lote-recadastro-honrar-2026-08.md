@@ -1,5 +1,13 @@
 # Lote "Honrar o Negócio" — recadastra → liga · agosto/2026
 
+> ✅ **CADASTRO FEITO POR MIGRATION EM 10/08 — os 21 estão NO AR.** Acervo +
+> listed, slug antigo preservado (o 301 já entrega a autoridade), carteira do
+> Lucio (estado reivindicável). Sitemap saltou de 93 → **121 URLs**: 21 perfis
+> + 5 guias novos + **os hubs de cidade de PG e Peruíbe**. 14 hubs no total.
+> **O QUE SOBROU É A PARTE HUMANA: ligar. Em lotes de 5-7, começando pela
+> Casa Fialho.** O roteiro está abaixo — e agora a frase "teu perfil já está
+> no ar" é literalmente verdade: manda o link do perfil na conversa.
+
 > A jogada do Lucio: **recadastrar o ex-parceiro primeiro, ligar depois** —
 > *"teu perfil está no ar de novo, eu honrei teu negócio"*. É o publish-first
 > do Modo Rua aplicado à reconquista. **21 cadastros → 7 páginas novas de hub.**
