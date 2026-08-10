@@ -1,5 +1,42 @@
 # Reconquista ordenada por DEMANDA REAL no Google · 09/08/2026
 
+> 🔥 **ATUALIZAÇÃO (10/08): OS TELEFONES CHEGARAM.** O backup do WordPress
+> (`77.redebaixada.com.br`) foi garimpado por script: **226 empresas, 220 com
+> telefone próprio, endereço e categoria** — em
+> `dados/wordpress-backup-empresas.csv` (e .json). Zero delas está no portal.
+> Composição: **Praia Grande 137 · Peruíbe 56 · Itanhaém 24 · Mongaguá 5** —
+> inclui ~40 pizzarias de PG, ~20 clínicas veterinárias e ~20 pousadas, todas
+> com contato. O backup tem `noindex` (não compete com o portal no Google).
+>
+> **Os 12 alvos com CLIQUE no Google e telefone na mão:**
+>
+> | Nome | Cidade | Contato |
+> |---|---|---|
+> | Casa Fialho materiais (18 cliques!) | Praia Grande | (13) 3471-7711 |
+> | Pizzaria Gaboni | Praia Grande | (13) 99650-1030 |
+> | Pizzaria Chic Café | Praia Grande | (13) 99109-5713 |
+> | Lanchonete Avenida | Praia Grande | (13) 99665-1443 |
+> | Pizzaria La Vera Napolitana | Peruíbe | (13) 3453-2076 |
+> | Pizzaria Falcone | Peruíbe | (13) 3455-1560 |
+> | Pizzaria Da Vila | Peruíbe | (13) 99618-1699 |
+> | Clínica Veterinária de Itanhaém | Itanhaém | (13) 3422-5949 |
+> | Patakôri Mecânica e Funilaria | Itanhaém | (13) 99602-4956 |
+> | Felipcar Auto-Mecânica | Itanhaém | (13) 99798-6400 |
+> | BM Mecânica Automotiva | Itanhaém | (13) 3427-8828 |
+> | Auto Center Marquezin | Itanhaém | (13) 99793-6835 |
+>
+> 🎁 **As 4 oficinas de Itanhaém engordam o hub de Automóveis que nasceu 09/08.**
+> Tabacarias de Peruíbe no backup (a busca tem 1.252 impressões): Santa Adega
+> (13) 99146-4076 · Seven (11) 98374-8148 · Love Summer (13) 99694-5597.
+> Pousadas com busca no GSC e telefone: Marilú III (13) 3481-2372 · São Luis
+> Ocian (19) 97128-0884 · Tupi (13) 99763-5350.
+>
+> ⚠️ **O que NÃO está no backup:** Cícero Imóveis e veterinária de Mongaguá
+> (as 2 reativações que fecham hubs) — pra esses, a rota é o arquivo do
+> Facebook / campo. E ⚠️ **NÃO importar as 226 em massa**: a diretriz de 19/07
+> vale — casca sem dono é o erro do concorrente. Isso é lista de LIGAÇÃO
+> (WhatsApp-first); o perfil nasce no dia em que o dono responder.
+
 > Fonte: o export de Desempenho do Search Console (abr/2025 → ago/2026) cruzado
 > com o banco vivo. **De 40 buscas/URLs com clique real, só 10 têm empresa viva
 > no portal.** As outras 30 são gente procurando NO GOOGLE, PELO NOME, empresas
