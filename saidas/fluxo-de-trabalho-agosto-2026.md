@@ -75,6 +75,18 @@ Pagar não verifica; **tu pisar na porta verifica.**
    indexação das 12 (guia: `saidas/guia-search-console-2026-08.md`)
 3. **Mandar as 9 mensagens** (depois que eu reescrever com a praça)
 
+## 🎯 OS 5 DESFECHOS DA LIGAÇÃO (o procedimento de cada um)
+
+| Desfecho | Card no Kanban | O perfil | Observação |
+|---|---|---|---|
+| **Fechou** 🎉 | Negociando (→ Convertido sozinho no pagamento) | coroa acende, contato liga | comissão R$50 se o link tinha teu `v=` |
+| **Existe, morno** | Negociando + nota do follow-up | fica como está | claim já enviado; se pagar semana que vem, o card anda sozinho |
+| **Existe, RECUSOU** | Perdido + **a objeção anotada** | **FICA NO AR** (acervo/listed, sem selo, sem WhatsApp) | perder a venda não perde a página — "a página é o portal, o contato é o produto". Reconversa natural: quando o vizinho dele acender a coroa. Se ainda não estava no ar → **sobe mesmo assim** (existir = cadastro real = acervo) |
+| **Não atende / nº morto** | Requalificação + nota | fica como está | 2 tentativas em dias/horários diferentes → depois rota Facebook ou visita. **Não declarar morto sem confirmar** |
+| **Confirmado que FECHOU as portas** | Perdido + nota **"FECHOU"** | **OCULTAR, nunca apagar** | negócio morto anunciado é o "telefone que não toca". Oculto = sai do sitemap + ganha noindex (o Google esquece) mas a história fica e o 301 não quebra. **Marca "FECHOU" no card que eu oculto em lote na revisão da sexta** |
+
+Exceção única: o dono pedir explicitamente pra não aparecer → a gente respeita e oculta, sem discutir.
+
 ## 📊 A MEDIÇÃO (sexta, junto com o acerto)
 
 - Placar dos Fundadores por cidade (a faixa da /empresas mostra)
