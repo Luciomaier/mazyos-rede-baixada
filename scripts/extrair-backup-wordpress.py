@@ -42,6 +42,7 @@ EMAILS_DE_IMPLANTADOR = {
     "negueba013.jpg@gmail.com",
     "redebaixada@gmail.com",
     "elis_bella@hotmail.com",
+    "orangiih@gmail.com",  # Giovanna (filha do Lucio, equipe) — implantou os 2 tattoos de Itanhaém
 }
 CIDADES = [
     "Praia Grande", "Mongaguá", "Mongagua", "Itanhaém", "Itanhaem",
