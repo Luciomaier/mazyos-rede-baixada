@@ -16,10 +16,19 @@
   automotivo que saiu). Migrations `20260809220000` + `20260809223000`, portal `7f6f326`.
 - [ ] 🌼 **O 3º de Casa & Jardim em Itanhaém** — as 2 floriculturas já estão lá; UMA floricultura,
   jardinagem ou paisagismo a mais acende o hub "casa & jardim em Itanhaém".
-- [ ] 🔴 **Search Console** — passo a passo pronto em `saidas/guia-search-console-2026-08.md`
-  (verificar propriedade → submeter os 2 sitemaps → pedir indexação dos 12 → ler a %).
-  Meta de ≥70% **vence em 26/08**. Se escolher verificação por Tag HTML, mandar o código
-  pro Claude subir no site. ⚠️ O site NÃO tem tag de verificação ainda (conferido 09/08).
+- [ ] 🔴 **Search Console — a propriedade JÁ EXISTE** (descoberto 09/08 à noite: verificada
+  por DNS, dado desde abr/2025, conta aparente `redebaixada@gmail.com`). O que falta é só
+  operação — guia atualizado em `saidas/guia-search-console-2026-08.md`:
+  (1) exportar **Indexação → Páginas** (o export mandado era o de Desempenho, não tem os
+  9 motivos); (2) submeter os 2 sitemaps; (3) pedir indexação das 12; (4) olhar 2 números
+  por semana. Meta ≥70% vence 26/08.
+- [ ] 🔴 **www QUEBRADO na Vercel (2 min)** — `www.redebaixada.com.br` dá erro de
+  certificado (TLS não cobre o subdomínio). Vercel → Settings → Domains → Add
+  `www.redebaixada.com.br` → "Redirect to redebaixada.com.br".
+- [ ] 🍕 **RECONQUISTA POR DEMANDA** — `saidas/reconquista-por-demanda-google-2026-08.md`:
+  30 buscas com clique real e página morta. Prioridade: veterinária de Mongaguá (fecha hub
+  Pet) → Cícero Imóveis (fecha hub Imóveis) → 3 pizzarias de PG (abre Alimentação+cidade) →
+  Casa Fialho (18 cliques). Pitch pronto: "ainda te procuram no Google, tua página caiu".
 - [ ] **Os 5 cadastros cirúrgicos** (cada um vira uma página no Google): pet shop e imobiliária
   em Mongaguá · loja e clínica em Itanhaém · um prestador em Praia Grande.
 

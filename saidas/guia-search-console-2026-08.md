@@ -1,102 +1,83 @@
-# Search Console — o passo a passo exato · agosto/2026
+# Search Console — o que falta fazer · atualizado 09/08/2026 (noite)
 
-> **Por que isso importa:** é o ÚNICO lugar que diz o que o Google de fato
-> indexou. Hoje temos 93 URLs no sitemap dinâmico + as fixas, e a meta
-> combinada (≥70% indexado em 30 dias, contada de 27/07) **vence em 26/08**
-> — está correndo sem ninguém medir. Só o dono do domínio consegue entrar.
-> Tempo total: ~20 min, uma vez. Depois é olhar 1×/semana.
+> **REVIRAVOLTA:** a propriedade `redebaixada.com.br` **JÁ EXISTE e está
+> verificada** (tipo Domínio, via DNS — por isso não há tag no site), com dado
+> acumulado desde **abril/2025**: 2,22 mil cliques · 223 mil impressões ·
+> posição média 8. A conta dona parece ser a **redebaixada@gmail.com** (é a
+> dona do export que você me mandou). Os passos de criar/verificar propriedade
+> do guia anterior estão OBSOLETOS — sobrou o que está abaixo.
 
 ---
 
-## Passo 1 — Entrar
+## O que EU já fiz com o dado que você mandou (09/08, no ar)
 
-Abrir **search.google.com/search-console** logado na conta Google que você
-usa pro negócio (a `holos.site@gmail.com` serve — dá pra adicionar outras
-pessoas depois em Configurações → Usuários).
+- **301 de `/litoral-sp/<slug>` → `/empresa/<slug>`** — a estrutura antiga do
+  WordPress ainda concentrava **~40% dos cliques do site** (839 cliques, 52,9
+  mil impressões em 75 URLs) caindo num soft-404. A página nº 1 do site inteiro
+  era `/litoral-sp/casa-do-pao-dona-nobre/` (296 cliques). Agora a autoridade
+  antiga escorre pros perfis vivos — e acaba a canibalização dos 66 slugs que
+  rankeavam em dobro.
+- **Taxonomias mortas do WP** (`/localizacao /especialidade /portfolio
+  /categoria /tag`) → 301 pra `/empresas`.
+- **`trailingSlash: false`** — com/sem barra final eram duas URLs duplicadas
+  aos olhos do Google (39 casos no relatório); agora normaliza com 308.
+- **Slug da MM Tintas consertado** (`-mm-tintas` → `mm-tintas`): o Google
+  indexou a URL limpa e o perfil respondia só na torta. Mais 8 slugs com hífen
+  nas pontas limpos, e o gerador de slug unificado pra não nascer mais torto.
 
-## Passo 2 — Adicionar a propriedade (escolher UM dos dois caminhos)
+## O que SÓ VOCÊ consegue fazer (nesta ordem)
 
-**Caminho A — "Domínio" (recomendado):** digite `redebaixada.com.br`.
-Cobre www, sem-www, http e https de uma vez. A verificação é um registro
-**TXT no DNS** — o Google te dá um código tipo
-`google-site-verification=abc123...` e você cola onde o domínio é
-gerenciado (Registro.br ou painel da Vercel, onde estiver o DNS).
-Propagação leva de minutos a algumas horas; aí clica **Verificar**.
+### 1. Exportar o relatório de INDEXAÇÃO (o que você mandou era o de Desempenho)
+Search Console → **Indexação → Páginas → Exportar** (botão no canto superior
+direito) → Google Sheets → me manda o link. É esse que tem os **9 motivos das
+821 não indexadas** — o de Desempenho que veio não traz essa tabela.
 
-**Caminho B — "Prefixo do URL" (mais fácil, sem mexer em DNS):** digite
-`https://redebaixada.com.br`. Escolha o método **"Tag HTML"**: o Google
-mostra uma linha `<meta name="google-site-verification" content="...">`.
-👉 **Me manda só o código do `content` e eu coloco no site e faço deploy
-em minutos** — aí você volta e clica Verificar. (Conferi: o site ainda
-não tem nenhuma tag dessas, então esse passo é obrigatório.)
+### 2. Submeter os DOIS sitemaps
+**Indexação → Sitemaps** → adicionar um por vez:
+- `sitemap.xml`
+- `sitemap-dinamico.xml` (93 URLs, cresce sozinho)
 
-## Passo 3 — Submeter os DOIS sitemaps
+Confere na mesma tela se já não há um sitemap velho do WordPress listado —
+se houver (ex: `sitemap_index.xml` com erro), pode remover.
 
-Menu **Indexação → Sitemaps** → no campo "Adicionar novo sitemap", enviar
-um de cada vez:
-
-1. `sitemap.xml` — as páginas fixas (home, /empresas, /planos…)
-2. `sitemap-dinamico.xml` — perfis + hubs + blog (**93 URLs, cresce sozinho**)
-
-Os dois já estão no ar e apontados no robots.txt. Status esperado:
-**"Êxito"** com a contagem de URLs descobertas.
-
-⚠️ **Nunca** submeter a URL da função no `supabase.co` — sitemap de outro
-domínio não vale (um comentário antigo no código mandava fazer isso;
-já corrigi o comentário).
-
-## Passo 4 — Furar a fila das páginas que pagam a conta
-
-Barra de cima → **Inspeção de URL** → colar a URL → botão **"Solicitar
-indexação"**. O limite é ~10–12 por dia, então esta lista é exatamente
-uma sessão. Na ordem:
+### 3. Pedir indexação das 12 que pagam a conta
+**Inspeção de URL** (barra do topo) → colar → **"Solicitar indexação"**.
+Limite ~10-12/dia = exatamente uma sessão:
 
 ```
 https://redebaixada.com.br/
+https://redebaixada.com.br/empresa/casa-do-pao-dona-nobre   ← herda o 301 da nº1
 https://redebaixada.com.br/empresas/mongagua
 https://redebaixada.com.br/empresas/itanhaem
-https://redebaixada.com.br/empresas/itanhaem/automoveis   ← a recém-nascida
-https://redebaixada.com.br/empresas/itanhaem/servicos     ← texto reescrito hoje
+https://redebaixada.com.br/empresas/itanhaem/automoveis
+https://redebaixada.com.br/empresas/itanhaem/servicos
 https://redebaixada.com.br/empresas/mongagua/restaurantes
 https://redebaixada.com.br/empresas/mongagua/saude
 https://redebaixada.com.br/empresas/mongagua/salao-de-beleza
 https://redebaixada.com.br/empresas/mongagua/servicos
 https://redebaixada.com.br/empresas/mongagua/lojas
 https://redebaixada.com.br/empresas/mongagua/casa-e-jardim
-https://redebaixada.com.br/empresas/mongagua/materiais-de-construcao
 ```
 
-## Passo 5 — Ler o veredito (o número da meta)
+### 4. 🔴 Consertar o www (é na VERCEL, 2 minutos, e está QUEBRADO)
+`https://www.redebaixada.com.br` dá **erro de certificado** — o TLS não cobre
+o subdomínio. Quem digita "www" vê aviso de segurança e não entra.
+**Vercel → projeto redebaixada → Settings → Domains → Add** →
+`www.redebaixada.com.br` → escolher "Redirect to redebaixada.com.br".
+A Vercel emite o certificado sozinha.
 
-Menu **Indexação → Páginas**. É AQUI que mora a resposta que ninguém tem:
-
-- **Indexadas** ÷ total ≥ 70% → a máquina está aprovada, pode escalar.
-- **< 50%** → regra combinada: **parar de escalar e melhorar** antes.
-
-Os motivos de "não indexada" que podem aparecer e o que significam pra nós:
-
-| Motivo no relatório | Tradução | O que fazer |
-|---|---|---|
-| "Rastreada, mas não indexada no momento" | o Google viu e não achou digna AINDA | normal nas primeiras semanas; se persistir em hub, o texto precisa engordar |
-| "Detectada, mas não rastreada" | está na fila, nem visitou | submeter o sitemap + pedir indexação (passos 3–4) resolve |
-| "Excluída pela tag noindex" | nós mandamos não indexar | certo em /oferta-parceiro e perfis ocultos; **errado se aparecer num hub** — me avisa |
-| "Página com redirecionamento" / "Duplicada" | URL antiga ou variação | em geral ignorar; me traz se for perfil vivo |
-
-## Passo 6 — Daqui a alguns dias: o relatório Desempenho
-
-Menu **Desempenho**: quais buscas mostram o portal, cliques e posição
-média. É onde vamos medir a briga com o concorrente nas buscas de
-dinheiro ("guia comercial mongaguá", "empresas em itanhaém",
-"restaurante em mongaguá"...). Sem dado nos primeiros dias é normal.
+### 5. Toda semana: olhar 2 números (2 min)
+- **Indexação → Páginas**: indexadas ÷ total do sitemap (meta ≥70% até 26/08)
+- **Desempenho**: cliques da semana — devem SUBIR nas próximas semanas com os
+  301 consolidando a autoridade antiga nos perfis vivos.
 
 ---
 
-## O que me trazer de volta (é o que destrava o resto)
+## Por que a meta de 26/08 mudou de cara
 
-1. **Os números de Indexação → Páginas**: quantas indexadas, quantas não,
-   e os motivos listados (print serve).
-2. Se escolheu o Caminho B: **o código da tag HTML** pra eu subir no site.
-3. Qualquer aviso vermelho que aparecer — não resolve nada sozinho, só me traz.
-
-Com isso eu: calculo a % real contra a meta de 26/08 · conserto qualquer
-noindex errado · decido com você se escala (mais hubs) ou engorda o que existe.
+O painel diz "57 indexadas / 821 não" — mas as 821 incluem centenas de URLs
+mortas do WordPress que o Google está esquecendo (a curva cinza caindo).
+O número honesto é **quantas das 93 do sitemap atual estão dentro** — e é o
+export do passo 1 que responde isso. Enquanto isso, o relatório de Desempenho
+prova que **498 páginas tiveram impressão** no período — o portal está longe
+de ser invisível.
