@@ -9,7 +9,10 @@ Uso (lote, direto do CSV que a tela "Placas e chips" exporta; usa codigo,nome,ci
   python3 scripts/gerar-cartao-placa.py --csv dados/placas-piloto.csv --saida marketing/placa-prototipo/lote
 
 Modelos (--modelo, ou coluna "modelo" no CSV): "classico" (padrão: estrelas + QR, fundo branco) e
-"fundador" (Edição Fundador: fundo azul-noite, coroa dourada, praça em destaque, "Nº 007 de 100").
+"fundador" (Edição Fundador: fundo azul-noite, coroa dourada, praça em destaque, "Nº 007 de 100"),
+"google" (100% foco no Google, VIBRANTE: fundo azul Google com formas coloridas, "Google" gigante, QR grande; só destino google),
+"google-claro" (a mesma ideia em fundo claro, mais sóbria) e
+"futurista" (fundo escuro estilo HUD, grade em perspectiva, brilho ciano). google e futurista não falam de fundador.
 O modelo fundador só sai pra quem é Fundador e exige cidade; o número (--numero, coluna "numero") é opcional
 e tem que ser o REAL (ordem dos 100 da cidade) — sem número, a placa diz "Uma das 100 primeiras".
 --verificado (coluna "verificado") acrescenta "Verificada em visita pela Rede Baixada": só pra quem a visita confirmou.
@@ -63,11 +66,10 @@ def codigo_valido(p):
 
 def cartao(p, logo_uri):
     modelo = (p.get("modelo") or "classico").strip().lower()
-    if modelo == "fundador":
-        return cartao_fundador(p, logo_uri)
-    if modelo != "classico":
-        sys.exit("Modelo desconhecido: %r (use classico ou fundador)" % modelo)
-    return cartao_classico(p, logo_uri)
+    feitos = {"fundador": cartao_fundador, "google": cartao_google, "google-claro": cartao_google_claro, "futurista": cartao_futurista, "classico": cartao_classico}
+    if modelo not in feitos:
+        sys.exit("Modelo desconhecido: %r (use %s)" % (modelo, ", ".join(feitos)))
+    return feitos[modelo](p, logo_uri)
 
 
 def cartao_classico(p, logo_uri):
@@ -150,6 +152,126 @@ def cartao_fundador(p, logo_uri):
 </section></div>"""
 
 
+# ---- modelos "google" (claro, foco total) e "futurista" (escuro, HUD) ----
+GOOGLE_CORES = ("#4285F4", "#EA4335", "#FBBC04", "#34A853")
+GOOGLE_G = "".join('<i style="color:%s">%s</i>' % (c, l) for l, c in zip("Google", ("#4285F4", "#EA4335", "#FBBC04", "#4285F4", "#34A853", "#EA4335")))
+GOOGLE_NEON = "".join('<i style="color:%s">%s</i>' % (c, l) for l, c in zip("Google", ("#5E9BFF", "#FF5F52", "#FFC933", "#5E9BFF", "#46D06E", "#FF5F52")))  # versão mais viva pro fundo escuro
+STAR_G = STAR  # amarelo Google #FBBC04
+NFC_AZUL = NFC.replace("#1791CF", "#1967D2")
+NFC_CIANO = NFC.replace("#1791CF", "#30BAE8")
+
+
+def cantos(cores, w, h, r=3.2, g=1.6, sw=.7):
+    """4 cantoneiras (L) em volta de um retângulo w x h; cores = 1 ou 4 cores (sup.esq, sup.dir, inf.dir, inf.esq)."""
+    cores = list(cores) * (4 if len(cores) == 1 else 1)
+    L = r * 2
+    ps = [("M%g,%g v%g M%g,%g h%g" % (g, g + L, -L, g, g, L)),
+          ("M%g,%g h%g M%g,%g v%g" % (w - g - L, g, L, w - g, g, L)),
+          ("M%g,%g v%g M%g,%g h%g" % (w - g, h - g - L, L, w - g, h - g, -L)),
+          ("M%g,%g h%g M%g,%g v%g" % (g + L, h - g, -L, g, h - g, -L))]
+    return "".join('<path d="%s" fill="none" stroke="%s" stroke-width="%g" stroke-linecap="round"/>' % (d, c, sw) for d, c in zip(ps, cores))
+
+
+def cartao_google_claro(p, logo_uri):
+    code = codigo_valido(p)
+    if (p.get("destino") or "google") != "google":
+        sys.exit("Modelo google/google-claro exige destino=google (placa %s)." % code)
+    nome = html.escape((p.get("nome") or "").strip())
+    n, d = qr_path(BASE_URL + code + "?s=qr")
+    frase = ('Como foi sua experiência com<br><b>%s</b>?' % nome) if nome else "Como foi sua experiência?<br>Conta pra gente."
+    qw, qh = 51, 51  # cartão do QR (mm)
+    return f"""<div class="pg gg"><section class="card g">
+  <div class="g-col">
+    <div class="g-pill">{NFC_AZUL}<span>Toque ou leia o QR</span></div>
+    <div class="g-lead">Sua opinião no</div>
+    <div class="g-word">{GOOGLE_G}</div>
+    <div class="g-stars">{STAR_G * 5}</div>
+    <div class="g-txt">{frase}</div>
+    <div class="g-qrwrap">
+      <svg class="g-cant" viewBox="0 0 {qw + 8} {qh + 12}">{cantos(GOOGLE_CORES, qw + 8, qh + 12, r=4.5, g=.8, sw=1)}</svg>
+      <div class="g-qr"><svg class="qr" viewBox="0 0 {n} {n}" shape-rendering="crispEdges"><rect width="{n}" height="{n}" fill="#fff"/><path d="{d}" fill="#000"/></svg><div class="code">{code}</div></div>
+    </div>
+    <div class="g-sign"><img src="{logo_uri}"><b class="rede">Rede</b><b class="baixada">Baixada</b></div>
+    <div class="g-url">redebaixada.com.br</div>
+  </div>
+  <div class="g-stripe"><i style="background:#4285F4"></i><i style="background:#EA4335"></i><i style="background:#FBBC04"></i><i style="background:#34A853"></i></div>
+</section></div>"""
+
+
+def cartao_google(p, logo_uri):
+    """Vibrante: fundo azul Google, formas nas 4 cores, 'Google' colorido numa placa branca, QR grande."""
+    code = codigo_valido(p)
+    if (p.get("destino") or "google") != "google":
+        sys.exit("Modelo google/google-claro exige destino=google (placa %s)." % code)
+    nome = html.escape((p.get("nome") or "").strip())
+    n, d = qr_path(BASE_URL + code + "?s=qr")
+    frase = ('Como foi sua experiência com<br><b>%s</b>?' % nome) if nome else "Como foi sua experiência?<br>Conta pra gente."
+    formas = ('<svg class="v-shapes" viewBox="0 0 110 160" overflow="visible">'
+              '<circle cx="-2" cy="14" r="23" fill="#EA4335"/><circle cx="116" cy="4" r="21" fill="#FBBC04"/><circle cx="104" cy="38" r="7" fill="#34A853"/>'
+              '<circle cx="-5" cy="118" r="23" fill="#34A853"/><circle cx="117" cy="128" r="21" fill="#EA4335"/><circle cx="8" cy="92" r="5" fill="#FBBC04"/>'
+              '<circle cx="100" cy="100" r="4" fill="#fff" opacity=".55"/><circle cx="5" cy="72" r="3" fill="#fff" opacity=".55"/></svg>')
+    return f"""<div class="pg vib"><section class="card v">
+  {formas}
+  <div class="v-col">
+    <div class="v-pill">{NFC_AZUL}<span>Toque ou leia o QR</span></div>
+    <div class="v-lead">Avalie nossa empresa no</div>
+    <div class="v-plate"><div class="v-word">{GOOGLE_G}</div></div>
+    <div class="v-stars">{STAR.replace("#FBBC04", "#FFCA28") * 5}</div>
+    <div class="v-txt">{frase}</div>
+    <div class="v-qr"><svg class="qr" viewBox="0 0 {n} {n}" shape-rendering="crispEdges"><rect width="{n}" height="{n}" fill="#fff"/><path d="{d}" fill="#000"/></svg><div class="code">{code}</div></div>
+  </div>
+  <div class="v-foot"><div class="v-sign"><img src="{logo_uri}"><b class="rede">Rede</b><b class="baixada">Baixada</b></div><span>redebaixada.com.br</span></div>
+</section></div>"""
+
+
+def grade_perspectiva():
+    """Chão em perspectiva (vetor): linhas que convergem pro ponto de fuga e horizontais que se abrem."""
+    vx, vy = 55, 104
+    linhas = []
+    for i in range(-9, 10):
+        linhas.append('<line x1="%g" y1="%g" x2="%g" y2="170"/>' % (vx, vy, vx + i * 17))
+    y, passo = vy, 1.6
+    while y < 162:
+        linhas.append('<line x1="-5" y1="%.2f" x2="115" y2="%.2f"/>' % (y, y))
+        y += passo
+        passo *= 1.32
+    return ('<svg class="x-grid" viewBox="0 0 110 160" preserveAspectRatio="none"><defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">'
+            '<stop offset="0" stop-color="#30BAE8" stop-opacity="0"/><stop offset=".55" stop-color="#30BAE8" stop-opacity=".5"/><stop offset="1" stop-color="#30BAE8" stop-opacity=".8"/></linearGradient></defs>'
+            '<g stroke="url(#fade)" stroke-width=".18">%s</g></svg>' % "".join(linhas))
+
+
+def cartao_futurista(p, logo_uri):
+    code = codigo_valido(p)
+    google = (p.get("destino") or "google") == "google"
+    nome = html.escape((p.get("nome") or "").strip())
+    cidade = html.escape((p.get("cidade") or "").strip())
+    n, d = qr_path(BASE_URL + code + "?s=qr")
+    chip = ('<div class="x-chip"><u></u><span>%s</span>%s</div>' % (nome, ('<em>· %s</em>' % cidade) if cidade else "")) if nome else ""
+    if google:
+        topo, miolo = "Avalie nossa empresa no", '<div class="x-word">%s</div><div class="x-stars">%s</div>' % (GOOGLE_NEON, STAR_G * 5)
+    else:
+        topo, miolo = "Conheça nosso perfil no", '<div class="x-word x-rb"><b class="rede">Rede</b><b class="baixada">Baixada</b></div>'
+    qw = 42
+    return f"""<div class="pg fut"><section class="card x">
+  {grade_perspectiva()}
+  <svg class="x-hud" viewBox="0 0 110 160" preserveAspectRatio="none">{cantos(("#30BAE8",), 110, 160, r=5, g=4.5, sw=.5)}</svg>
+  <div class="x-col">
+    <div class="x-nfc">{NFC_CIANO}</div>
+    <div class="x-kick">Aproxime o celular</div>
+    <div class="x-lead">{topo}</div>
+    {miolo}
+    {chip}
+    <div class="x-qrwrap">
+      <svg class="x-cant" viewBox="0 0 {qw + 10} {qw + 15}">{cantos(("#30BAE8",), qw + 10, qw + 15, r=4.5, g=.5, sw=.9)}</svg>
+      <div class="x-qr"><svg class="qr" viewBox="0 0 {n} {n}" shape-rendering="crispEdges"><rect width="{n}" height="{n}" fill="#fff"/><path d="{d}" fill="#000"/></svg><div class="code">{code}</div></div>
+    </div>
+    <div class="x-or">ou leia o QR com a câmera</div>
+    <div class="x-sign"><img src="{logo_uri}"><b class="rede">Rede</b><b class="baixada">Baixada</b></div>
+  </div>
+  <div class="x-bar"><span>redebaixada.com.br</span></div>
+</section></div>"""
+
+
 CSS = """
 @page { size: __PW__mm __PH__mm; margin: 0 }
 * { box-sizing: border-box; margin: 0; padding: 0 }
@@ -214,6 +336,94 @@ html, body { background: #fff }
 .f-band { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(8mm + __S__mm); background: #1791CF; display: flex; align-items: center; justify-content: center; padding-bottom: 0 }
 .f-band span { font-size: 3mm; font-weight: 700; letter-spacing: .06em; color: #fff; margin-top: -__S__mm }
 .f-band::before { content: ''; position: absolute; left: 0; right: 0; top: -1.6mm; height: 1.8mm; background: #8FD6F0; border-radius: 50% 50% 0 0 / 100% 100% 0 0 }
+
+/* ---- google (claro) ---- */
+.pg.gg { background: radial-gradient(ellipse 120% 55% at 50% 0%, #E8F0FE 0%, #FFFFFF 62%) }
+.card.g { background: transparent }
+.g-col { position: absolute; left: 0; right: 0; top: 9mm; bottom: 7mm; display: flex; flex-direction: column; align-items: center; text-align: center }
+.g-pill { display: flex; align-items: center; gap: 1.6mm; padding: 1.3mm 4mm 1.3mm 3mm; border-radius: 6mm; background: #E8F0FE; border: .3mm solid #C6DAFC }
+.g-pill svg { width: 5mm; height: 5mm }
+.g-pill span { font-size: 3mm; font-weight: 700; color: #1967D2; letter-spacing: .02em }
+.g-lead { margin-top: 5mm; font-size: 5.2mm; font-weight: 700; color: #0A141F; letter-spacing: -.01em }
+.g-word { font-size: 21mm; font-weight: 800; letter-spacing: -.045em; line-height: .95; margin-top: .6mm }
+.g-word i { font-style: normal }
+.g-stars { margin-top: 2.6mm; display: flex; gap: 1.2mm }
+.g-stars svg { width: 9mm; height: 9mm }
+.g-txt { margin-top: 3mm; font-size: 3.7mm; line-height: 1.28; color: #4B5B6E; font-weight: 500; max-width: 82mm }
+.g-txt b { color: #0A141F; font-weight: 800 }
+.g-qrwrap { position: relative; margin-top: 3.6mm; width: 59mm; height: 63mm; display: flex; align-items: center; justify-content: center }
+.g-cant { position: absolute; inset: 0; width: 100%; height: 100% }
+.g-qr { width: 51mm; background: #fff; border-radius: 3.2mm; padding: 3.4mm 3.4mm 2mm; display: flex; flex-direction: column; align-items: center; gap: .6mm; box-shadow: 0 .6mm 3mm rgba(10,20,31,.16) }
+.g-qr .qr { width: 44mm; height: 44mm }
+.g-qr .code { font-size: 3.2mm; font-weight: 700; letter-spacing: .14em; color: #0A141F }
+.g-sign { margin-top: auto; display: flex; align-items: center; gap: 1.6mm }
+.g-sign img { width: 6.4mm; height: 6.4mm }
+.g-sign b { font-size: 4.6mm; letter-spacing: -.028em; line-height: 1 }
+.g-sign .rede { font-weight: 700; color: #1791CF }
+.g-sign .baixada { font-weight: 800; color: #F97A1F; margin-left: -1.5mm }
+.g-url { margin-top: .6mm; font-size: 2.8mm; font-weight: 600; color: #4B5B6E }
+.g-stripe { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(2.6mm + __S__mm); display: flex }
+.g-stripe i { flex: 1 }
+/* ---- futurista (escuro, HUD) ---- */
+.pg.fut { background: #050B14 }
+.card.x { background: transparent; color: #fff }
+.pg.fut::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 38% at 50% 8%, rgba(48,186,232,.28) 0%, rgba(5,11,20,0) 70%), radial-gradient(ellipse 80% 30% at 50% 78%, rgba(23,145,207,.30) 0%, rgba(5,11,20,0) 70%) }
+.x-grid, .x-hud { position: absolute; inset: 0; width: 100%; height: 100% }
+.x-col { position: absolute; left: 0; right: 0; top: 9mm; bottom: 11.5mm; display: flex; flex-direction: column; align-items: center; text-align: center }
+.x-nfc svg { width: 14mm; height: 14mm; display: block }
+.x-kick { margin-top: 1.4mm; font-size: 2.8mm; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; color: #30BAE8; padding-left: .34em }
+.x-lead { margin-top: 3.8mm; font-size: 3.5mm; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #C9D6E2; padding-left: .2em }
+.x-word { margin-top: .6mm; font-size: 18mm; font-weight: 800; letter-spacing: -.045em; line-height: .98 }
+.x-word i { font-style: normal }
+.x-rb b { font-size: 13mm; letter-spacing: -.03em }
+.x-rb .rede { color: #fff } .x-rb .baixada { color: #F97A1F; margin-left: -2.4mm }
+.x-stars { margin-top: 2mm; display: flex; gap: 1.2mm }
+.x-stars svg { width: 6.4mm; height: 6.4mm }
+.x-chip { margin-top: 3mm; display: flex; align-items: center; gap: 2mm; padding: 1.5mm 5mm; border: .3mm solid rgba(48,186,232,.7); border-radius: 8mm; background: rgba(48,186,232,.10) }
+.x-chip u { width: 1.8mm; height: 1.8mm; border-radius: 50%; background: #30BAE8; display: block }
+.x-chip span { font-size: 4mm; font-weight: 800 }
+.x-chip em { font-style: normal; font-size: 3.2mm; font-weight: 600; color: #9FB3C8 }
+.x-qrwrap { position: relative; margin-top: 3.2mm; width: 52mm; height: 57mm; display: flex; align-items: center; justify-content: center }
+.x-cant { position: absolute; inset: 0; width: 100%; height: 100% }
+.x-qr { width: 42mm; background: #fff; border-radius: 1.6mm; padding: 2.6mm 2.6mm 1.6mm; display: flex; flex-direction: column; align-items: center; gap: .5mm; color: #0A141F }
+.x-qr .qr { width: 36.8mm; height: 36.8mm }
+.x-qr .code { font-size: 3mm; font-weight: 700; letter-spacing: .16em }
+.x-or { margin-top: 1mm; font-size: 2.7mm; font-weight: 600; letter-spacing: .08em; color: #9FB3C8 }
+.x-sign { margin-top: auto; display: flex; align-items: center; gap: 1.6mm }
+.x-sign img { width: 6.4mm; height: 6.4mm }
+.x-sign b { font-size: 4.6mm; letter-spacing: -.028em; line-height: 1 }
+.x-sign .rede { font-weight: 700; color: #fff }
+.x-sign .baixada { font-weight: 800; color: #F97A1F; margin-left: -1.5mm }
+.x-bar { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(7mm + __S__mm); background: linear-gradient(90deg, #0D66A5, #1791CF 50%, #30BAE8); display: flex; align-items: center; justify-content: center }
+.x-bar span { font-size: 2.9mm; font-weight: 700; letter-spacing: .12em; color: #fff; margin-top: -__S__mm }
+
+/* ---- google vibrante ---- */
+.pg.vib { background: linear-gradient(180deg, #5A98FF 0%, #3B78EC 55%, #2A63D6 100%) }
+.card.v { background: transparent; color: #fff }
+.v-shapes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible }
+.v-col { position: absolute; left: 0; right: 0; top: 8mm; bottom: 19mm; display: flex; flex-direction: column; align-items: center; text-align: center }
+.v-pill { display: flex; align-items: center; gap: 1.6mm; padding: 1.4mm 4.2mm 1.4mm 3.2mm; border-radius: 6mm; background: #fff }
+.v-pill svg { width: 5mm; height: 5mm }
+.v-pill span { font-size: 3.1mm; font-weight: 800; color: #1967D2; letter-spacing: .02em }
+.v-lead { margin-top: 3.6mm; font-size: 4.8mm; font-weight: 800; color: #fff; letter-spacing: -.01em }
+.v-plate { margin-top: 2.4mm; background: #fff; border-radius: 6mm; width: 88mm; padding: 2.4mm 0 3mm; box-shadow: 0 1.2mm 0 rgba(10,20,31,.18) }
+.v-word { font-size: 22mm; font-weight: 800; letter-spacing: -.045em; line-height: .98 }
+.v-word i { font-style: normal }
+.v-stars { margin-top: 2.6mm; display: flex; gap: 1.2mm }
+.v-stars svg { width: 8.4mm; height: 8.4mm }
+.v-txt { margin-top: 2.4mm; font-size: 3.8mm; line-height: 1.26; font-weight: 500; color: rgba(255,255,255,.95); max-width: 84mm }
+.v-txt b { font-weight: 800; color: #fff }
+.v-qr { margin-top: 3.4mm; width: 53mm; background: #fff; border-radius: 4.4mm; padding: 3.6mm 3.6mm 2.2mm; display: flex; flex-direction: column; align-items: center; gap: .6mm; color: #0A141F; box-shadow: 0 1.2mm 0 rgba(10,20,31,.18) }
+.v-qr .qr { width: 45.8mm; height: 45.8mm }
+.v-qr .code { font-size: 3.2mm; font-weight: 700; letter-spacing: .14em }
+.v-foot { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(16mm + __S__mm); background: #fff; border-radius: 6mm 6mm 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5mm; padding-bottom: 0 }
+.v-foot > * { position: relative; top: -__S__mm }
+.v-sign { display: flex; align-items: center; gap: 1.6mm }
+.v-sign img { width: 6.6mm; height: 6.6mm }
+.v-sign b { font-size: 4.8mm; letter-spacing: -.028em; line-height: 1 }
+.v-sign .rede { font-weight: 700; color: #1791CF }
+.v-sign .baixada { font-weight: 800; color: #F97A1F; margin-left: -1.5mm }
+.v-foot span { font-size: 2.9mm; font-weight: 700; color: #4B5B6E }
 """
 
 
@@ -253,7 +463,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--codigo"); ap.add_argument("--nome"); ap.add_argument("--cidade")
     ap.add_argument("--fundador", action="store_true"); ap.add_argument("--destino", default="google", choices=["google", "perfil"])
-    ap.add_argument("--modelo", default=None, choices=["classico", "fundador"], help="classico (padrão) ou fundador (Edição Fundador, azul-noite com coroa)")
+    ap.add_argument("--modelo", default=None, choices=["classico", "fundador", "google", "google-claro", "futurista"], help="classico (padrão), fundador (azul-noite com coroa), google (vibrante, foco total no Google), google-claro ou futurista (escuro, HUD)")
     ap.add_argument("--numero", help="Nº do Fundador na cidade (1 a 100), só no modelo fundador")
     ap.add_argument("--verificado", action="store_true", help="imprime 'Verificada em visita pela Rede Baixada' (só se a visita aconteceu)")
     ap.add_argument("--csv"); ap.add_argument("--saida", default=None)
