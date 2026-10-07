@@ -8,6 +8,12 @@ Uso (um cartão):
 Uso (lote, direto do CSV que a tela "Placas e chips" exporta; usa codigo,nome,cidade,fundador,destino):
   python3 scripts/gerar-cartao-placa.py --csv dados/placas-piloto.csv --saida marketing/placa-prototipo/lote
 
+Modelos (--modelo, ou coluna "modelo" no CSV): "classico" (padrão: estrelas + QR, fundo branco) e
+"fundador" (Edição Fundador: fundo azul-noite, coroa dourada, praça em destaque, "Nº 007 de 100").
+O modelo fundador só sai pra quem é Fundador e exige cidade; o número (--numero, coluna "numero") é opcional
+e tem que ser o REAL (ordem dos 100 da cidade) — sem número, a placa diz "Uma das 100 primeiras".
+--verificado (coluna "verificado") acrescenta "Verificada em visita pela Rede Baixada": só pra quem a visita confirmou.
+
 Tamanho = o da placa (110 x 160 mm, em pé), sem margem: a faixa azul vai até a borda. Imprimir em 100% / tamanho real.
 Com --sangria 2: a arte cresce 2 mm em cada lado (114 x 164 mm) pra o corte não deixar fio branco; cortar nos 110 x 160.
 Saída: PDF vetorial (uma página por placa) + PNG de 300 dpi (só pra conferir).
@@ -44,10 +50,28 @@ NFC = ('<svg viewBox="0 0 48 48" fill="none" stroke="#1791CF" stroke-width="3" s
        '<path d="M37 16c4 4.6 4 12.4 0 17"/><path d="M41 12c5.6 6.8 5.6 17.2 0 24"/></svg>')
 
 
-def cartao(p, logo_uri):
+def verdadeiro(v):
+    return str(v or "").strip().lower() in ("1", "sim", "true", "x", "s")
+
+
+def codigo_valido(p):
     code = p["codigo"].strip().upper()
     if len(code) != 6 or not set(code) <= ALFABETO:
         sys.exit("Código inválido: %r (6 caracteres, sem 0, O, 1, I, L)" % code)
+    return code
+
+
+def cartao(p, logo_uri):
+    modelo = (p.get("modelo") or "classico").strip().lower()
+    if modelo == "fundador":
+        return cartao_fundador(p, logo_uri)
+    if modelo != "classico":
+        sys.exit("Modelo desconhecido: %r (use classico ou fundador)" % modelo)
+    return cartao_classico(p, logo_uri)
+
+
+def cartao_classico(p, logo_uri):
+    code = codigo_valido(p)
     n, d = qr_path(BASE_URL + code + "?s=qr")
     google = (p.get("destino") or "google") == "google"
     nome = html.escape((p.get("nome") or "").strip())
@@ -69,6 +93,60 @@ def cartao(p, logo_uri):
   <div class="read">ou leia o QR com a câmera</div>
   <div class="sign"><div class="lock"><img src="{logo_uri}"><b class="rede">Rede</b><b class="baixada">Baixada</b></div><span>redebaixada.com.br</span></div>
   <div class="band"></div>
+</section></div>"""
+
+
+CROWN = ('<svg class="crown" viewBox="0 0 64 50"><defs><linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1">'
+         '<stop offset="0" stop-color="#F7E6A6"/><stop offset=".45" stop-color="#D9AE49"/><stop offset=".75" stop-color="#A97C1F"/><stop offset="1" stop-color="#E6C976"/></linearGradient></defs>'
+         '<path fill="url(#ouro)" d="M5 40 L2 13 L18 27 L32 7 L46 27 L62 13 L59 40 Z"/>'
+         '<rect x="6" y="43" width="52" height="5" rx="1.5" fill="url(#ouro)"/>'
+         '<circle cx="2" cy="11" r="2.6" fill="url(#ouro)"/><circle cx="32" cy="4.5" r="3" fill="url(#ouro)"/><circle cx="62" cy="11" r="2.6" fill="url(#ouro)"/></svg>')
+# "Google" nas cores da marca, letra a letra (é o que o cliente reconhece de longe)
+GOOGLE = "".join('<i style="color:%s">%s</i>' % (c, l) for l, c in zip("Google", ("#4C8DF6", "#F25A4B", "#FBBC04", "#4C8DF6", "#3DBA5E", "#F25A4B")))
+STAR_OURO = STAR.replace("#FBBC04", "#E6C26A")
+NFC_OURO = NFC.replace("#1791CF", "#E6C26A")
+MOLDURA = ('<svg class="f-frame" viewBox="0 0 110 160" preserveAspectRatio="none">'
+           '<rect x="4" y="4" width="102" height="152" rx="4" fill="none" stroke="url(#ouro)" stroke-width=".55"/>'
+           '<rect x="5.8" y="5.8" width="98.4" height="148.4" rx="2.8" fill="none" stroke="url(#ouro)" stroke-width=".25"/></svg>')
+
+
+def cartao_fundador(p, logo_uri):
+    code = codigo_valido(p)
+    if not verdadeiro(p.get("fundador")):
+        sys.exit("Modelo fundador é só pra Fundador (placa %s não tem fundador=sim)." % code)
+    cidade = (p.get("cidade") or "").strip()
+    nome = (p.get("nome") or "").strip()
+    if not cidade or not nome:
+        sys.exit("Modelo fundador exige nome e cidade (placa %s): a coroa nomeia a praça." % code)
+    num = str(p.get("numero") or "").strip()
+    if num and not (num.isdigit() and 1 <= int(num) <= 100):
+        sys.exit("Número inválido na placa %s: %r (1 a 100, a ordem dos Fundadores da cidade)." % (code, num))
+    n, d = qr_path(BASE_URL + code + "?s=qr")
+    google = (p.get("destino") or "google") == "google"
+    selo = ('<div class="f-num"><i></i><span>Nº %03d <em>de 100</em></span><i></i></div>' % int(num)) if num \
+        else '<div class="f-num"><i></i><span>Uma das <em>100 primeiras</em></span><i></i></div>'
+    estrelas = (STAR_OURO * 5) if google else ""
+    head = ('Avalie nossa empresa no<span class="f-google">%s</span>' % GOOGLE) if google else "Conheça nosso perfil<br>no Rede Baixada"
+    verif = '<div class="f-verif">&#10003; Verificada em visita pela Rede Baixada</div>' if verdadeiro(p.get("verificado")) else ""
+    return f"""<div class="pg fund"><section class="card f">
+  {MOLDURA}
+  <div class="f-col">
+    {CROWN}
+    <div class="f-kicker">Empresa Fundadora</div>
+    <div class="f-city">{html.escape(cidade)}</div>
+    {selo}
+    <div class="f-name">{html.escape(nome)}</div>
+    <div class="f-stars">{estrelas}</div>
+    <div class="f-head">{head}</div>
+    <div class="f-tile">
+      <svg class="qr" viewBox="0 0 {n} {n}" shape-rendering="crispEdges"><rect width="{n}" height="{n}" fill="#fff"/><path d="{d}" fill="#000"/></svg>
+      <div class="code">{code}</div>
+    </div>
+    <div class="f-nfc">{NFC_OURO}<span>Aproxime o celular ou leia o QR</span></div>
+    {verif}
+    <div class="f-sign"><img src="{logo_uri}"><b class="rede">Rede</b><b class="baixada">Baixada</b></div>
+  </div>
+  <div class="f-band"><span>redebaixada.com.br</span></div>
 </section></div>"""
 
 
@@ -102,6 +180,40 @@ html, body { background: #fff }
 .sign span { font-size: 3.2mm; font-weight: 600 }
 .band { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(13.5mm + __S__mm); background: #1791CF }
 .band::before { content: ''; position: absolute; left: 0; right: 0; top: -2.4mm; height: 2.6mm; background: #8FD6F0; border-radius: 50% 50% 0 0 / 100% 100% 0 0 }
+
+.pg.fund { background: #0A141F }
+.card.f { background: radial-gradient(ellipse 85% 42% at 50% 12%, #1B3550 0%, #0A141F 72%); color: #fff }
+.f-frame { position: absolute; inset: 0; width: 100%; height: 100% }
+.f-col { position: absolute; left: 0; right: 0; top: 9.5mm; bottom: 10mm; display: flex; flex-direction: column; align-items: center; text-align: center }
+.crown { width: 17mm; height: 13.3mm; display: block }
+.f-kicker { margin-top: 2.2mm; font-size: 2.9mm; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #E6C26A; padding-left: .3em }
+.f-city { margin-top: 1.4mm; font-size: 8.6mm; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; line-height: 1; padding-left: .09em }
+.f-num { margin-top: 2.6mm; display: flex; align-items: center; gap: 2.4mm; width: 78mm }
+.f-num i { flex: 1; height: .3mm; background: linear-gradient(90deg, transparent, #D9AE49) }
+.f-num i:last-child { background: linear-gradient(90deg, #D9AE49, transparent) }
+.f-num span { font-size: 4mm; font-weight: 800; letter-spacing: .06em; color: #F2D88B; white-space: nowrap }
+.f-num em { font-style: normal; font-weight: 600; font-size: 3.2mm; letter-spacing: .04em; color: #C9D6E2 }
+.f-name { margin-top: 4.2mm; font-size: 5.6mm; font-weight: 800; line-height: 1.1; letter-spacing: -.01em; max-width: 84mm; max-height: 12.4mm; overflow: hidden }
+.f-stars { margin-top: 3.6mm; height: 5.6mm; display: flex; gap: 1mm }
+.f-stars svg { width: 5.6mm; height: 5.6mm }
+.f-head { margin-top: 1.2mm; font-size: 4.2mm; font-weight: 700; line-height: 1.1; color: #E8EEF4 }
+.f-google { display: block; margin-top: .6mm; font-size: 8.4mm; font-weight: 800; letter-spacing: -.03em; line-height: 1 }
+.f-google i { font-style: normal }
+.f-tile { margin-top: 3mm; background: #fff; color: #0A141F; border-radius: 3mm; padding: 3mm 3mm 2mm; display: flex; flex-direction: column; align-items: center; gap: .8mm; box-shadow: 0 0 0 .6mm #D9AE49 }
+.f-tile .qr { width: 33mm; height: 33mm }
+.f-tile .code { font-size: 3.2mm }
+.f-nfc { margin-top: 3mm; display: flex; align-items: center; gap: 1.8mm }
+.f-nfc svg { width: 5.6mm; height: 5.6mm }
+.f-nfc span { font-size: 3mm; font-weight: 600; color: #C9D6E2 }
+.f-verif { margin-top: 2mm; margin-bottom: 2mm; font-size: 2.8mm; font-weight: 600; color: #E6C26A; letter-spacing: .02em }
+.f-sign { margin-top: auto; display: flex; align-items: center; gap: 1.6mm }
+.f-sign img { width: 7mm; height: 7mm }
+.f-sign b { font-size: 4.8mm; letter-spacing: -.028em; line-height: 1 }
+.f-sign .rede { font-weight: 700; color: #fff }
+.f-sign .baixada { font-weight: 800; color: #F97A1F; margin-left: -1.5mm }
+.f-band { position: absolute; left: -__S__mm; right: -__S__mm; bottom: -__S__mm; height: calc(8mm + __S__mm); background: #1791CF; display: flex; align-items: center; justify-content: center; padding-bottom: 0 }
+.f-band span { font-size: 3mm; font-weight: 700; letter-spacing: .06em; color: #fff; margin-top: -__S__mm }
+.f-band::before { content: ''; position: absolute; left: 0; right: 0; top: -1.6mm; height: 1.8mm; background: #8FD6F0; border-radius: 50% 50% 0 0 / 100% 100% 0 0 }
 """
 
 
@@ -141,6 +253,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--codigo"); ap.add_argument("--nome"); ap.add_argument("--cidade")
     ap.add_argument("--fundador", action="store_true"); ap.add_argument("--destino", default="google", choices=["google", "perfil"])
+    ap.add_argument("--modelo", default=None, choices=["classico", "fundador"], help="classico (padrão) ou fundador (Edição Fundador, azul-noite com coroa)")
+    ap.add_argument("--numero", help="Nº do Fundador na cidade (1 a 100), só no modelo fundador")
+    ap.add_argument("--verificado", action="store_true", help="imprime 'Verificada em visita pela Rede Baixada' (só se a visita aconteceu)")
     ap.add_argument("--csv"); ap.add_argument("--saida", default=None)
     ap.add_argument("--incluir-sem-dono", action="store_true", help="no CSV, imprime também as placas sem empresa (só QR e código)")
     ap.add_argument("--forcar-destino", choices=["google", "perfil"], help="ignora o destino do CSV: define a chamada de TODOS os cartões")
@@ -149,6 +264,9 @@ def main():
     if a.csv:
         with open(a.csv, newline="", encoding="utf-8-sig") as f:  # utf-8-sig: o CSV da tela vem com BOM
             paginas = list(csv.DictReader(f))
+        if a.modelo:
+            for p in paginas:
+                p["modelo"] = a.modelo
         if a.forcar_destino:
             for p in paginas:
                 p["destino"] = a.forcar_destino
@@ -161,7 +279,8 @@ def main():
             sys.exit("Nenhuma linha pra imprimir. Vincule as placas a empresas na tela, ou use --incluir-sem-dono.")
         saida = a.saida or os.path.splitext(a.csv)[0] + "-cartoes"
     elif a.codigo and a.nome and a.cidade:
-        paginas = [{"codigo": a.codigo, "nome": a.nome, "cidade": a.cidade, "fundador": "sim" if a.fundador else "", "destino": a.destino}]
+        paginas = [{"codigo": a.codigo, "nome": a.nome, "cidade": a.cidade, "fundador": "sim" if a.fundador else "", "destino": a.destino,
+                    "modelo": a.modelo or "classico", "numero": a.numero or "", "verificado": "sim" if a.verificado else ""}]
         saida = a.saida or os.path.join(RAIZ, "marketing", "placa-prototipo", "cartao-" + a.codigo.upper())
     else:
         ap.error("informe --csv, ou --codigo + --nome + --cidade")
